@@ -72,11 +72,11 @@
       0%   { background-position: 200% center; }
       100% { background-position: -200% center; }
     }
-    /* New Premium Minimal Animation for Heading */
-    @keyframes premiumText {
+    /* New Minimal Premium Animation for Heading */
+    @keyframes premiumMinimal {
       0% {
         opacity: 0;
-        transform: translateY(20px) scale(0.95);
+        transform: translateY(10px) scale(0.98);
       }
       100% {
         opacity: 1;
@@ -104,12 +104,14 @@
       height: var(--header-height-scrolled);
       background: rgba(0, 0, 0, 0.9);
     }
+    /* Logo */
     .logo a {
       color: var(--accent-color);
       text-decoration: none;
       font-weight: 700;
       font-size: 1.5rem;
     }
+    
     nav {
       width: 100%;
       max-width: var(--max-width);
@@ -195,8 +197,8 @@
       font-size: 4rem;
       margin-bottom: 20px;
       color: var(--accent-color);
-      /* Using the new premium minimal animation */
-      animation: premiumText 1.5s ease forwards;
+      /* New minimal premium animation */
+      animation: premiumMinimal 1.8s ease-out forwards;
     }
     .hero-content p {
       font-size: 1.5rem;
@@ -212,10 +214,366 @@
       }
     }
     
-    /* The remaining sections, modal, footer, and scripts remain as previously provided */
+    /* SECTION WRAPPER */
+    .section {
+      padding: 60px 20px;
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+    .section h2 {
+      margin-bottom: 10px;
+      text-align: center;
+      color: var(--accent-color);
+    }
     
-    /* (For brevity, refer to the previous code for the rest of the styles) */
+    /* ABOUT SECTION */
+    .about-container {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 20px;
+      justify-content: center;
+    }
+    .about-text, .about-image {
+      flex: 1 1 400px;
+    }
+    .about-image {
+      flex: 1 1 600px;
+    }
+    .about-image img {
+      max-width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+      transition: transform var(--transition-speed) ease;
+    }
+    .about-image img:hover {
+      transform: scale(1.05);
+    }
     
+    /* MISSION & VISION SECTION */
+    .mission-vision {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+    .mission, .vision {
+      flex: 1 1 400px;
+      background: rgba(255, 255, 255, 0.03);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+      transition: transform var(--transition-speed) ease;
+      color: var(--text-color);
+      position: relative;
+      overflow: hidden;
+    }
+    .mission:hover, .vision:hover {
+      transform: translateY(-5px);
+    }
+    
+    /* TEAM SECTION */
+    .team-cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+    .team-card {
+      background: rgba(255, 255, 255, 0.03);
+      width: 300px;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+      transition: transform var(--transition-speed) ease;
+      color: var(--text-color);
+      position: relative;
+      overflow: hidden;
+    }
+    .team-card:hover {
+      transform: translateY(-5px);
+    }
+    .team-card h3 {
+      margin-bottom: 5px;
+      font-size: 1.2rem;
+      color: var(--accent-color);
+    }
+    .team-card p {
+      font-size: 0.95rem;
+      color: #cccccc;
+    }
+    .bounce-animation {
+      animation: bounce 1.5s ease-out;
+    }
+    
+    /* BRAND SECTION (SOULMONK) */
+    .brand-section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      align-items: center;
+    }
+    .brand-text {
+      flex: 1 1 400px;
+      color: var(--text-color);
+    }
+    .brand-image {
+      flex: 1 1 500px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .brand-image img {
+      width: 100%;
+      max-width: 500px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+    }
+    .explore-btn {
+      display: inline-block;
+      background: var(--accent-color);
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background var(--transition-speed) ease;
+      margin-top: 20px;
+    }
+    .explore-btn:hover {
+      background: #e03e00;
+    }
+    
+    /* BUSINESS VERTICALS SECTION */
+    .verticals-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .vertical-card {
+      background: rgba(255, 255, 255, 0.03);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+      transition: transform var(--transition-speed) ease;
+      color: var(--text-color);
+      position: relative;
+      overflow: hidden;
+    }
+    .vertical-card:hover {
+      transform: translateY(-5px);
+    }
+    .vertical-card h4 {
+      margin-bottom: 10px;
+      background: linear-gradient(90deg, #ff6b6b, #007bff, #ff6b6b);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: textGradient 3s linear infinite;
+    }
+    .vertical-card p {
+      font-size: 0.95rem;
+      color: #cccccc;
+    }
+    
+    /* REVIEWS SECTION */
+    .reviews-cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+    .review-card {
+      background: rgba(255, 255, 255, 0.03);
+      width: 300px;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+      transition: transform var(--transition-speed) ease;
+      color: var(--text-color);
+      position: relative;
+      overflow: hidden;
+    }
+    .review-card:hover {
+      transform: translateY(-5px);
+    }
+    .review-card h4 {
+      margin-bottom: 10px;
+      background: linear-gradient(90deg, #ff6b6b, #007bff, #ff6b6b);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: textGradient 3s linear infinite;
+    }
+    .review-card p {
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: #cccccc;
+    }
+    
+    /* CONTACT SECTION */
+    .contact-section {
+      text-align: center;
+      color: var(--text-color);
+    }
+    .contact-section p {
+      margin-bottom: 20px;
+    }
+    .contact-btn {
+      background: var(--accent-color);
+      border: none;
+      color: #fff;
+      padding: 15px 30px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background var(--transition-speed) ease;
+    }
+    .contact-btn:hover {
+      background: #e03e00;
+    }
+    
+    /* FOOTER SECTION */
+    footer {
+      background: var(--bg-color);
+      color: #777;
+      padding: 30px 20px;
+      text-align: center;
+      opacity: 0;
+      animation: fadeInUp 1.5s ease forwards;
+      animation-delay: 0.5s;
+    }
+    
+    /* Back-to-Top Button */
+    #back-to-top {
+      position: fixed;
+      bottom: 40px;
+      right: 40px;
+      padding: 10px 15px;
+      font-size: 1rem;
+      background: var(--accent-color);
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      display: none;
+      z-index: 1000;
+      transition: opacity 0.3s ease;
+    }
+    
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1100;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.6);
+    }
+    .modal-content {
+      background-color: #1a1a1a;
+      margin: 10% auto;
+      padding: 20px;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 500px;
+      position: relative;
+      color: var(--text-color);
+    }
+    .close-modal {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      color: #aaa;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .close-modal:hover,
+    .close-modal:focus {
+      color: #fff;
+    }
+    .modal form input,
+    .modal form textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #333;
+      border-radius: 5px;
+      background: var(--bg-color);
+      color: var(--text-color);
+    }
+    .modal form button {
+      background: var(--accent-color);
+      border: none;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    
+    /* Cookie Consent Banner */
+    .cookie-consent {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0, 0, 0, 0.9);
+      color: #fff;
+      padding: 15px;
+      text-align: center;
+      z-index: 1200;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+    }
+    .cookie-consent button {
+      background: var(--accent-color);
+      border: none;
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    
+    /* REFLECTIVE ANIMATION: Smooth continuous loop */
+    .vertical-card,
+    .review-card,
+    .team-card,
+    .mission,
+    .vision {
+      position: relative;
+      overflow: hidden;
+    }
+    .vertical-card::before,
+    .review-card::before,
+    .team-card::before,
+    .mission::before,
+    .vision::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -150%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(120deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.12) 50%, rgba(255, 255, 255, 0.06) 100%);
+      transform: skewX(-15deg);
+      animation: reflection 5s linear infinite;
+    }
+    @keyframes reflection {
+      0% {
+        left: -150%;
+      }
+      100% {
+        left: 200%;
+      }
+    }
   </style>
 </head>
 <body>
@@ -283,11 +641,132 @@
         </div>
       </div>
     </section>
-    
-    <!-- Additional sections (Mission & Vision, Team, Brand, Verticals, Reviews, Contact, Footer, etc.)
-         remain as in the previous full code. For brevity, please refer to the previous full code for these sections.
-    -->
-    
+  
+    <!-- MISSION & VISION SECTION -->
+    <section class="section" id="mission-vision">
+      <h2 data-aos="fade-up">Mission & Vision</h2>
+      <div class="mission-vision" data-aos="fade-up" data-aos-delay="100">
+        <div class="mission">
+          <h3>Our Mission</h3>
+          <p>
+            To build and scale innovative, style-driven brands that reflect modern
+            lifestyles, fostering creativity, sustainability, and strategic growth.
+          </p>
+        </div>
+        <div class="vision">
+          <h3>Our Vision</h3>
+          <p>
+            To be a trusted and recognized leader in the fashion industry and
+            beyond, incubating creative ventures that shape the future.
+          </p>
+        </div>
+      </div>
+    </section>
+  
+    <!-- TEAM SECTION -->
+    <section class="section" id="team">
+      <h2 data-aos="fade-up">Meet the Core Team</h2>
+      <div class="team-cards" data-aos="fade-up" data-aos-delay="100">
+        <div class="team-card">
+          <h3>Lijo Mathew Jacob</h3>
+          <p>CEO &amp; Designated Partner</p>
+        </div>
+        <div class="team-card">
+          <h3>Saiju V Thankachan</h3>
+          <p>Partner – Finance &amp; Compliance</p>
+        </div>
+        <div class="team-card">
+          <h3>Ajuraj R</h3>
+          <p>Partner – Accounts &amp; Operations</p>
+        </div>
+      </div>
+    </section>
+  
+    <!-- BRAND SECTION (SOULMONK) -->
+    <section class="section" id="brand">
+      <h2 data-aos="fade-up">
+        Our Brand – <a href="https://www.mysoulmonk.com" target="_blank" style="text-decoration: none; color: inherit;">Soulmonk</a>
+      </h2>
+      <div class="brand-section" data-aos="fade-up" data-aos-delay="100">
+        <div class="brand-text">
+          <p>
+            <strong><a href="https://www.mysoulmonk.com" target="_blank" style="text-decoration: none; color: inherit;">Soulmonk</a></strong> is our flagship fashion brand, offering urban, casual, and premium clothing for the style-conscious consumer.
+            We focus on design excellence, sustainability, and innovative e-commerce experiences.
+          </p>
+          <p>
+            Through engaging digital storytelling, influencer collaborations, and a seamless online shopping experience,
+            <strong><a href="https://www.mysoulmonk.com" target="_blank" style="text-decoration: none; color: inherit;">Soulmonk</a></strong> redefines modern fashion.
+          </p>
+          <!-- Interactive Button -->
+          <a href="https://www.mysoulmonk.com" class="explore-btn" target="_blank">Explore Soulmonk</a>
+        </div>
+        <div class="brand-image">
+          <img src="https://cdn.shopify.com/s/files/1/0686/7795/9910/files/Soulmonk_Vision.svg?v=1743619157" alt="Soulmonk Vision" />
+        </div>
+      </div>
+    </section>
+  
+    <!-- BUSINESS VERTICALS SECTION -->
+    <section class="section" id="verticals">
+      <h2 data-aos="fade-up">Our Business Verticals</h2>
+      <div class="verticals-cards" data-aos="fade-up" data-aos-delay="100">
+        <div class="vertical-card" data-aos="zoom-in">
+          <h4>Fashion & Apparel</h4>
+          <p>
+            From design to distribution, we specialize in creating style-driven brands that resonate with today's fashion-forward consumers.
+          </p>
+        </div>
+        <div class="vertical-card" data-aos="zoom-in" data-aos-delay="100">
+          <h4>Future Ventures</h4>
+          <p>
+            Beyond fashion, our roadmap includes expanding into new, high-growth sectors where innovation and tradition meet.
+          </p>
+        </div>
+        <div class="vertical-card" data-aos="zoom-in" data-aos-delay="200">
+          <h4>Incubation & Support</h4>
+          <p>
+            We incubate creative ventures by providing strategic guidance, operational expertise, and financial support to help them succeed.
+          </p>
+        </div>
+      </div>
+    </section>
+  
+    <!-- REVIEWS SECTION -->
+    <section class="section" id="reviews">
+      <h2 data-aos="fade-up">Early Reviews</h2>
+      <div class="reviews-cards" data-aos="fade-up" data-aos-delay="100">
+        <div class="review-card" data-aos="zoom-in">
+          <h4>Jane Doe</h4>
+          <p>
+            “<a href="https://www.mysoulmonk.com" target="_blank" style="text-decoration: none; color: inherit;">Soulmonk</a>’s clothing line is the perfect blend of style and comfort.
+            Beyondwill LLP is redefining fashion with innovation and elegance.”
+          </p>
+        </div>
+        <div class="review-card" data-aos="zoom-in" data-aos-delay="100">
+          <h4>John Smith</h4>
+          <p>
+            “A refreshing brand that marries sustainability with high fashion.
+            Beyondwill LLP continues to push boundaries in every venture.”
+          </p>
+        </div>
+        <div class="review-card" data-aos="zoom-in" data-aos-delay="200">
+          <h4>Alex Johnson</h4>
+          <p>
+            “The <a href="https://www.mysoulmonk.com" target="_blank" style="text-decoration: none; color: inherit;">Soulmonk</a> experience is truly exceptional—seamless e-commerce, engaging design, and unmatched quality.”
+          </p>
+        </div>
+      </div>
+    </section>
+  
+    <!-- CONTACT SECTION -->
+    <section class="section" id="contact">
+      <h2 data-aos="fade-up">Contact / Get in Touch</h2>
+      <div class="contact-section" data-aos="fade-up" data-aos-delay="100">
+        <p>For inquiries, collaborations, or just to say hi, reach out to us at:</p>
+        <p>Email: <a href="mailto:support@beyondwill.in">support@beyondwill.in</a> | Phone: <a href="tel:+917907069771">91 7907069771</a></p>
+        <button class="contact-btn" id="openModal">Send a Message</button>
+      </div>
+    </section>
   </main>
   
   <!-- FOOTER SECTION -->
@@ -295,20 +774,47 @@
     &copy; <span id="year"></span> Beyondwill LLP. All rights reserved.
   </footer>
   
-  <!-- Back-to-Top Button, Modal, Cookie Consent, and additional scripts remain as in previous code -->
+  <!-- Back-to-Top Button -->
+  <button id="back-to-top" title="Back to Top">↑</button>
+  
+  <!-- Modal for Contact Form -->
+  <div id="contactModal" class="modal">
+    <div class="modal-content" data-aos="fade-up">
+      <span class="close-modal" id="closeModal">&times;</span>
+      <h2>Contact Us</h2>
+      <form id="contactForm">
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="email" name="email" placeholder="Your Email" required />
+        <textarea name="message" placeholder="Your Message" rows="4" required></textarea>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+  
+  <!-- Cookie Consent Banner -->
+  <div class="cookie-consent" id="cookieConsent">
+    <span>This website uses cookies to ensure you get the best experience.</span>
+    <button id="acceptCookies">Accept</button>
+  </div>
+  
+  <!-- AOS Library & Custom Scripts -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" 
           integrity="sha512-eL4+7j3TCaIug1So6xQnZX3Zg0woXgIViTt4TX37cG49Gk0yAN3RVcxTCu1d5Yi7SJPX1cRUEtzfS2duHcG4Cg==" 
           crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script>
+    // Initialize AOS
     AOS.init({ duration: 1000, once: true });
     
+    // Toggle header style on scroll
     window.addEventListener("scroll", () => {
       const header = document.getElementById("header");
       header.classList.toggle("scrolled", window.scrollY > 50);
     });
     
+    // Update footer year
     document.getElementById("year").textContent = new Date().getFullYear();
     
+    // Intersection Observer for team bounce animation
     const teamSection = document.getElementById("team");
     const teamCards = document.querySelectorAll(".team-card");
     const observer = new IntersectionObserver((entries) => {
@@ -321,11 +827,13 @@
     }, { threshold: 0.5 });
     observer.observe(teamSection);
     
+    // Hamburger menu toggle for mobile
     const hamburger = document.getElementById("hamburger");
     hamburger.addEventListener("click", () => {
       document.querySelector("nav").classList.toggle("active");
     });
     
+    // Back-to-Top Button functionality
     const backToTopButton = document.getElementById("back-to-top");
     window.addEventListener("scroll", () => {
       backToTopButton.style.display = window.pageYOffset > 300 ? "block" : "none";
@@ -334,6 +842,7 @@
       window.scrollTo({ top: 0, behavior: "smooth" });
     });
     
+    // Modal functionality for Contact Form
     const openModalBtn = document.getElementById("openModal");
     const closeModalBtn = document.getElementById("closeModal");
     const contactModal = document.getElementById("contactModal");
@@ -354,6 +863,7 @@
       }
     });
     
+    // Cookie Consent functionality
     const cookieConsent = document.getElementById("cookieConsent");
     const acceptCookiesBtn = document.getElementById("acceptCookies");
     
