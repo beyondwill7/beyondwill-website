@@ -104,14 +104,12 @@
       height: var(--header-height-scrolled);
       background: rgba(0, 0, 0, 0.9);
     }
-    /* Logo */
     .logo a {
       color: var(--accent-color);
       text-decoration: none;
       font-weight: 700;
       font-size: 1.5rem;
     }
-    
     nav {
       width: 100%;
       max-width: var(--max-width);
@@ -243,7 +241,7 @@
     .about-image img {
       max-width: 100%;
       border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
       transition: transform var(--transition-speed) ease;
     }
     .about-image img:hover {
@@ -262,7 +260,7 @@
       background: rgba(255, 255, 255, 0.03);
       padding: 20px;
       border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
       transition: transform var(--transition-speed) ease;
       color: var(--text-color);
       position: relative;
@@ -285,7 +283,7 @@
       padding: 20px;
       border-radius: 10px;
       text-align: center;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
       transition: transform var(--transition-speed) ease;
       color: var(--text-color);
       position: relative;
@@ -329,7 +327,7 @@
       width: 100%;
       max-width: 500px;
       border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     }
     .explore-btn {
       display: inline-block;
@@ -346,6 +344,142 @@
       background: #e03e00;
     }
     
+    /* NEW SECTION: Recognitions & Awards */
+    #recognition {
+      padding: 60px 20px;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      text-align: center;
+    }
+    #recognition h2 {
+      margin-bottom: 20px;
+      color: var(--accent-color);
+    }
+    #recognition .verticals-cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+    #recognition .vertical-card {
+      flex: 1 1 300px;
+      background: rgba(255, 255, 255, 0.03);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+      transition: transform var(--transition-speed) ease;
+      color: var(--text-color);
+      overflow: hidden;
+    }
+    #recognition .vertical-card:hover {
+      transform: translateY(-5px);
+    }
+    #recognition .vertical-card h4 {
+      margin-bottom: 10px;
+      color: var(--accent-color);
+    }
+    #recognition .vertical-card p {
+      font-size: 0.95rem;
+      color: #cccccc;
+    }
+    
+    /* NEW SECTION: Partners & Collaborators */
+    #partners {
+      padding: 60px 20px;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      text-align: center;
+    }
+    #partners h2 {
+      margin-bottom: 20px;
+      color: var(--accent-color);
+    }
+    #partners .verticals-cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+    #partners .vertical-card {
+      flex: 1 1 300px;
+      background: rgba(255, 255, 255, 0.03);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+      transition: transform var(--transition-speed) ease;
+      color: var(--text-color);
+      overflow: hidden;
+    }
+    #partners .vertical-card:hover {
+      transform: translateY(-5px);
+    }
+    #partners .vertical-card h4 {
+      margin-bottom: 10px;
+      color: var(--accent-color);
+    }
+    #partners .vertical-card p {
+      font-size: 0.95rem;
+      color: #cccccc;
+    }
+    
+    /* NEW SECTION: Invest With Us */
+    #invest {
+      padding: 60px 20px;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      text-align: center;
+    }
+    #invest h2 {
+      margin-bottom: 20px;
+      color: var(--accent-color);
+    }
+    #invest .contact-section p {
+      font-size: 1rem;
+      color: #cccccc;
+      margin-bottom: 20px;
+    }
+    
+    /* NEW SECTION: FAQs */
+    #faq {
+      padding: 60px 20px;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      text-align: center;
+    }
+    #faq h2 {
+      margin-bottom: 20px;
+      color: var(--accent-color);
+    }
+    #faq .verticals-cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+    #faq .vertical-card {
+      flex: 1 1 300px;
+      background: rgba(255, 255, 255, 0.03);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+      transition: transform var(--transition-speed) ease;
+      color: var(--text-color);
+      overflow: hidden;
+    }
+    #faq .vertical-card:hover {
+      transform: translateY(-5px);
+    }
+    #faq .vertical-card h4 {
+      margin-bottom: 10px;
+      color: var(--accent-color);
+    }
+    #faq .vertical-card p {
+      font-size: 0.95rem;
+      color: #cccccc;
+    }
+    
+    /* The rest of your sections (Business Verticals, Reviews, Contact, Footer, etc.) remain unchanged */
+    
     /* BUSINESS VERTICALS SECTION */
     .verticals-cards {
       display: grid;
@@ -359,7 +493,6 @@
       box-shadow: 0 4px 12px rgba(0,0,0,0.5);
       transition: transform var(--transition-speed) ease;
       color: var(--text-color);
-      position: relative;
       overflow: hidden;
     }
     .vertical-card:hover {
@@ -393,7 +526,6 @@
       box-shadow: 0 4px 12px rgba(0,0,0,0.5);
       transition: transform var(--transition-speed) ease;
       color: var(--text-color);
-      position: relative;
       overflow: hidden;
     }
     .review-card:hover {
@@ -592,6 +724,10 @@
         <li><a href="#mission-vision">Mission &amp; Vision</a></li>
         <li><a href="#team">Team</a></li>
         <li><a href="#brand">Soulmonk</a></li>
+        <li><a href="#recognition">Recognitions</a></li>
+        <li><a href="#partners">Partners</a></li>
+        <li><a href="#invest">Invest</a></li>
+        <li><a href="#faq">FAQs</a></li>
         <li><a href="#verticals">Verticals</a></li>
         <li><a href="#reviews">Reviews</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -624,16 +760,10 @@
       <div class="about-container" data-aos="fade-up" data-aos-delay="100">
         <div class="about-text">
           <p>
-            Beyondwill LLP is a visionary company blending modern innovation with
-            time-tested business strategies. We build and scale creative ventures
-            starting with our flagship fashion brand,
-            <strong><a href="https://www.mysoulmonk.com" target="_blank" style="text-decoration: none; color: inherit;">Soulmonk</a></strong>,
-            while laying the groundwork for future diversification.
+            Beyondwill LLP is a visionary company blending modern innovation with time-tested business strategies. We build and scale creative ventures starting with our flagship fashion brand, <strong><a href="https://www.mysoulmonk.com" target="_blank" style="text-decoration: none; color: inherit;">Soulmonk</a></strong>, while laying the groundwork for future diversification.
           </p>
           <p>
-            Our approach combines creative design, strategic growth, and a
-            commitment to sustainability. We value collaboration and ingenuity in
-            every project we undertake.
+            Our approach combines creative design, strategic growth, and a commitment to sustainability. We value collaboration and ingenuity in every project we undertake.
           </p>
         </div>
         <div class="about-image">
@@ -649,15 +779,13 @@
         <div class="mission">
           <h3>Our Mission</h3>
           <p>
-            To build and scale innovative, style-driven brands that reflect modern
-            lifestyles, fostering creativity, sustainability, and strategic growth.
+            To build and scale innovative, style-driven brands that reflect modern lifestyles, fostering creativity, sustainability, and strategic growth.
           </p>
         </div>
         <div class="vision">
           <h3>Our Vision</h3>
           <p>
-            To be a trusted and recognized leader in the fashion industry and
-            beyond, incubating creative ventures that shape the future.
+            To be a trusted and recognized leader in the fashion industry and beyond, incubating creative ventures that shape the future.
           </p>
         </div>
       </div>
@@ -681,83 +809,111 @@
         </div>
       </div>
     </section>
-  
-    <!-- BRAND SECTION (SOULMONK) -->
-    <section class="section" id="brand">
-      <h2 data-aos="fade-up">
-        Our Brand – <a href="https://www.mysoulmonk.com" target="_blank" style="text-decoration: none; color: inherit;">Soulmonk</a>
-      </h2>
-      <div class="brand-section" data-aos="fade-up" data-aos-delay="100">
-        <div class="brand-text">
-          <p>
-            <strong><a href="https://www.mysoulmonk.com" target="_blank" style="text-decoration: none; color: inherit;">Soulmonk</a></strong> is our flagship fashion brand, offering urban, casual, and premium clothing for the style-conscious consumer.
-            We focus on design excellence, sustainability, and innovative e-commerce experiences.
-          </p>
-          <p>
-            Through engaging digital storytelling, influencer collaborations, and a seamless online shopping experience,
-            <strong><a href="https://www.mysoulmonk.com" target="_blank" style="text-decoration: none; color: inherit;">Soulmonk</a></strong> redefines modern fashion.
-          </p>
-          <!-- Interactive Button -->
-          <a href="https://www.mysoulmonk.com" class="explore-btn" target="_blank">Explore Soulmonk</a>
+    
+    <!-- NEW SECTION: Recognitions & Awards -->
+    <section class="section" id="recognition">
+      <h2 data-aos="fade-up">Recognitions & Awards</h2>
+      <div class="verticals-cards" data-aos="fade-up" data-aos-delay="100">
+        <div class="vertical-card">
+          <h4>Startup India Recognized</h4>
+          <p>Beyondwill LLP is proudly recognized by the Department for Promotion of Industry and Internal Trade (DPIIT) under the Startup India initiative.</p>
         </div>
-        <div class="brand-image">
-          <img src="https://cdn.shopify.com/s/files/1/0686/7795/9910/files/Soulmonk_Vision.svg?v=1743619157" alt="Soulmonk Vision" />
+        <div class="vertical-card">
+          <h4>Innovative Brand Incubator Award</h4>
+          <p>Honored for our forward-thinking approach in nurturing purpose-led fashion brands.</p>
         </div>
       </div>
     </section>
-  
+    
+    <!-- NEW SECTION: Partners & Collaborators -->
+    <section class="section" id="partners">
+      <h2 data-aos="fade-up">Partners & Collaborators</h2>
+      <div class="verticals-cards" data-aos="fade-up" data-aos-delay="100">
+        <div class="vertical-card">
+          <h4>Micro-Influencers</h4>
+          <p>We collaborate with creators who resonate with our brand values and bring authenticity to our storytelling.</p>
+        </div>
+        <div class="vertical-card">
+          <h4>Production Houses</h4>
+          <p>We partner with ethical and sustainable manufacturers to maintain quality without compromising our values.</p>
+        </div>
+        <div class="vertical-card">
+          <h4>Tech & Marketing Agencies</h4>
+          <p>Strategic collaborations drive our digital growth, innovative campaigns, and data-driven insights.</p>
+        </div>
+      </div>
+    </section>
+    
+    <!-- NEW SECTION: Invest With Us -->
+    <section class="section" id="invest">
+      <h2 data-aos="fade-up">Invest with Us</h2>
+      <div class="contact-section" data-aos="fade-up" data-aos-delay="100">
+        <p>We're building fashion-first consumer brands for the next generation. If you’re an angel investor or venture partner looking to fuel scalable, design-led businesses—let's talk.</p>
+        <a href="mailto:founders@beyondwill.in" class="contact-btn">Connect with Founders</a>
+      </div>
+    </section>
+    
+    <!-- NEW SECTION: FAQs -->
+    <section class="section" id="faq">
+      <h2 data-aos="fade-up">Frequently Asked Questions</h2>
+      <div class="verticals-cards" data-aos="fade-up" data-aos-delay="100">
+        <div class="vertical-card">
+          <h4>What is Beyondwill LLP?</h4>
+          <p>We are a fashion brand incubator focused on launching, scaling, and supporting new-age consumer labels.</p>
+        </div>
+        <div class="vertical-card">
+          <h4>How is Soulmonk related?</h4>
+          <p>Soulmonk is our flagship fashion brand under the Beyondwill LLP umbrella, designed for urban, style-conscious consumers.</p>
+        </div>
+        <div class="vertical-card">
+          <h4>Are you open to partnerships?</h4>
+          <p>Absolutely. We believe collaboration drives innovation. Reach out to explore synergy.</p>
+        </div>
+        <div class="vertical-card">
+          <h4>Can I invest or collaborate?</h4>
+          <p>Yes—if you're aligned with our mission. Let's build something impactful together.</p>
+        </div>
+      </div>
+    </section>
+    
     <!-- BUSINESS VERTICALS SECTION -->
     <section class="section" id="verticals">
       <h2 data-aos="fade-up">Our Business Verticals</h2>
       <div class="verticals-cards" data-aos="fade-up" data-aos-delay="100">
         <div class="vertical-card" data-aos="zoom-in">
           <h4>Fashion & Apparel</h4>
-          <p>
-            From design to distribution, we specialize in creating style-driven brands that resonate with today's fashion-forward consumers.
-          </p>
+          <p>From design to distribution, we create style-driven brands that resonate with today’s consumers.</p>
         </div>
         <div class="vertical-card" data-aos="zoom-in" data-aos-delay="100">
           <h4>Future Ventures</h4>
-          <p>
-            Beyond fashion, our roadmap includes expanding into new, high-growth sectors where innovation and tradition meet.
-          </p>
+          <p>Beyond fashion, our roadmap includes expanding into high-growth sectors where innovation meets tradition.</p>
         </div>
         <div class="vertical-card" data-aos="zoom-in" data-aos-delay="200">
           <h4>Incubation & Support</h4>
-          <p>
-            We incubate creative ventures by providing strategic guidance, operational expertise, and financial support to help them succeed.
-          </p>
+          <p>We incubate creative ventures by providing strategic guidance, operational expertise, and financial support.</p>
         </div>
       </div>
     </section>
-  
+    
     <!-- REVIEWS SECTION -->
     <section class="section" id="reviews">
       <h2 data-aos="fade-up">Early Reviews</h2>
       <div class="reviews-cards" data-aos="fade-up" data-aos-delay="100">
         <div class="review-card" data-aos="zoom-in">
           <h4>Jane Doe</h4>
-          <p>
-            “<a href="https://www.mysoulmonk.com" target="_blank" style="text-decoration: none; color: inherit;">Soulmonk</a>’s clothing line is the perfect blend of style and comfort.
-            Beyondwill LLP is redefining fashion with innovation and elegance.”
-          </p>
+          <p>“Soulmonk’s clothing line is the perfect blend of style and comfort. Beyondwill LLP is redefining fashion with innovation and elegance.”</p>
         </div>
         <div class="review-card" data-aos="zoom-in" data-aos-delay="100">
           <h4>John Smith</h4>
-          <p>
-            “A refreshing brand that marries sustainability with high fashion.
-            Beyondwill LLP continues to push boundaries in every venture.”
-          </p>
+          <p>“A refreshing brand that marries sustainability with high fashion. Beyondwill LLP continues to push boundaries in every venture.”</p>
         </div>
         <div class="review-card" data-aos="zoom-in" data-aos-delay="200">
           <h4>Alex Johnson</h4>
-          <p>
-            “The <a href="https://www.mysoulmonk.com" target="_blank" style="text-decoration: none; color: inherit;">Soulmonk</a> experience is truly exceptional—seamless e-commerce, engaging design, and unmatched quality.”
-          </p>
+          <p>“The Soulmonk experience is truly exceptional—seamless e-commerce, engaging design, and unmatched quality.”</p>
         </div>
       </div>
     </section>
-  
+    
     <!-- CONTACT SECTION -->
     <section class="section" id="contact">
       <h2 data-aos="fade-up">Contact / Get in Touch</h2>
@@ -802,19 +958,15 @@
           integrity="sha512-eL4+7j3TCaIug1So6xQnZX3Zg0woXgIViTt4TX37cG49Gk0yAN3RVcxTCu1d5Yi7SJPX1cRUEtzfS2duHcG4Cg==" 
           crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script>
-    // Initialize AOS
     AOS.init({ duration: 1000, once: true });
     
-    // Toggle header style on scroll
     window.addEventListener("scroll", () => {
       const header = document.getElementById("header");
       header.classList.toggle("scrolled", window.scrollY > 50);
     });
     
-    // Update footer year
     document.getElementById("year").textContent = new Date().getFullYear();
     
-    // Intersection Observer for team bounce animation
     const teamSection = document.getElementById("team");
     const teamCards = document.querySelectorAll(".team-card");
     const observer = new IntersectionObserver((entries) => {
@@ -827,13 +979,11 @@
     }, { threshold: 0.5 });
     observer.observe(teamSection);
     
-    // Hamburger menu toggle for mobile
     const hamburger = document.getElementById("hamburger");
     hamburger.addEventListener("click", () => {
       document.querySelector("nav").classList.toggle("active");
     });
     
-    // Back-to-Top Button functionality
     const backToTopButton = document.getElementById("back-to-top");
     window.addEventListener("scroll", () => {
       backToTopButton.style.display = window.pageYOffset > 300 ? "block" : "none";
@@ -842,17 +992,16 @@
       window.scrollTo({ top: 0, behavior: "smooth" });
     });
     
-    // Modal functionality for Contact Form
     const openModalBtn = document.getElementById("openModal");
     const closeModalBtn = document.getElementById("closeModal");
     const contactModal = document.getElementById("contactModal");
     
-    if(openModalBtn) {
+    if (openModalBtn) {
       openModalBtn.addEventListener("click", () => {
         contactModal.style.display = "block";
       });
     }
-    if(closeModalBtn) {
+    if (closeModalBtn) {
       closeModalBtn.addEventListener("click", () => {
         contactModal.style.display = "none";
       });
@@ -863,7 +1012,6 @@
       }
     });
     
-    // Cookie Consent functionality
     const cookieConsent = document.getElementById("cookieConsent");
     const acceptCookiesBtn = document.getElementById("acceptCookies");
     
