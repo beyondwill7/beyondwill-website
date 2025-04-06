@@ -179,6 +179,7 @@
       background: rgba(0, 0, 0, 0.4);
       z-index: 1;
     }
+    /* Flexbox centers content; if header overlaps, we adjust on mobile */
     .hero-content {
       position: relative;
       z-index: 2;
@@ -198,17 +199,31 @@
       color: var(--text-color);
     }
     
-    /* Mobile adjustments: On smaller screens, ensure header doesn't cover hero content */
-    @media (max-width: 1024px) {
+    /* Mobile adjustments for Hero */
+    @media (max-width: 768px) {
       .hero {
         height: calc(100vh - var(--header-height));
-        padding-top: var(--header-height);
+        margin-top: var(--header-height);
       }
     }
     
-    /* For brevity, additional sections (About, Mission, Team, Brand, Verticals, Reviews, Contact, Footer, etc.)
-       remain as in the previous full code. You can append those unchanged sections after the hero section.
-    */
+    /* SECTION WRAPPER */
+    .section {
+      padding: 60px 20px;
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+    .section h2 {
+      margin-bottom: 10px;
+      text-align: center;
+      color: var(--accent-color);
+    }
+    
+    /* ABOUT, MISSION, TEAM, BRAND, VERTICALS, REVIEWS, CONTACT, FOOTER, Modal, Cookie styles remain unchanged */
+    /* (The rest of the CSS remains as provided in the previous code) */
+    
+    /* For brevity, refer to the previous code for remaining styles */
+    
   </style>
 </head>
 <body>
@@ -253,8 +268,34 @@
   
   <!-- MAIN CONTENT -->
   <main id="main-content">
-    <!-- Your additional sections (About, Mission & Vision, Team, Brand, Verticals, Reviews, Contact, Footer) go here. -->
-    <!-- For brevity, please use the previous full code for these sections. -->
+    <!-- ABOUT SECTION -->
+    <section class="section" id="about">
+      <h2 data-aos="fade-up">About Beyondwill LLP</h2>
+      <div class="about-container" data-aos="fade-up" data-aos-delay="100">
+        <div class="about-text">
+          <p>
+            Beyondwill LLP is a visionary company blending modern innovation with
+            time-tested business strategies. We build and scale creative ventures
+            starting with our flagship fashion brand,
+            <strong><a href="https://www.mysoulmonk.com" target="_blank" style="text-decoration: none; color: inherit;">Soulmonk</a></strong>,
+            while laying the groundwork for future diversification.
+          </p>
+          <p>
+            Our approach combines creative design, strategic growth, and a
+            commitment to sustainability. We value collaboration and ingenuity in
+            every project we undertake.
+          </p>
+        </div>
+        <div class="about-image">
+          <img src="https://cdn.shopify.com/s/files/1/0686/7795/9910/files/ChatGPT_Image_Apr_2_2025_06_12_33_PM.png?v=1743597768" alt="Beyondwill LLP" />
+        </div>
+      </div>
+    </section>
+    
+    <!-- Additional sections (Mission & Vision, Team, Brand, Verticals, Reviews, Contact, Footer, etc.)
+         remain as in the previous full code. For brevity, please refer to the full code provided earlier.
+    -->
+    
   </main>
   
   <!-- FOOTER SECTION -->
@@ -262,7 +303,8 @@
     &copy; <span id="year"></span> Beyondwill LLP. All rights reserved.
   </footer>
   
-  <!-- Back-to-Top Button, Modal, Cookie Consent, and additional scripts remain unchanged -->
+  <!-- Back-to-Top Button, Modal, Cookie Consent, and scripts remain unchanged as in the previous full code -->
+  
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" 
           integrity="sha512-eL4+7j3TCaIug1So6xQnZX3Zg0woXgIViTt4TX37cG49Gk0yAN3RVcxTCu1d5Yi7SJPX1cRUEtzfS2duHcG4Cg==" 
           crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -276,8 +318,66 @@
     
     document.getElementById("year").textContent = new Date().getFullYear();
     
-    // Additional JavaScript for navigation, modals, back-to-top, etc.
-    // (Refer to the previous full code for these scripts)
+    const teamSection = document.getElementById("team");
+    const teamCards = document.querySelectorAll(".team-card");
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          teamCards.forEach((card) => card.classList.add("bounce-animation"));
+          observer.unobserve(teamSection);
+        }
+      });
+    }, { threshold: 0.5 });
+    observer.observe(teamSection);
+    
+    const hamburger = document.getElementById("hamburger");
+    hamburger.addEventListener("click", () => {
+      document.querySelector("nav").classList.toggle("active");
+    });
+    
+    const backToTopButton = document.getElementById("back-to-top");
+    window.addEventListener("scroll", () => {
+      backToTopButton.style.display = window.pageYOffset > 300 ? "block" : "none";
+    });
+    backToTopButton.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+    
+    const openModalBtn = document.getElementById("openModal");
+    const closeModalBtn = document.getElementById("closeModal");
+    const contactModal = document.getElementById("contactModal");
+    
+    openModalBtn.addEventListener("click", () => {
+      contactModal.style.display = "block";
+    });
+    closeModalBtn.addEventListener("click", () => {
+      contactModal.style.display = "none";
+    });
+    window.addEventListener("click", (event) => {
+      if (event.target == contactModal) {
+        contactModal.style.display = "none";
+      }
+    });
+    
+    const cookieConsent = document.getElementById("cookieConsent");
+    const acceptCookiesBtn = document.getElementById("acceptCookies");
+    
+    acceptCookiesBtn.addEventListener("click", () => {
+      cookieConsent.style.display = "none";
+      localStorage.setItem("cookiesAccepted", "true");
+    });
+    window.addEventListener("load", () => {
+      if (localStorage.getItem("cookiesAccepted") === "true") {
+        cookieConsent.style.display = "none";
+      }
+    });
+    
+    document.getElementById("contactForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      alert("Your message has been submitted!");
+      contactModal.style.display = "none";
+      this.reset();
+    });
   </script>
 </body>
 </html>
