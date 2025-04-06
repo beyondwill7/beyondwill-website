@@ -72,7 +72,6 @@
       0%   { background-position: 200% center; }
       100% { background-position: -200% center; }
     }
-    /* New Minimal Premium Animation for Heading */
     @keyframes premiumMinimal {
       0% {
         opacity: 0;
@@ -82,6 +81,11 @@
         opacity: 1;
         transform: translateY(0) scale(1);
       }
+    }
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0); }
     }
     
     /* HEADER & NAVIGATION */
@@ -160,7 +164,7 @@
       }
     }
     
-    /* HERO SECTION with Video Background using Flexbox */
+    /* HERO SECTION with Video Background */
     .hero {
       position: relative;
       height: 100vh;
@@ -191,12 +195,46 @@
       text-align: center;
       animation: fadeInUp 1.5s ease forwards;
     }
-    .hero-content h1 {
+    /* h1 Gradient: Neon Pink → Purple → Electric Blue */
+    h1 {
       font-size: 4rem;
       margin-bottom: 20px;
-      color: var(--accent-color);
-      /* New minimal premium animation */
-      animation: premiumMinimal 1.8s ease-out forwards;
+      background: linear-gradient(90deg, #ff00cc, #3333ff, #00ffff);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: textGradient 5s linear infinite;
+    }
+    /* h2 Gradient: Pink → Purple → Blue */
+    h2 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      text-align: center;
+      background: linear-gradient(90deg, #ff6ec4, #7873f5, #4adeff);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: textGradient 5s linear infinite;
+    }
+    /* h3 Gradient: Violet → Indigo → Teal */
+    h3 {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+      background: linear-gradient(90deg, #8e2de2, #4a00e0, #2ec4b6);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: textGradient 5s linear infinite;
+    }
+    /* h4 Gradient: Lime Green → Yellow → Orange */
+    h4 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      background: linear-gradient(90deg, #b2f91d, #ffde59, #ff7b00);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: textGradient 5s linear infinite;
     }
     .hero-content p {
       font-size: 1.5rem;
@@ -204,7 +242,6 @@
       color: var(--text-color);
     }
     
-    /* Mobile adjustments: ensure header doesn't cover hero content */
     @media (max-width: 1024px) {
       .hero {
         height: calc(100vh - var(--header-height));
@@ -218,34 +255,64 @@
       max-width: var(--max-width);
       margin: 0 auto;
     }
-    .section h2 {
-      margin-bottom: 10px;
-      text-align: center;
-      color: var(--accent-color);
-    }
     
-    /* ABOUT SECTION */
+    /* ABOUT SECTION (Image removed, text centered) */
     .about-container {
       display: flex;
-      flex-wrap: wrap;
+      flex-direction: column;
       align-items: center;
-      gap: 20px;
       justify-content: center;
     }
-    .about-text, .about-image {
-      flex: 1 1 400px;
+    .about-text {
+      max-width: 800px;
+      text-align: center;
+      will-change: transform, opacity;
+      transform: translateZ(0);
+      backface-visibility: hidden;
     }
-    .about-image {
-      flex: 1 1 600px;
+    
+    /* Infographics row */
+    .infographics {
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 20px;
+      overflow-x: auto;
+      padding: 20px 0;
+      scroll-snap-type: x mandatory;
     }
-    .about-image img {
-      max-width: 100%;
+    .infographics::-webkit-scrollbar {
+      height: 6px;
+    }
+    .infographics::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.2);
       border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-      transition: transform var(--transition-speed) ease;
     }
-    .about-image img:hover {
-      transform: scale(1.05);
+    .info-card {
+      flex: 0 0 280px;
+      background: rgba(255,255,255,0.04);
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      color: var(--text-color);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      animation: float 6s ease-in-out infinite;
+      scroll-snap-align: start;
+    }
+    .info-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 24px rgba(255, 69, 0, 0.3);
+    }
+    .info-icon {
+      margin-bottom: 10px;
+    }
+    .info-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+    }
+    .info-card p {
+      font-size: 0.95rem;
+      color: #ccc;
     }
     
     /* MISSION & VISION SECTION */
@@ -305,7 +372,7 @@
       animation: bounce 1.5s ease-out;
     }
     
-    /* BRAND SECTION (SOULMONK) */
+    /* BRAND SECTION */
     .brand-section {
       display: flex;
       flex-wrap: wrap;
@@ -344,7 +411,7 @@
       background: #e03e00;
     }
     
-    /* NEW SECTION: Recognitions & Awards */
+    /* RECOGNITIONS & AWARDS SECTION */
     #recognition {
       padding: 60px 20px;
       max-width: var(--max-width);
@@ -383,7 +450,7 @@
       color: #cccccc;
     }
     
-    /* NEW SECTION: Partners & Collaborators */
+    /* PARTNERS & COLLABORATORS SECTION */
     #partners {
       padding: 60px 20px;
       max-width: var(--max-width);
@@ -422,7 +489,7 @@
       color: #cccccc;
     }
     
-    /* NEW SECTION: Invest With Us */
+    /* INVEST WITH US SECTION */
     #invest {
       padding: 60px 20px;
       max-width: var(--max-width);
@@ -439,7 +506,7 @@
       margin-bottom: 20px;
     }
     
-    /* NEW SECTION: FAQs */
+    /* FAQs SECTION */
     #faq {
       padding: 60px 20px;
       max-width: var(--max-width);
@@ -672,7 +739,7 @@
       cursor: pointer;
     }
     
-    /* REFLECTIVE ANIMATION: Smooth continuous loop */
+    /* REFLECTIVE ANIMATION */
     .vertical-card,
     .review-card,
     .team-card,
@@ -697,12 +764,8 @@
       animation: reflection 5s linear infinite;
     }
     @keyframes reflection {
-      0% {
-        left: -150%;
-      }
-      100% {
-        left: 200%;
-      }
+      0% { left: -150%; }
+      100% { left: 200%; }
     }
   </style>
 </head>
@@ -710,7 +773,7 @@
   <!-- Skip to content link for accessibility -->
   <a href="#main-content" class="skip-to-content" style="position:absolute; top:-40px; left:0; background:#000; color:#fff; padding:8px; z-index:1001;">Skip to Content</a>
   
-  <!-- HEADER SECTION with Hamburger Menu -->
+  <!-- HEADER SECTION -->
   <header id="header">
     <div class="logo">
       <a href="#hero">Beyondwill LLP</a>
@@ -738,7 +801,7 @@
     </div>
   </header>
   
-  <!-- HERO SECTION with Video Background -->
+  <!-- HERO SECTION -->
   <section class="hero" id="hero">
     <video autoplay loop muted playsinline class="bg-video">
       <source src="https://cdn.shopify.com/videos/c/o/v/02133c70fe8f477ca1553cc1cd89ed55.webm" type="video/webm">
@@ -752,26 +815,90 @@
   
   <!-- MAIN CONTENT -->
   <main id="main-content">
-    <!-- ABOUT SECTION -->
+    <!-- ABOUT SECTION (Image removed, text centered) -->
     <section class="section" id="about">
       <h2 data-aos="fade-up">About Beyondwill LLP</h2>
       <div class="about-container" data-aos="fade-up" data-aos-delay="100">
         <div class="about-text">
           <p>
-            Beyondwill LLP is not just a company—it's a movement built on vision, ambition, and purpose. Founded with a passion for design and innovation, we operate at the intersection of fashion, technology, and consumer-centric brand building.
+            Beyondwill LLP is a visionary brand incubator committed to redefining fashion, entrepreneurship,
+            and brand building. We don’t just create fashion—we design experiences, build communities,
+            and nurture scalable ventures with style and substance.
           </p>
           <p>
-            At our core, we are a modern-day brand incubator—identifying emerging market opportunities, shaping distinctive brand voices, and enabling startups to thrive in a hyper-competitive world. Our flagship venture <strong><a href="https://www.mysoulmonk.com" target="_blank" style="text-decoration: none; color: inherit;">Soulmonk</a></strong> is a testament to our ability to combine aesthetics, sustainability, and scalable operations.
-          </p>
-          <p>
-            Driven by a mission to foster creative excellence and empower emerging talent, we manage everything from conceptualizing visual identities to building robust e-commerce ecosystems. We ensure every brand under the Beyondwill umbrella is future-ready and impact-driven.
-          </p>
-          <p>
-            As a Startup India Recognised entity, we are committed to responsible growth, innovation-led disruption, and building a resilient brand culture. The journey has just begun—come build the future with us.
+            Our approach is rooted in balancing creativity, operational discipline, and brand-first strategies,
+            starting with our flagship venture <strong><a href="https://www.mysoulmonk.com" target="_blank">Soulmonk</a></strong>.
+            We’re recognized by Startup India, actively fostering collaborations and innovation.
           </p>
         </div>
-        <div class="about-image">
-          <img src="https://cdn.shopify.com/s/files/1/0686/7795/9910/files/ChatGPT_Image_Apr_2_2025_06_12_33_PM.png?v=1743597768" alt="Beyondwill LLP" />
+      </div>
+      
+      <!-- Infographics Row using iframes (200×200) -->
+      <div class="infographics" data-aos="fade-up" data-aos-delay="200">
+        <div class="info-card">
+          <div class="info-icon">
+            <iframe 
+              src="https://lottie.host/embed/db57d5a5-78e2-49a4-bd9b-dbd687dff8e4/GFBw4A34Xd.lottie"
+              width="200"
+              height="200"
+              style="border:0;"
+              allowfullscreen>
+            </iframe>
+          </div>
+          <h3>Visionary Innovation</h3>
+          <p>We build purposeful brands driven by creativity, strategy, and long-term value.</p>
+        </div>
+        <div class="info-card">
+          <div class="info-icon">
+            <iframe
+              src="https://lottie.host/embed/d470c606-080c-4145-8e27-1af59b7ec9de/V7ZL1NdrYw.lottie"
+              width="200"
+              height="200"
+              style="border:0;"
+              allowfullscreen>
+            </iframe>
+          </div>
+          <h3>Sustainable Growth</h3>
+          <p>We grow ventures with balance—scaling sustainably while keeping our values intact.</p>
+        </div>
+        <div class="info-card">
+          <div class="info-icon">
+            <iframe
+              src="https://lottie.host/embed/606227b2-d50b-47fe-8b72-0d841aa2f83f/0XLm9hYLIW.lottie"
+              width="200"
+              height="200"
+              style="border:0;"
+              allowfullscreen>
+            </iframe>
+          </div>
+          <h3>Collaborative DNA</h3>
+          <p>Partnerships are at our core. We collaborate to innovate across industries and ideas.</p>
+        </div>
+        <div class="info-card">
+          <div class="info-icon">
+            <iframe
+              src="https://lottie.host/embed/5ef5e278-dcde-46bd-91c7-8466facd4b40/3NpTsiJFEr.lottie"
+              width="200"
+              height="200"
+              style="border:0;"
+              allowfullscreen>
+            </iframe>
+          </div>
+          <h3>Ethical Sourcing</h3>
+          <p>Our supply chain is built on transparency, fairness, and responsible production.</p>
+        </div>
+        <div class="info-card">
+          <div class="info-icon">
+            <iframe
+              src="https://lottie.host/embed/247e016d-2840-4518-9ac7-4e805b8ddcf1/i0oniX3gAO.lottie"
+              width="200"
+              height="200"
+              style="border:0;"
+              allowfullscreen>
+            </iframe>
+          </div>
+          <h3>Future-Focused</h3>
+          <p>We create brands that are built to last—designed for relevance and resilience.</p>
         </div>
       </div>
     </section>
@@ -814,7 +941,7 @@
       </div>
     </section>
     
-    <!-- NEW SECTION: Recognitions & Awards -->
+    <!-- RECOGNITIONS & AWARDS SECTION -->
     <section class="section" id="recognition">
       <h2 data-aos="fade-up">Recognitions & Awards</h2>
       <div class="verticals-cards" data-aos="fade-up" data-aos-delay="100">
@@ -829,7 +956,7 @@
       </div>
     </section>
     
-    <!-- NEW SECTION: Partners & Collaborators -->
+    <!-- PARTNERS & COLLABORATORS SECTION -->
     <section class="section" id="partners">
       <h2 data-aos="fade-up">Partners & Collaborators</h2>
       <div class="verticals-cards" data-aos="fade-up" data-aos-delay="100">
@@ -848,7 +975,7 @@
       </div>
     </section>
     
-    <!-- NEW SECTION: Invest With Us -->
+    <!-- INVEST WITH US SECTION -->
     <section class="section" id="invest">
       <h2 data-aos="fade-up">Invest with Us</h2>
       <div class="contact-section" data-aos="fade-up" data-aos-delay="100">
@@ -857,7 +984,7 @@
       </div>
     </section>
     
-    <!-- NEW SECTION: FAQs -->
+    <!-- FAQs SECTION -->
     <section class="section" id="faq">
       <h2 data-aos="fade-up">Frequently Asked Questions</h2>
       <div class="verticals-cards" data-aos="fade-up" data-aos-delay="100">
@@ -963,8 +1090,8 @@
           crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script>
     document.addEventListener("DOMContentLoaded", function() {
-      // Initialize AOS
-      AOS.init({ duration: 1000, once: true });
+      // Initialize AOS with a reduced duration for smoother animations
+      AOS.init({ duration: 800, once: true });
       
       // Toggle header style on scroll
       window.addEventListener("scroll", () => {
@@ -975,7 +1102,7 @@
       // Update footer year
       document.getElementById("year").textContent = new Date().getFullYear();
       
-      // Intersection Observer for team bounce animation
+      // Team bounce animation
       const teamSection = document.getElementById("team");
       const teamCards = document.querySelectorAll(".team-card");
       const observer = new IntersectionObserver((entries) => {
@@ -988,13 +1115,13 @@
       }, { threshold: 0.5 });
       observer.observe(teamSection);
       
-      // Hamburger menu toggle for mobile
+      // Hamburger menu toggle
       const hamburger = document.getElementById("hamburger");
       hamburger.addEventListener("click", () => {
         document.querySelector("nav").classList.toggle("active");
       });
       
-      // Back-to-Top Button functionality
+      // Back-to-Top Button
       const backToTopButton = document.getElementById("back-to-top");
       window.addEventListener("scroll", () => {
         backToTopButton.style.display = window.pageYOffset > 300 ? "block" : "none";
@@ -1007,16 +1134,13 @@
       const openModalBtn = document.getElementById("openModal");
       const closeModalBtn = document.getElementById("closeModal");
       const contactModal = document.getElementById("contactModal");
-      
       if (openModalBtn && contactModal && closeModalBtn) {
         openModalBtn.addEventListener("click", () => {
           contactModal.style.display = "block";
         });
-        
         closeModalBtn.addEventListener("click", () => {
           contactModal.style.display = "none";
         });
-        
         window.addEventListener("click", (event) => {
           if (event.target === contactModal) {
             contactModal.style.display = "none";
@@ -1024,7 +1148,7 @@
         });
       }
       
-      // Prevent default form submission (demo purposes)
+      // Prevent default form submission (demo)
       const contactForm = document.getElementById("contactForm");
       if (contactForm) {
         contactForm.addEventListener("submit", function(e) {
@@ -1035,16 +1159,14 @@
         });
       }
       
-      // Cookie Consent functionality
+      // Cookie Consent
       const cookieConsent = document.getElementById("cookieConsent");
       const acceptCookiesBtn = document.getElementById("acceptCookies");
-      
       if (acceptCookiesBtn && cookieConsent) {
         acceptCookiesBtn.addEventListener("click", () => {
           cookieConsent.style.display = "none";
           localStorage.setItem("cookiesAccepted", "true");
         });
-      
         if (localStorage.getItem("cookiesAccepted") === "true") {
           cookieConsent.style.display = "none";
         }
