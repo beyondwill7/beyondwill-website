@@ -260,7 +260,7 @@
       background: rgba(255, 255, 255, 0.03);
       padding: 20px;
       border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
       transition: transform var(--transition-speed) ease;
       color: var(--text-color);
       position: relative;
@@ -283,7 +283,7 @@
       padding: 20px;
       border-radius: 10px;
       text-align: center;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
       transition: transform var(--transition-speed) ease;
       color: var(--text-color);
       position: relative;
@@ -327,7 +327,7 @@
       width: 100%;
       max-width: 500px;
       border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.5);
     }
     .explore-btn {
       display: inline-block;
@@ -477,8 +477,6 @@
       font-size: 0.95rem;
       color: #cccccc;
     }
-    
-    /* The rest of your sections (Business Verticals, Reviews, Contact, Footer, etc.) remain unchanged */
     
     /* BUSINESS VERTICALS SECTION */
     .verticals-cards {
@@ -760,10 +758,16 @@
       <div class="about-container" data-aos="fade-up" data-aos-delay="100">
         <div class="about-text">
           <p>
-            Beyondwill LLP is a visionary company blending modern innovation with time-tested business strategies. We build and scale creative ventures starting with our flagship fashion brand, <strong><a href="https://www.mysoulmonk.com" target="_blank" style="text-decoration: none; color: inherit;">Soulmonk</a></strong>, while laying the groundwork for future diversification.
+            Beyondwill LLP is not just a company—it's a movement built on vision, ambition, and purpose. Founded with a passion for design and innovation, we operate at the intersection of fashion, technology, and consumer-centric brand building.
           </p>
           <p>
-            Our approach combines creative design, strategic growth, and a commitment to sustainability. We value collaboration and ingenuity in every project we undertake.
+            At our core, we are a modern-day brand incubator—identifying emerging market opportunities, shaping distinctive brand voices, and enabling startups to thrive in a hyper-competitive world. Our flagship venture <strong><a href="https://www.mysoulmonk.com" target="_blank" style="text-decoration: none; color: inherit;">Soulmonk</a></strong> is a testament to our ability to combine aesthetics, sustainability, and scalable operations.
+          </p>
+          <p>
+            Driven by a mission to foster creative excellence and empower emerging talent, we manage everything from conceptualizing visual identities to building robust e-commerce ecosystems. We ensure every brand under the Beyondwill umbrella is future-ready and impact-driven.
+          </p>
+          <p>
+            As a Startup India Recognised entity, we are committed to responsible growth, innovation-led disruption, and building a resilient brand culture. The journey has just begun—come build the future with us.
           </p>
         </div>
         <div class="about-image">
@@ -771,7 +775,7 @@
         </div>
       </div>
     </section>
-  
+    
     <!-- MISSION & VISION SECTION -->
     <section class="section" id="mission-vision">
       <h2 data-aos="fade-up">Mission & Vision</h2>
@@ -790,7 +794,7 @@
         </div>
       </div>
     </section>
-  
+    
     <!-- TEAM SECTION -->
     <section class="section" id="team">
       <h2 data-aos="fade-up">Meet the Core Team</h2>
@@ -958,79 +962,93 @@
           integrity="sha512-eL4+7j3TCaIug1So6xQnZX3Zg0woXgIViTt4TX37cG49Gk0yAN3RVcxTCu1d5Yi7SJPX1cRUEtzfS2duHcG4Cg==" 
           crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script>
-    AOS.init({ duration: 1000, once: true });
-    
-    window.addEventListener("scroll", () => {
-      const header = document.getElementById("header");
-      header.classList.toggle("scrolled", window.scrollY > 50);
-    });
-    
-    document.getElementById("year").textContent = new Date().getFullYear();
-    
-    const teamSection = document.getElementById("team");
-    const teamCards = document.querySelectorAll(".team-card");
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          teamCards.forEach((card) => card.classList.add("bounce-animation"));
-          observer.unobserve(teamSection);
+    document.addEventListener("DOMContentLoaded", function() {
+      // Initialize AOS
+      AOS.init({ duration: 1000, once: true });
+      
+      // Toggle header style on scroll
+      window.addEventListener("scroll", () => {
+        const header = document.getElementById("header");
+        header.classList.toggle("scrolled", window.scrollY > 50);
+      });
+      
+      // Update footer year
+      document.getElementById("year").textContent = new Date().getFullYear();
+      
+      // Intersection Observer for team bounce animation
+      const teamSection = document.getElementById("team");
+      const teamCards = document.querySelectorAll(".team-card");
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            teamCards.forEach((card) => card.classList.add("bounce-animation"));
+            observer.unobserve(teamSection);
+          }
+        });
+      }, { threshold: 0.5 });
+      observer.observe(teamSection);
+      
+      // Hamburger menu toggle for mobile
+      const hamburger = document.getElementById("hamburger");
+      hamburger.addEventListener("click", () => {
+        document.querySelector("nav").classList.toggle("active");
+      });
+      
+      // Back-to-Top Button functionality
+      const backToTopButton = document.getElementById("back-to-top");
+      window.addEventListener("scroll", () => {
+        backToTopButton.style.display = window.pageYOffset > 300 ? "block" : "none";
+      });
+      backToTopButton.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+      
+      // Modal functionality for Contact Form
+      const openModalBtn = document.getElementById("openModal");
+      const closeModalBtn = document.getElementById("closeModal");
+      const contactModal = document.getElementById("contactModal");
+      
+      if (openModalBtn && contactModal && closeModalBtn) {
+        openModalBtn.addEventListener("click", () => {
+          contactModal.style.display = "block";
+        });
+        
+        closeModalBtn.addEventListener("click", () => {
+          contactModal.style.display = "none";
+        });
+        
+        window.addEventListener("click", (event) => {
+          if (event.target === contactModal) {
+            contactModal.style.display = "none";
+          }
+        });
+      }
+      
+      // Prevent default form submission (demo purposes)
+      const contactForm = document.getElementById("contactForm");
+      if (contactForm) {
+        contactForm.addEventListener("submit", function(e) {
+          e.preventDefault();
+          alert("Your message has been submitted!");
+          contactModal.style.display = "none";
+          contactForm.reset();
+        });
+      }
+      
+      // Cookie Consent functionality
+      const cookieConsent = document.getElementById("cookieConsent");
+      const acceptCookiesBtn = document.getElementById("acceptCookies");
+      
+      if (acceptCookiesBtn && cookieConsent) {
+        acceptCookiesBtn.addEventListener("click", () => {
+          cookieConsent.style.display = "none";
+          localStorage.setItem("cookiesAccepted", "true");
+        });
+      
+        if (localStorage.getItem("cookiesAccepted") === "true") {
+          cookieConsent.style.display = "none";
         }
-      });
-    }, { threshold: 0.5 });
-    observer.observe(teamSection);
-    
-    const hamburger = document.getElementById("hamburger");
-    hamburger.addEventListener("click", () => {
-      document.querySelector("nav").classList.toggle("active");
-    });
-    
-    const backToTopButton = document.getElementById("back-to-top");
-    window.addEventListener("scroll", () => {
-      backToTopButton.style.display = window.pageYOffset > 300 ? "block" : "none";
-    });
-    backToTopButton.addEventListener("click", () => {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    });
-    
-    const openModalBtn = document.getElementById("openModal");
-    const closeModalBtn = document.getElementById("closeModal");
-    const contactModal = document.getElementById("contactModal");
-    
-    if (openModalBtn) {
-      openModalBtn.addEventListener("click", () => {
-        contactModal.style.display = "block";
-      });
-    }
-    if (closeModalBtn) {
-      closeModalBtn.addEventListener("click", () => {
-        contactModal.style.display = "none";
-      });
-    }
-    window.addEventListener("click", (event) => {
-      if (event.target == contactModal) {
-        contactModal.style.display = "none";
       }
-    });
-    
-    const cookieConsent = document.getElementById("cookieConsent");
-    const acceptCookiesBtn = document.getElementById("acceptCookies");
-    
-    acceptCookiesBtn.addEventListener("click", () => {
-      cookieConsent.style.display = "none";
-      localStorage.setItem("cookiesAccepted", "true");
-    });
-    
-    window.addEventListener("load", () => {
-      if (localStorage.getItem("cookiesAccepted") === "true") {
-        cookieConsent.style.display = "none";
-      }
-    });
-    
-    document.getElementById("contactForm").addEventListener("submit", function(e) {
-      e.preventDefault();
-      alert("Your message has been submitted!");
-      contactModal.style.display = "none";
-      this.reset();
     });
   </script>
 </body>
