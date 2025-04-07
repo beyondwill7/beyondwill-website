@@ -855,7 +855,114 @@ footer {
 .backdrop {
   display: none !important;
 }
-</style></head>
+</style>
+<style>
+.beyond-trigger {
+  background: transparent;
+  border: 2px solid #ff6a00;
+  color: #ff6a00;
+  padding: 14px 24px;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.beyond-trigger::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: linear-gradient(135deg, #ff4500, #ff6a00);
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.beyond-trigger:hover::before {
+  opacity: 0.2;
+}
+
+.beyond-trigger:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(255, 106, 0, 0.5);
+  color: #fff;
+}
+</style>
+
+
+<style>
+.beyond-modal {
+  display: none !important;
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background: rgba(0, 0, 0, 0.6);
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.beyond-modal.show {
+  display: flex !important;
+}
+
+.beyond-modal-content {
+  background: #fff;
+  color: #000;
+  border-radius: 12px;
+  padding: 24px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+.beyond-form input,
+.beyond-form textarea {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  margin-bottom: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.beyond-submit {
+  background: linear-gradient(135deg, #ff4500, #ff6a00);
+  color: white;
+  padding: 14px 24px;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.beyond-submit:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(255, 105, 0, 0.4);
+  background: linear-gradient(135deg, #ff6a00, #ff4500);
+}
+
+.beyond-close {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #000;
+  cursor: pointer;
+}
+</style>
+</head>
 <body>
 <!-- Skip to content link for accessibility -->
 <a class="skip-to-content" href="#main-content" style="position:absolute; top:-40px; left:0; background:#000; color:#fff; padding:8px; z-index:1001;">Skip to Content</a>
@@ -1134,34 +1241,8 @@ footer {
 <h2 data-aos="fade-up">Contact / Get in Touch</h2>
 <div class="contact-section" data-aos="fade-up" data-aos-delay="100">
 <p>For inquiries, collaborations, or just to say hi, reach out to us at:</p>
-<p>Email: <a href="mailto:support@beyondwill.in">support@beyondwill.in</a> | Phone: <a href="tel:+917907069771">91 7907069771</a></p>
-<!-- New Fancy Button UI Replacing the Old "Send a Message" Button -->
-<!-- SVG Filters for Fancy Button -->
-<svg style="position: absolute; width: 0; height: 0;">
-<filter height="300%" id="unopaq" width="300%" x="-100%" y="-100%">
-<fecolormatrix values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 9 0"></fecolormatrix>
-</filter>
-<filter height="300%" id="unopaq2" width="300%" x="-100%" y="-100%">
-<fecolormatrix values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 3 0"></fecolormatrix>
-</filter>
-<filter height="300%" id="unopaq3" width="300%" x="-100%" y="-100%">
-<fecolormatrix values="1 0 0 0.2 0  0 1 0 0.2 0  0 0 1 0.2 0  0 0 0 2 0"></fecolormatrix>
-</filter>
-</svg>
-<!-- Hidden real button with id "openModal" to trigger modal -->
-<button class="real-button" id="openModal"></button>
-<!-- Backdrop for the fancy button -->
-<div class="backdrop"></div>
-<!-- Fancy Button Container -->
-<div class="button-container">
-<div class="spin spin-blur"></div>
-<div class="spin spin-intense"></div>
-<div class="backdrop"></div>
-<div class="button-border">
-<div class="spin spin-inside"></div>
-<div class="button">Send A Message</div>
-</div>
-</div>
+<p>Email: support@beyondwill.in | Phone: 91 7907069771</p>
+<button class="beyond-trigger" id="beyondTrigger">Send a Message</button>
 </div>
 </section>
 </main>
@@ -1329,5 +1410,43 @@ footer {
       }
     });
   </script>
+<div class="beyond-modal" id="beyondModal">
+<div class="beyond-modal-content">
+<span class="beyond-close" id="beyondClose">×</span>
+<h2>Contact Us</h2>
+<form action="https://formspree.io/f/xjkypakp" class="beyond-form" method="POST">
+<label>Name</label>
+<input name="name" required="" type="text"/>
+<label>Email</label>
+<input name="email" required="" type="email"/>
+<label>Message</label>
+<textarea name="message" required="" rows="4"></textarea>
+<button class="beyond-submit" type="submit">Send</button>
+</form>
+</div>
+</div>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const modal = document.getElementById("beyondModal");
+  const openBtn = document.getElementById("beyondTrigger");
+  const closeBtn = document.getElementById("beyondClose");
+
+  openBtn.addEventListener("click", () => {
+    modal.classList.add("show");
+  });
+
+  closeBtn.addEventListener("click", () => {
+    modal.classList.remove("show");
+  });
+
+  window.addEventListener("click", (e) => {
+    if (e.target === modal) {
+      modal.classList.remove("show");
+    }
+  });
+});
+</script>
 </body>
 </html>
