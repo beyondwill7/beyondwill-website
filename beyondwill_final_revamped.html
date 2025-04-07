@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Beyondwill LLP – Innovative Fashion Brand Incubator</title>
+<meta content="Beyondwill LLP is a visionary company building innovative, style-driven brands. Discover our flagship fashion brand Soulmonk and our mission for sustainability and growth." name="description"/>
+<link href="https://beyondwill.in/" rel="canonical"/>
+<!-- Favicon Icon -->
+<link href="https://cdn.shopify.com/s/files/1/0686/7795/9910/files/ChatGPT_Image_Apr_2_2025_06_42_45_PM.png?v=1743599578" rel="icon" type="image/png"/>
+<!-- Google Fonts: Poppins -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- AOS Library for scroll animations -->
+<link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" integrity="sha512-HoM5QfN+ZkVXkIVZ8Gp6KnQ/KC1+ZzmP5+f0B5u2kD/Tq3N8Sd+QqS5A3Y3g7oUj22CHeTQAC+QWIzWn5oAApA==" referrerpolicy="no-referrer" rel="stylesheet"/>
+<!-- JSON‑LD Structured Data -->
+<script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Beyondwill LLP",
+      "url": "https://beyondwill.in",
+      "logo": "https://cdn.shopify.com/s/files/1/0686/7795/9910/files/ChatGPT_Image_Apr_2_2025_06_42_45_PM.png?v=1743599578",
+      "contactPoint": [{
+        "@type": "ContactPoint",
+        "telephone": "+917907069771",
+        "contactType": "customer service",
+        "email": "support@beyondwill.in"
+      }]
+    }
+  </script>
+<style>
+    :root {
+      /* Dark theme color variables */
+      --bg-color: #0e0e0e;
+      --text-color: #ffffff;
+      --accent-color: #ff4500;
+      --header-bg: rgba(0, 0, 0, 0.85);
+      --header-height: 80px;
+      --header-height-scrolled: 60px;
+      --transition-speed: 0.3s;
+      --max-width: 1200px;
+    }
+    
+    /* Reset & Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: "Poppins", sans-serif;
+      background: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    
+    /* KEYFRAMES */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes textGradient {
+      0%   { background-position: 200% center; }
+      100% { background-position: -200% center; }
+    }
+    @keyframes premiumMinimal {
+      0% {
+        opacity: 0;
+        transform: translateY(10px) scale(0.98);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0); }
+    }
+    
+    /* HEADER & NAVIGATION */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: var(--header-height);
+      background: var(--header-bg);
+      backdrop-filter: blur(6px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: height var(--transition-speed) ease, background var(--transition-speed) ease;
+      z-index: 1000;
+      padding: 0 20px;
+    }
+    header.scrolled {
+      height: var(--header-height-scrolled);
+      background: rgba(0, 0, 0, 0.9);
+    }
+    .logo a {
+      color: var(--accent-color);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1.5rem;
+    }
+    nav {
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+    nav ul li a {
+      color: var(--text-color);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color var(--transition-speed) ease;
+    }
+    nav ul li a:hover {
+      color: var(--accent-color);
+    }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+    .hamburger span {
+      width: 25px;
+      height: 3px;
+      background: var(--text-color);
+      margin: 4px 0;
+      transition: all 0.3s ease;
+    }
+    @media (max-width: 768px) {
+      .hamburger {
+        display: flex;
+      }
+      nav ul {
+        flex-direction: column;
+        position: absolute;
+        top: var(--header-height);
+        right: 20px;
+        background: var(--header-bg);
+        padding: 10px;
+        border-radius: 5px;
+        display: none;
+      }
+      nav.active ul {
+        display: flex;
+      }
+    }
+    
+    /* HERO SECTION with Video Background */
+    .hero {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .bg-video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: 1;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      animation: fadeInUp 1.5s ease forwards;
+    }
+    /* h1 Gradient: Neon Pink → Purple → Electric Blue */
+    h1 {
+      font-size: 4rem;
+      margin-bottom: 20px;
+      background: linear-gradient(90deg, #ff00cc, #3333ff, #00ffff);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: textGradient 5s linear infinite;
+    }
+    /* h2 Gradient: Pink → Purple → Blue */
+    h2 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      text-align: center;
+      background: linear-gradient(90deg, #ff6ec4, #7873f5, #4adeff);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: textGradient 5s linear infinite;
+    }
+    /* h3 Gradient: Violet → Indigo → Teal */
+    h3 {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+      background: linear-gradient(90deg, #8e2de2, #4a00e0, #2ec4b6);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: textGradient 5s linear infinite;
+    }
+    /* h4 Gradient: Lime Green → Yellow → Orange */
+    h4 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      background: linear-gradient(90deg, #b2f91d, #ffde59, #ff7b00);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: textGradient 5s linear infinite;
+    }
+    .hero-content p {
+      font-size: 1.5rem;
+      margin: 0 auto;
+      color: var(--text-color);
+    }
+    
+    @media (max-width: 1024px) {
+      .hero {
+        height: calc(100vh - var(--header-height));
+        padding-top: var(--header-height);
+      }
+    }
+    
+    /* SECTION WRAPPER */
+    .section {
+      padding: 60px 20px;
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+    
+    /* ABOUT SECTION (Image removed, text centered) */
+    .about-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .about-text {
+      max-width: 800px;
+      text-align: center;
+      will-change: transform, opacity;
+      transform: translateZ(0);
+      backface-visibility: hidden;
+    }
+    
+    /* Infographics row */
+    .infographics {
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 20px;
+      overflow-x: auto;
+      padding: 20px 0;
+      scroll-snap-type: x mandatory;
+    }
+    .infographics::-webkit-scrollbar {
+      height: 6px;
+    }
+    .infographics::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 10px;
+    }
+    .info-card {
+      flex: 0 0 280px;
+      background: rgba(255,255,255,0.04);
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      color: var(--text-color);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      animation: float 6s ease-in-out infinite;
+      scroll-snap-align: start;
+    }
+    .info-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 24px rgba(255, 69, 0, 0.3);
+    }
+    .info-icon {
+      margin-bottom: 10px;
+    }
+    .info-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+    }
+    .info-card p {
+      font-size: 0.95rem;
+      color: #ccc;
+    }
+    
+    /* MISSION & VISION SECTION */
+    .mission-vision {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+    .mission, .vision {
+      flex: 1 1 400px;
+      background: rgba(255, 255, 255, 0.03);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+      transition: transform var(--transition-speed) ease;
+      color: var(--text-color);
+      position: relative;
+      overflow: hidden;
+    }
+    .mission:hover, .vision:hover {
+      transform: translateY(-5px);
+    }
+    
+    /* TEAM SECTION */
+    .team-cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+    .team-card {
+      background: rgba(255, 255, 255, 0.03);
+      width: 300px;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+      transition: transform var(--transition-speed) ease;
+      color: var(--text-color);
+      position: relative;
+      overflow: hidden;
+    }
+    .team-card:hover {
+      transform: translateY(-5px);
+    }
+    .team-card h3 {
+      margin-bottom: 5px;
+      font-size: 1.2rem;
+      color: var(--accent-color);
+    }
+    .team-card p {
+      font-size: 0.95rem;
+      color: #cccccc;
+    }
+    .bounce-animation {
+      animation: bounce 1.5s ease-out;
+    }
+    
+    /* BRAND SECTION */
+    .brand-section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      align-items: center;
+    }
+    .brand-text {
+      flex: 1 1 400px;
+      color: var(--text-color);
+    }
+    .brand-image {
+      flex: 1 1 500px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .brand-image img {
+      width: 100%;
+      max-width: 500px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+    }
+    .explore-btn {
+      display: inline-block;
+      background: var(--accent-color);
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background var(--transition-speed) ease;
+      margin-top: 20px;
+    }
+    .explore-btn:hover {
+      background: #e03e00;
+    }
+    
+    /* RECOGNITIONS & AWARDS SECTION */
+    #recognition {
+      padding: 60px 20px;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      text-align: center;
+    }
+    #recognition h2 {
+      margin-bottom: 20px;
+      color: var(--accent-color);
+    }
+    #recognition .verticals-cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+    #recognition .vertical-card {
+      flex: 1 1 300px;
+      background: rgba(255, 255, 255, 0.03);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+      transition: transform var(--transition-speed) ease;
+      color: var(--text-color);
+      overflow: hidden;
+    }
+    #recognition .vertical-card:hover {
+      transform: translateY(-5px);
+    }
+    #recognition .vertical-card h4 {
+      margin-bottom: 10px;
+      color: var(--accent-color);
+    }
+    #recognition .vertical-card p {
+      font-size: 0.95rem;
+      color: #cccccc;
+    }
+    
+    /* PARTNERS & COLLABORATORS SECTION */
+    #partners {
+      padding: 60px 20px;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      text-align: center;
+    }
+    #partners h2 {
+      margin-bottom: 20px;
+      color: var(--accent-color);
+    }
+    #partners .verticals-cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+    #partners .vertical-card {
+      flex: 1 1 300px;
+      background: rgba(255, 255, 255, 0.03);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+      transition: transform var(--transition-speed) ease;
+      color: var(--text-color);
+      overflow: hidden;
+    }
+    #partners .vertical-card:hover {
+      transform: translateY(-5px);
+    }
+    #partners .vertical-card h4 {
+      margin-bottom: 10px;
+      color: var(--accent-color);
+    }
+    #partners .vertical-card p {
+      font-size: 0.95rem;
+      color: #cccccc;
+    }
+    
+    /* INVEST WITH US SECTION */
+    #invest {
+      padding: 60px 20px;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      text-align: center;
+    }
+    #invest h2 {
+      margin-bottom: 20px;
+      color: var(--accent-color);
+    }
+    #invest .contact-section p {
+      font-size: 1rem;
+      color: #cccccc;
+      margin-bottom: 20px;
+    }
+    
+    /* FAQs SECTION */
+    #faq {
+      padding: 60px 20px;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      text-align: center;
+    }
+    #faq h2 {
+      margin-bottom: 20px;
+      color: var(--accent-color);
+    }
+    #faq .verticals-cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+    #faq .vertical-card {
+      flex: 1 1 300px;
+      background: rgba(255, 255, 255, 0.03);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+      transition: transform var(--transition-speed) ease;
+      color: var(--text-color);
+      overflow: hidden;
+    }
+    #faq .vertical-card:hover {
+      transform: translateY(-5px);
+    }
+    #faq .vertical-card h4 {
+      margin-bottom: 10px;
+      color: var(--accent-color);
+    }
+    #faq .vertical-card p {
+      font-size: 0.95rem;
+      color: #cccccc;
+    }
+    
+    /* BUSINESS VERTICALS SECTION */
+    .verticals-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .vertical-card {
+      background: rgba(255, 255, 255, 0.03);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+      transition: transform var(--transition-speed) ease;
+      color: var(--text-color);
+      overflow: hidden;
+    }
+    .vertical-card:hover {
+      transform: translateY(-5px);
+    }
+    .vertical-card h4 {
+      margin-bottom: 10px;
+      background: linear-gradient(90deg, #ff6b6b, #007bff, #ff6b6b);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: textGradient 3s linear infinite;
+    }
+    .vertical-card p {
+      font-size: 0.95rem;
+      color: #cccccc;
+    }
+    
+    /* REVIEWS SECTION */
+    .reviews-cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+    .review-card {
+      background: rgba(255, 255, 255, 0.03);
+      width: 300px;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+      transition: transform var(--transition-speed) ease;
+      color: var(--text-color);
+      overflow: hidden;
+    }
+    .review-card:hover {
+      transform: translateY(-5px);
+    }
+    .review-card h4 {
+      margin-bottom: 10px;
+      background: linear-gradient(90deg, #ff6b6b, #007bff, #ff6b6b);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: textGradient 3s linear infinite;
+    }
+    .review-card p {
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: #cccccc;
+    }
+    
+    /* CONTACT SECTION */
+    .contact-section {
+      text-align: center;
+      color: var(--text-color);
+    }
+    .contact-section p {
+      margin-bottom: 20px;
+    }
+    .contact-btn {
+      background: var(--accent-color);
+      border: none;
+      color: #fff;
+      padding: 15px 30px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background var(--transition-speed) ease;
+    }
+    .contact-btn:hover {
+      background: #e03e00;
+    }
+    
+    /* FOOTER SECTION */
+    footer {
+      background: var(--bg-color);
+      color: #777;
+      padding: 30px 20px;
+      text-align: center;
+      opacity: 0;
+      animation: fadeInUp 1.5s ease forwards;
+      animation-delay: 0.5s;
+    }
+    
+    /* Back-to-Top Button */
+    #back-to-top {
+      position: fixed;
+      bottom: 40px;
+      right: 40px;
+      padding: 10px 15px;
+      font-size: 1rem;
+      background: var(--accent-color);
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      display: none;
+      z-index: 1000;
+      transition: opacity 0.3s ease;
+    }
+    
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1100;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.6);
+    }
+    .modal-content {
+      background-color: #1a1a1a;
+      margin: 10% auto;
+      padding: 20px;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 500px;
+      position: relative;
+      color: var(--text-color);
+    }
+    .close-modal {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      color: #aaa;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .close-modal:hover,
+    .close-modal:focus {
+      color: #fff;
+    }
+    .modal form input,
+    .modal form textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #333;
+      border-radius: 5px;
+      background: var(--bg-color);
+      color: var(--text-color);
+    }
+    .modal form button {
+      background: var(--accent-color);
+      border: none;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    
+    /* Cookie Consent Banner */
+    .cookie-consent {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0, 0, 0, 0.9);
+      color: #fff;
+      padding: 15px;
+      text-align: center;
+      z-index: 1200;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+    }
+    .cookie-consent button {
+      background: var(--accent-color);
+      border: none;
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    
+    /* REFLECTIVE ANIMATION */
+    .vertical-card,
+    .review-card,
+    .team-card,
+    .mission,
+    .vision {
+      position: relative;
+      overflow: hidden;
+    }
+    .vertical-card::before,
+    .review-card::before,
+    .team-card::before,
+    .mission::before,
+    .vision::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -150%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(120deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.12) 50%, rgba(255, 255, 255, 0.06) 100%);
+      transform: skewX(-15deg);
+      animation: reflection 5s linear infinite;
+    }
+    @keyframes reflection {
+      0% { left: -150%; }
+      100% { left: 200%; }
+    }
+  </style>
+</head>
+<body>
+<!-- Skip to content link for accessibility -->
+<a class="skip-to-content" href="#main-content" style="position:absolute; top:-40px; left:0; background:#000; color:#fff; padding:8px; z-index:1001;">Skip to Content</a>
+<!-- HEADER SECTION -->
+<header id="header">
+<div class="logo">
+<a href="#hero">Beyondwill LLP</a>
+</div>
+<nav>
+<ul>
+<li><a href="#hero">Home</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#mission-vision">Mission &amp; Vision</a></li>
+<li><a href="#team">Team</a></li>
+<li><a href="#brand">Soulmonk</a></li>
+<li><a href="#recognition">Recognitions</a></li>
+<li><a href="#partners">Partners</a></li>
+<li><a href="#invest">Invest</a></li>
+<li><a href="#faq">FAQs</a></li>
+<li><a href="#verticals">Verticals</a></li>
+<li><a href="#reviews">Reviews</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+<div class="hamburger" id="hamburger">
+<span></span>
+<span></span>
+<span></span>
+</div>
+</header>
+<!-- HERO SECTION -->
+<section class="hero" id="hero">
+<video autoplay="" class="bg-video" loop="" muted="" playsinline="">
+<source src="https://cdn.shopify.com/videos/c/o/v/02133c70fe8f477ca1553cc1cd89ed55.webm" type="video/webm"/>
+      Your browser does not support the video tag.
+    </video>
+<div class="hero-content" data-aos="fade-up">
+<h1>Beyondwill LLP</h1>
+<p>Innovative. Style-driven. Future-focused.</p>
+</div>
+</section>
+<!-- MAIN CONTENT -->
+<main id="main-content">
+<!-- ABOUT SECTION (Image removed, text centered) -->
+<section class="section" id="about">
+<h2 data-aos="fade-up">About Beyondwill LLP</h2>
+<div class="about-container" data-aos="fade-up" data-aos-delay="100">
+<div class="about-text">
+<p>
+            Beyondwill LLP is a visionary brand incubator committed to redefining fashion, entrepreneurship,
+            and brand building. We don’t just create fashion—we design experiences, build communities,
+            and nurture scalable ventures with style and substance.
+          </p>
+<p>
+            Our approach is rooted in balancing creativity, operational discipline, and brand-first strategies,
+            starting with our flagship venture <strong><a href="https://www.mysoulmonk.com" target="_blank">Soulmonk</a></strong>.
+            We’re recognized by Startup India, actively fostering collaborations and innovation.
+          </p>
+</div>
+</div>
+<!-- Infographics Row using iframes (200×200) -->
+<div class="infographics" data-aos="fade-up" data-aos-delay="200">
+<div class="info-card">
+<div class="info-icon">
+<iframe allowfullscreen="" class="lazy-lottie" data-src="https://lottie.host/embed/db57d5a5-78e2-49a4-bd9b-dbd687dff8e4/GFBw4A34Xd.lottie" height="200" style="border:0;" width="200">
+</iframe>
+</div>
+<h3>Visionary Innovation</h3>
+<p>We build purposeful brands driven by creativity, strategy, and long-term value.</p>
+</div>
+<div class="info-card">
+<div class="info-icon">
+<iframe allowfullscreen="" class="lazy-lottie" data-src="https://lottie.host/embed/d470c606-080c-4145-8e27-1af59b7ec9de/V7ZL1NdrYw.lottie" height="200" style="border:0;" width="200">
+</iframe>
+</div>
+<h3>Sustainable Growth</h3>
+<p>We grow ventures with balance—scaling sustainably while keeping our values intact.</p>
+</div>
+<div class="info-card">
+<div class="info-icon">
+<iframe allowfullscreen="" class="lazy-lottie" data-src="https://lottie.host/embed/606227b2-d50b-47fe-8b72-0d841aa2f83f/0XLm9hYLIW.lottie" height="200" style="border:0;" width="200">
+</iframe>
+</div>
+<h3>Collaborative DNA</h3>
+<p>Partnerships are at our core. We collaborate to innovate across industries and ideas.</p>
+</div>
+<div class="info-card">
+<div class="info-icon">
+<iframe allowfullscreen="" class="lazy-lottie" data-src="https://lottie.host/embed/5ef5e278-dcde-46bd-91c7-8466facd4b40/3NpTsiJFEr.lottie" height="200" style="border:0;" width="200">
+</iframe>
+</div>
+<h3>Ethical Sourcing</h3>
+<p>Our supply chain is built on transparency, fairness, and responsible production.</p>
+</div>
+<div class="info-card">
+<div class="info-icon">
+<iframe allowfullscreen="" class="lazy-lottie" data-src="https://lottie.host/embed/247e016d-2840-4518-9ac7-4e805b8ddcf1/i0oniX3gAO.lottie" height="200" style="border:0;" width="200">
+</iframe>
+</div>
+<h3>Future-Focused</h3>
+<p>We create brands that are built to last—designed for relevance and resilience.</p>
+</div>
+</div>
+</section>
+<!-- MISSION & VISION SECTION -->
+<section class="section" id="mission-vision">
+<h2 data-aos="fade-up">Mission &amp; Vision</h2>
+<div class="mission-vision" data-aos="fade-up" data-aos-delay="100">
+<div class="mission">
+<h3>Our Mission</h3>
+<p>
+            To build and scale innovative, style-driven brands that reflect modern lifestyles, fostering creativity, sustainability, and strategic growth.
+          </p>
+</div>
+<div class="vision">
+<h3>Our Vision</h3>
+<p>
+            To be a trusted and recognized leader in the fashion industry and beyond, incubating creative ventures that shape the future.
+          </p>
+</div>
+</div>
+</section>
+<!-- TEAM SECTION -->
+<section class="section" id="team">
+<h2 data-aos="fade-up">Meet the Core Team</h2>
+<div class="team-cards" data-aos="fade-up" data-aos-delay="100">
+<div class="team-card">
+<h3>Lijo Mathew Jacob</h3>
+<p>CEO &amp; Designated Partner</p>
+</div>
+<div class="team-card">
+<h3>Saiju V Thankachan</h3>
+<p>Partner – Finance &amp; Compliance</p>
+</div>
+<div class="team-card">
+<h3>Ajuraj R</h3>
+<p>Partner – Accounts &amp; Operations</p>
+</div>
+</div>
+</section>
+<!-- RECOGNITIONS & AWARDS SECTION -->
+<section class="section" id="recognition">
+<h2 data-aos="fade-up">Recognitions &amp; Awards</h2>
+<div class="verticals-cards" data-aos="fade-up" data-aos-delay="100">
+<div class="vertical-card">
+<h4>Startup India Recognized</h4>
+<p>Beyondwill LLP is proudly recognized by the Department for Promotion of Industry and Internal Trade (DPIIT) under the Startup India initiative.</p>
+</div>
+<div class="vertical-card">
+<h4>Innovative Brand Incubator Award</h4>
+<p>Honored for our forward-thinking approach in nurturing purpose-led fashion brands.</p>
+</div>
+</div>
+</section>
+<!-- PARTNERS & COLLABORATORS SECTION -->
+<section class="section" id="partners">
+<h2 data-aos="fade-up">Partners &amp; Collaborators</h2>
+<div class="verticals-cards" data-aos="fade-up" data-aos-delay="100">
+<div class="vertical-card">
+<h4>Micro-Influencers</h4>
+<p>We collaborate with creators who resonate with our brand values and bring authenticity to our storytelling.</p>
+</div>
+<div class="vertical-card">
+<h4>Production Houses</h4>
+<p>We partner with ethical and sustainable manufacturers to maintain quality without compromising our values.</p>
+</div>
+<div class="vertical-card">
+<h4>Tech &amp; Marketing Agencies</h4>
+<p>Strategic collaborations drive our digital growth, innovative campaigns, and data-driven insights.</p>
+</div>
+</div>
+</section>
+<!-- INVEST WITH US SECTION -->
+<section class="section" id="invest">
+<h2 data-aos="fade-up">Invest with Us</h2>
+<div class="contact-section" data-aos="fade-up" data-aos-delay="100">
+<p>We're building fashion-first consumer brands for the next generation. If you’re an angel investor or venture partner looking to fuel scalable, design-led businesses—let's talk.</p>
+<a class="contact-btn" href="mailto:founders@beyondwill.in">Connect with Founders</a>
+</div>
+</section>
+<!-- FAQs SECTION -->
+<section class="section" id="faq">
+<h2 data-aos="fade-up">Frequently Asked Questions</h2>
+<div class="verticals-cards" data-aos="fade-up" data-aos-delay="100">
+<div class="vertical-card">
+<h4>What is Beyondwill LLP?</h4>
+<p>We are a fashion brand incubator focused on launching, scaling, and supporting new-age consumer labels.</p>
+</div>
+<div class="vertical-card">
+<h4>How is Soulmonk related?</h4>
+<p>Soulmonk is our flagship fashion brand under the Beyondwill LLP umbrella, designed for urban, style-conscious consumers.</p>
+</div>
+<div class="vertical-card">
+<h4>Are you open to partnerships?</h4>
+<p>Absolutely. We believe collaboration drives innovation. Reach out to explore synergy.</p>
+</div>
+<div class="vertical-card">
+<h4>Can I invest or collaborate?</h4>
+<p>Yes—if you're aligned with our mission. Let's build something impactful together.</p>
+</div>
+</div>
+</section>
+<!-- BUSINESS VERTICALS SECTION -->
+<section class="section" id="verticals">
+<h2 data-aos="fade-up">Our Business Verticals</h2>
+<div class="verticals-cards" data-aos="fade-up" data-aos-delay="100">
+<div class="vertical-card" data-aos="zoom-in">
+<h4>Fashion &amp; Apparel</h4>
+<p>From design to distribution, we create style-driven brands that resonate with today’s consumers.</p>
+</div>
+<div class="vertical-card" data-aos="zoom-in" data-aos-delay="100">
+<h4>Future Ventures</h4>
+<p>Beyond fashion, our roadmap includes expanding into high-growth sectors where innovation meets tradition.</p>
+</div>
+<div class="vertical-card" data-aos="zoom-in" data-aos-delay="200">
+<h4>Incubation &amp; Support</h4>
+<p>We incubate creative ventures by providing strategic guidance, operational expertise, and financial support.</p>
+</div>
+</div>
+</section>
+<!-- REVIEWS SECTION -->
+<section class="section" id="reviews">
+<h2 data-aos="fade-up">Early Reviews</h2>
+<div class="reviews-cards" data-aos="fade-up" data-aos-delay="100">
+<div class="review-card" data-aos="zoom-in">
+<h4>Jane Doe</h4>
+<p>“Soulmonk’s clothing line is the perfect blend of style and comfort. Beyondwill LLP is redefining fashion with innovation and elegance.”</p>
+</div>
+<div class="review-card" data-aos="zoom-in" data-aos-delay="100">
+<h4>John Smith</h4>
+<p>“A refreshing brand that marries sustainability with high fashion. Beyondwill LLP continues to push boundaries in every venture.”</p>
+</div>
+<div class="review-card" data-aos="zoom-in" data-aos-delay="200">
+<h4>Alex Johnson</h4>
+<p>“The Soulmonk experience is truly exceptional—seamless e-commerce, engaging design, and unmatched quality.”</p>
+</div>
+</div>
+</section>
+<!-- CONTACT SECTION -->
+<section class="section" id="contact">
+<h2 data-aos="fade-up">Contact / Get in Touch</h2>
+<div class="contact-section" data-aos="fade-up" data-aos-delay="100">
+<p>For inquiries, collaborations, or just to say hi, reach out to us at:</p>
+<p>Email: <a href="mailto:support@beyondwill.in">support@beyondwill.in</a> | Phone: <a href="tel:+917907069771">91 7907069771</a></p>
+<button class="contact-btn" id="openModal">Send a Message</button>
+</div>
+</section>
+</main>
+<!-- FOOTER SECTION -->
+<footer>
+    © <span id="year"></span> Beyondwill LLP. All rights reserved.
+  </footer>
+<!-- Back-to-Top Button -->
+<button id="back-to-top" title="Back to Top">↑</button>
+<!-- Modal for Contact Form -->
+<div class="modal" id="contactModal">
+<div class="modal-content" data-aos="fade-up">
+<span class="close-modal" id="closeModal">×</span>
+<h2>Contact Us</h2>
+<form id="contactForm">
+<input name="name" placeholder="Your Name" required="" type="text"/>
+<input name="email" placeholder="Your Email" required="" type="email"/>
+<textarea name="message" placeholder="Your Message" required="" rows="4"></textarea>
+<button type="submit">Submit</button>
+</form>
+</div>
+</div>
+<!-- Cookie Consent Banner -->
+<div class="cookie-consent" id="cookieConsent">
+<span>This website uses cookies to ensure you get the best experience.</span>
+<button id="acceptCookies">Accept</button>
+</div>
+<!-- AOS Library & Custom Scripts -->
+<script crossorigin="anonymous" integrity="sha512-eL4+7j3TCaIug1So6xQnZX3Zg0woXgIViTt4TX37cG49Gk0yAN3RVcxTCu1d5Yi7SJPX1cRUEtzfS2duHcG4Cg==" referrerpolicy="no-referrer" src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+      // Initialize AOS with a reduced duration for smoother animations
+      AOS.init({ duration: 800, once: true });
+      
+      // Toggle header style on scroll
+      window.addEventListener("scroll", () => {
+        const header = document.getElementById("header");
+        header.classList.toggle("scrolled", window.scrollY > 50);
+      });
+      
+      // Update footer year
+      document.getElementById("year").textContent = new Date().getFullYear();
+      
+      // Team bounce animation
+      const teamSection = document.getElementById("team");
+      const teamCards = document.querySelectorAll(".team-card");
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            teamCards.forEach((card) => card.classList.add("bounce-animation"));
+            observer.unobserve(teamSection);
+          }
+        });
+      }, { threshold: 0.5 });
+      observer.observe(teamSection);
+      
+      // Hamburger menu toggle
+      const hamburger = document.getElementById("hamburger");
+      hamburger.addEventListener("click", () => {
+        document.querySelector("nav").classList.toggle("active");
+      });
+      
+      // Back-to-Top Button
+      const backToTopButton = document.getElementById("back-to-top");
+      window.addEventListener("scroll", () => {
+        backToTopButton.style.display = window.pageYOffset > 300 ? "block" : "none";
+      });
+      backToTopButton.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+      
+      // Modal functionality for Contact Form
+      const openModalBtn = document.getElementById("openModal");
+      const closeModalBtn = document.getElementById("closeModal");
+      const contactModal = document.getElementById("contactModal");
+      if (openModalBtn && contactModal && closeModalBtn) {
+        openModalBtn.addEventListener("click", () => {
+          contactModal.style.display = "block";
+        });
+        closeModalBtn.addEventListener("click", () => {
+          contactModal.style.display = "none";
+        });
+        window.addEventListener("click", (event) => {
+          if (event.target === contactModal) {
+            contactModal.style.display = "none";
+          }
+        });
+      }
+      
+      // Prevent default form submission (demo)
+      const contactForm = document.getElementById("contactForm");
+      if (contactForm) {
+        contactForm.addEventListener("submit", function(e) {
+          e.preventDefault();
+          alert("Your message has been submitted!");
+          contactModal.style.display = "none";
+          contactForm.reset();
+        });
+      }
+      
+      // Cookie Consent
+      const cookieConsent = document.getElementById("cookieConsent");
+      const acceptCookiesBtn = document.getElementById("acceptCookies");
+      if (acceptCookiesBtn && cookieConsent) {
+        acceptCookiesBtn.addEventListener("click", () => {
+          cookieConsent.style.display = "none";
+          localStorage.setItem("cookiesAccepted", "true");
+        });
+        if (localStorage.getItem("cookiesAccepted") === "true") {
+          cookieConsent.style.display = "none";
+        }
+      }
+    });
+  </script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const lazyLotties = document.querySelectorAll(".lazy-lottie");
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const iframe = entry.target;
+        if (!iframe.src) {
+          iframe.src = iframe.getAttribute("data-src");
+        }
+        observer.unobserve(iframe);
+      }
+    });
+  }, {
+    threshold: 0.25
+  });
+  lazyLotties.forEach(iframe => observer.observe(iframe));
+});
+</script></body>
+</html>
