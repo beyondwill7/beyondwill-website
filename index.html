@@ -913,7 +913,7 @@ footer {
 }
 
 .beyond-modal-content {
-  background: #fff;
+  background: transparent;
   color: #000;
   border-radius: 12px;
   padding: 24px;
@@ -995,10 +995,7 @@ footer {
 </header>
 <!-- HERO SECTION -->
 <section class="hero" id="hero">
-<video autoplay="" class="bg-video" loop="" muted="" playsinline="">
-<source src="https://cdn.shopify.com/videos/c/o/v/02133c70fe8f477ca1553cc1cd89ed55.webm" type="video/webm"/>
-      Your browser does not support the video tag.
-    </video>
+
 <div class="hero-content" data-aos="fade-up">
 <h1>Beyondwill LLP</h1>
 <p>Innovative. Style-driven. Future-focused.</p>
@@ -1236,6 +1233,24 @@ footer {
 </div>
 </div>
 </section>
+
+<!-- OUR VENTURES SECTION -->
+<section class="section" id="ventures">
+  <h2 data-aos="fade-up">Our Ventures</h2>
+  <div class="team-cards" data-aos="fade-up" data-aos-delay="100">
+    <div class="team-card">
+      <h3>Soulmonk</h3>
+      <p>A premium fashion brand under Beyondwill LLP. Redefining urban style through minimalism, streetwear, and sustainability.</p>
+      <a href="https://soulmonk.in" target="_blank" style="color: var(--accent-color); font-weight: 600;">Visit Soulmonk →</a>
+    </div>
+    <div class="team-card">
+      <h3>Next Venture</h3>
+      <p>We’re brewing something bold. Stay tuned for our next disruptive label launching soon under the Beyondwill banner.</p>
+      <a href="#invest" style="color: var(--accent-color); font-weight: 600;">Learn More →</a>
+    </div>
+  </div>
+</section>
+
 <!-- CONTACT SECTION (with Fancy Button replacing the old button) -->
 <section class="section" id="contact">
 <h2 data-aos="fade-up">Contact / Get in Touch</h2>
@@ -1448,5 +1463,107 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 </script>
+
+
+
+
+<script>
+  // REMOVED SINGLE PARTICLE INIT, {
+    fullScreen: { enable: true, zIndex: -1 },
+    background: { color: "transparent" },
+    particles: {
+      number: { value: 80 },
+      color: { value: "#ffffff" },
+      shape: { type: "circle" },
+      opacity: { value: 0.5 },
+      size: { value: 2 },
+      links: {
+        enable: true,
+        distance: 120,
+        color: "#ffffff",
+        opacity: 0.3,
+        width: 1
+      },
+      move: {
+        enable: true,
+        speed: 1.2,
+        direction: "none",
+        outModes: "bounce"
+      }
+    },
+    interactivity: {
+      events: {
+        onHover: { enable: true, mode: "grab" },
+        onClick: { enable: true, mode: "push" }
+      },
+      modes: {
+        grab: { distance: 150, links: { opacity: 0.5 } },
+        push: { quantity: 3 }
+      }
+    }
+  });
+</script>
+
+
+<!-- MULTI-LAYER PARTICLE BACKGROUNDS -->
+<div id="particles-back" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:-2;"></div>
+<div id="particles-front" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;"></div>
+
+<!-- MULTI-LAYER PARTICLE SCRIPTS -->
+<script src="https://cdn.jsdelivr.net/npm/tsparticles@2.11.1/tsparticles.bundle.min.js"></script>
+<script>
+tsParticles.load("particles-back", {
+  fullScreen: { enable: false },
+  background: { color: "transparent" },
+  particles: {
+    number: { value: 50 },
+    color: { value: "#222222" },
+    size: { value: 2 },
+    move: { enable: true, speed: 0.5, direction: "none", outModes: "bounce" },
+    opacity: { value: 0.3 }
+  },
+  interactivity: { events: {} }
+});
+
+tsParticles.load("particles-front", {
+  fullScreen: { enable: false },
+  background: { color: "transparent" },
+  particles: {
+    number: { value: 60 },
+    color: { value: "#ff6a00" },
+    shape: { type: "circle" },
+    links: {
+      enable: true,
+      distance: 120,
+      color: "#ff6a00",
+      opacity: 0.4,
+      width: 1
+    },
+    move: {
+      enable: true,
+      speed: 1.8,
+      outModes: "bounce"
+    },
+    size: { value: 2 },
+    opacity: { value: 0.6 }
+  },
+  interactivity: {
+    events: {
+      onHover: { enable: true, mode: "grab" },
+      onClick: { enable: true, mode: "push" }
+    },
+    modes: {
+      grab: { distance: 140, links: { opacity: 0.6 } },
+      push: { quantity: 4 }
+    }
+  }
+});
+</script>
+
+
+<!-- Spline 3D Viewer -->
+
+
+
 </body>
 </html>
