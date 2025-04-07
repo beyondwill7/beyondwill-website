@@ -1046,10 +1046,6 @@
 </div>
 </div>
 <!-- Cookie Consent Banner -->
-<div class="cookie-consent" id="cookieConsent">
-<span>This website uses cookies to ensure you get the best experience.</span>
-<button id="acceptCookies">Accept</button>
-</div>
 <!-- AOS Library & Custom Scripts -->
 <script crossorigin="anonymous" integrity="sha512-eL4+7j3TCaIug1So6xQnZX3Zg0woXgIViTt4TX37cG49Gk0yAN3RVcxTCu1d5Yi7SJPX1cRUEtzfS2duHcG4Cg==" referrerpolicy="no-referrer" src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 <script>
@@ -1123,18 +1119,7 @@
         });
       }
       
-      // Cookie Consent
-      const cookieConsent = document.getElementById("cookieConsent");
-      const acceptCookiesBtn = document.getElementById("acceptCookies");
-      if (acceptCookiesBtn && cookieConsent) {
-        acceptCookiesBtn.addEventListener("click", () => {
-          cookieConsent.style.display = "none";
-          localStorage.setItem("cookiesAccepted", "true");
-        });
-        if (localStorage.getItem("cookiesAccepted") === "true") {
-          cookieConsent.style.display = "none";
-        }
-      }
+      
     });
   </script>
 <script>
@@ -1233,35 +1218,5 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 </script>
 
-
-<script>
-  function showCookieBanner() {
-    document.getElementById("cookieConsent").style.display = "flex";
-  }
-
-  function hideCookieBanner() {
-    document.getElementById("cookieConsent").style.display = "none";
-  }
-
-  function savePreference(value) {
-    localStorage.setItem("cookieConsent", value);
-    hideCookieBanner();
-  }
-
-  document.addEventListener("DOMContentLoaded", function () {
-    const acceptBtn = document.getElementById("acceptCookies");
-    const declineBtn = document.getElementById("declineCookies");
-    const manageBtn = document.getElementById("manageCookies");
-
-    if (acceptBtn) acceptBtn.onclick = () => savePreference("accepted");
-    if (declineBtn) declineBtn.onclick = () => savePreference("declined");
-    if (manageBtn) manageBtn.onclick = showCookieBanner;
-
-    if (!localStorage.getItem("cookieConsent")) {
-      showCookieBanner();
-    }
-  });
-</script>
-
 </body>
-</html> this is the final code of beyondwill.in,but the cookie banner is not disappearing after clicking the button
+</html>
