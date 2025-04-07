@@ -1,20 +1,19 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Beyondwill LLP – Innovative Fashion Brand Incubator</title>
-<meta content="Beyondwill LLP is a visionary company building innovative, style-driven brands. Discover our flagship fashion brand Soulmonk and our mission for sustainability and growth." name="description"/>
-<link href="https://beyondwill.in/" rel="canonical"/>
-<!-- Favicon Icon -->
-<link href="https://cdn.shopify.com/s/files/1/0686/7795/9910/files/ChatGPT_Image_Apr_2_2025_06_42_45_PM.png?v=1743599578" rel="icon" type="image/png"/>
-<!-- Google Fonts: Poppins -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&amp;display=swap" rel="stylesheet"/>
-<!-- AOS Library for scroll animations -->
-<link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" integrity="sha512-HoM5QfN+ZkVXkIVZ8Gp6KnQ/KC1+ZzmP5+f0B5u2kD/Tq3N8Sd+QqS5A3Y3g7oUj22CHeTQAC+QWIzWn5oAApA==" referrerpolicy="no-referrer" rel="stylesheet"/>
-<!-- JSON‑LD Structured Data -->
-<script type="application/ld+json">
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Beyondwill LLP – Innovative Fashion Brand Incubator</title>
+  <meta content="Beyondwill LLP is a visionary company building innovative, style-driven brands. Discover our flagship fashion brand Soulmonk and our mission for sustainability and growth." name="description"/>
+  <link href="https://beyondwill.in/" rel="canonical"/>
+  <!-- Favicon Icon -->
+  <link href="https://cdn.shopify.com/s/files/1/0686/7795/9910/files/ChatGPT_Image_Apr_2_2025_06_42_45_PM.png?v=1743599578" rel="icon" type="image/png"/>
+  <!-- Google Fonts: Poppins -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&amp;display=swap" rel="stylesheet"/>
+  <!-- AOS Library for scroll animations -->
+  <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" integrity="sha512-HoM5QfN+ZkVXkIVZ8Gp6KnQ/KC1+ZzmP5+f0B5u2kD/Tq3N8Sd+QqS5A3Y3g7oUj22CHeTQAC+QWIzWn5oAApA==" referrerpolicy="no-referrer" rel="stylesheet"/>
+  <!-- JSON‑LD Structured Data -->
+  <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Organization",
@@ -29,7 +28,7 @@
       }]
     }
   </script>
-<style>
+  <style>
     :root {
       /* Dark theme color variables */
       --bg-color: #0e0e0e;
@@ -41,7 +40,6 @@
       --transition-speed: 0.3s;
       --max-width: 1200px;
     }
-    
     /* Reset & Base Styles */
     * {
       margin: 0;
@@ -61,7 +59,6 @@
       text-decoration: none;
       color: inherit;
     }
-    
     /* KEYFRAMES */
     @keyframes fadeInUp {
       from { opacity: 0; transform: translateY(20px); }
@@ -194,7 +191,6 @@
       text-align: center;
       animation: fadeInUp 1.5s ease forwards;
     }
-    /* h1 Gradient: Neon Pink → Purple → Electric Blue */
     h1 {
       font-size: 4rem;
       margin-bottom: 20px;
@@ -204,7 +200,6 @@
       -webkit-text-fill-color: transparent;
       animation: textGradient 5s linear infinite;
     }
-    /* h2 Gradient: Pink → Purple → Blue */
     h2 {
       font-size: 2.5rem;
       margin-bottom: 10px;
@@ -215,7 +210,6 @@
       -webkit-text-fill-color: transparent;
       animation: textGradient 5s linear infinite;
     }
-    /* h3 Gradient: Violet → Indigo → Teal */
     h3 {
       font-size: 1.8rem;
       margin-bottom: 10px;
@@ -225,7 +219,6 @@
       -webkit-text-fill-color: transparent;
       animation: textGradient 5s linear infinite;
     }
-    /* h4 Gradient: Lime Green → Yellow → Orange */
     h4 {
       font-size: 1.5rem;
       margin-bottom: 10px;
@@ -240,7 +233,6 @@
       margin: 0 auto;
       color: var(--text-color);
     }
-    
     @media (max-width: 1024px) {
       .hero {
         height: calc(100vh - var(--header-height));
@@ -255,7 +247,7 @@
       margin: 0 auto;
     }
     
-    /* ABOUT SECTION (Image removed, text centered) */
+    /* ABOUT SECTION */
     .about-container {
       display: flex;
       flex-direction: column;
@@ -371,45 +363,6 @@
       animation: bounce 1.5s ease-out;
     }
     
-    /* BRAND SECTION */
-    .brand-section {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: center;
-      align-items: center;
-    }
-    .brand-text {
-      flex: 1 1 400px;
-      color: var(--text-color);
-    }
-    .brand-image {
-      flex: 1 1 500px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .brand-image img {
-      width: 100%;
-      max-width: 500px;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.5);
-    }
-    .explore-btn {
-      display: inline-block;
-      background: var(--accent-color);
-      color: #fff;
-      padding: 10px 20px;
-      border-radius: 5px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: background var(--transition-speed) ease;
-      margin-top: 20px;
-    }
-    .explore-btn:hover {
-      background: #e03e00;
-    }
-    
     /* RECOGNITIONS & AWARDS SECTION */
     #recognition {
       padding: 60px 20px;
@@ -447,6 +400,37 @@
     #recognition .vertical-card p {
       font-size: 0.95rem;
       color: #cccccc;
+    }
+    
+    /* SOULMONK PORTFOLIO SECTION */
+    #soulmonk-portfolio {
+      padding: 60px 20px;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      text-align: center;
+    }
+    #soulmonk-portfolio h2 {
+      margin-bottom: 20px;
+      color: var(--accent-color);
+    }
+    .portfolio-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+    .portfolio-item {
+      flex: 1 1 300px;
+      background: rgba(255, 255, 255, 0.04);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+      text-align: center;
+    }
+    .portfolio-item img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 10px;
     }
     
     /* PARTNERS & COLLABORATORS SECTION */
@@ -617,19 +601,6 @@
     .contact-section p {
       margin-bottom: 20px;
     }
-    .contact-btn {
-      background: var(--accent-color);
-      border: none;
-      color: #fff;
-      padding: 15px 30px;
-      border-radius: 5px;
-      cursor: pointer;
-      font-weight: bold;
-      transition: background var(--transition-speed) ease;
-    }
-    .contact-btn:hover {
-      background: #e03e00;
-    }
     
     /* FOOTER SECTION */
     footer {
@@ -713,344 +684,484 @@
       cursor: pointer;
     }
     
-    /* Cookie Consent Banner */
-    .cookie-consent {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: rgba(0, 0, 0, 0.9);
-      color: #fff;
-      padding: 15px;
-      text-align: center;
-      z-index: 1200;
-      display: flex;
+    /* --------------------------------------------------------------
+       Uiverse.io Fancy Button UI (replaces old Contact button)
+       -------------------------------------------------------------- */
+    .button-container {
+      position: relative;
+      margin: 2em auto; /* center the fancy button */
+      width: 120px;
+      height: 60px;
+    }
+    .button-border {
+      padding: 3px;
+      inset: 0;
+      background: #0005;
+      border-radius: inherit;
+      clip-path: path(
+        "M 90 0 C 121 0 126 5 126 33 C 126 61 121 66 90 66 L 33 66 C 5 66 0 61 0 33 C 0 5 5 0 33 0 Z"
+      );
+    }
+    .button {
       justify-content: center;
       align-items: center;
-      gap: 10px;
-    }
-    .cookie-consent button {
-      background: var(--accent-color);
       border: none;
+      border-radius: 0.875em;
+      clip-path: path(
+        "M 90 0 C 115 0 120 5 120 30 C 120 55 115 60 90 60 L 30 60 C 5 60 0 55 0 30 C 0 5 5 0 30 0 Z"
+      );
+      width: 120px;
+      height: 60px;
+      background: #111215;
+      display: flex;
+      flex-direction: column;
       color: #fff;
-      padding: 8px 16px;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    
-    /* REFLECTIVE ANIMATION */
-    .vertical-card,
-    .review-card,
-    .team-card,
-    .mission,
-    .vision {
-      position: relative;
       overflow: hidden;
+      font-family: "Poppins", sans-serif;
     }
-    .vertical-card::before,
-    .review-card::before,
-    .team-card::before,
-    .mission::before,
-    .vision::before {
+    /* The hidden real button now has the id "openModal" to trigger the modal */
+    .real-button {
+      position: absolute;
+      width: 120px;
+      height: 60px;
+      z-index: 1;
+      outline: none;
+      border: none;
+      border-radius: 17px;
+      cursor: pointer;
+      opacity: 0;
+    }
+    .backdrop {
+      position: absolute;
+      inset: -9900%;
+      background: radial-gradient(
+        circle at 50% 50%,
+        #0000 0,
+        #0000 20%,
+        #111111aa 50%
+      );
+      background-size: 3px 3px;
+      z-index: -1;
+    }
+    .spin {
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      opacity: 0.5;
+      overflow: hidden;
+      transition: 0.3s;
+    }
+    .real-button:active ~ .button-container .spin {
+      opacity: 1;
+    }
+    .spin-blur {
+      filter: blur(2em) url(#unopaq);
+    }
+    .spin-intense {
+      inset: -0.125em;
+      filter: blur(0.25em) url(#unopaq2);
+      border-radius: 0.75em;
+    }
+    .spin-inside {
+      inset: -2px;
+      border-radius: inherit;
+      filter: blur(2px) url(#unopaq3);
+      z-index: 0;
+    }
+    .spin::before {
       content: "";
       position: absolute;
-      top: 0;
-      left: -150%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(120deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.12) 50%, rgba(255, 255, 255, 0.06) 100%);
-      transform: skewX(-15deg);
-      animation: reflection 5s linear infinite;
+      inset: -150%;
+      animation:
+        speen 8s cubic-bezier(0.56, 0.15, 0.28, 0.86) infinite,
+        woah 4s infinite;
+      animation-play-state: paused;
     }
-    @keyframes reflection {
-      0% { left: -150%; }
-      100% { left: 200%; }
+    .real-button:hover ~ .button-container .spin::before {
+      animation-play-state: running;
+    }
+    .spin-blur::before {
+      background: linear-gradient(90deg, #f50 30%, #0000 50%, #05f 70%);
+    }
+    .spin-intense::before {
+      background: linear-gradient(90deg, #f95 20%, #0000 45% 55%, #59f 80%);
+    }
+    .spin-inside::before {
+      background: linear-gradient(90deg, #fc9 30%, #0000 45% 55%, #9cf 70%);
+    }
+    @keyframes speen {
+      0% {
+        rotate: 10deg;
+      }
+      50% {
+        rotate: 190deg;
+      }
+      to {
+        rotate: 370deg;
+      }
+    }
+    @keyframes woah {
+      0%, to {
+        scale: 1;
+      }
+      50% {
+        scale: 0.75;
+      }
     }
   </style>
 </head>
 <body>
-<!-- Skip to content link for accessibility -->
-<a class="skip-to-content" href="#main-content" style="position:absolute; top:-40px; left:0; background:#000; color:#fff; padding:8px; z-index:1001;">Skip to Content</a>
-<!-- HEADER SECTION -->
-<header id="header">
-<div class="logo">
-<a href="#hero">Beyondwill LLP</a>
-</div>
-<nav>
-<ul>
-<li><a href="#hero">Home</a></li>
-<li><a href="#about">About</a></li>
-<li><a href="#mission-vision">Mission &amp; Vision</a></li>
-<li><a href="#team">Team</a></li>
-<li><a href="#brand">Soulmonk</a></li>
-<li><a href="#recognition">Recognitions</a></li>
-<li><a href="#partners">Partners</a></li>
-<li><a href="#invest">Invest</a></li>
-<li><a href="#faq">FAQs</a></li>
-<li><a href="#verticals">Verticals</a></li>
-<li><a href="#reviews">Reviews</a></li>
-<li><a href="#contact">Contact</a></li>
-</ul>
-</nav>
-<div class="hamburger" id="hamburger">
-<span></span>
-<span></span>
-<span></span>
-</div>
-</header>
-<!-- HERO SECTION -->
-<section class="hero" id="hero">
-<video autoplay="" class="bg-video" loop="" muted="" playsinline="">
-<source src="https://cdn.shopify.com/videos/c/o/v/02133c70fe8f477ca1553cc1cd89ed55.webm" type="video/webm"/>
+  <!-- Skip to content link for accessibility -->
+  <a class="skip-to-content" href="#main-content" style="position:absolute; top:-40px; left:0; background:#000; color:#fff; padding:8px; z-index:1001;">Skip to Content</a>
+
+  <!-- HEADER SECTION -->
+  <header id="header">
+    <div class="logo">
+      <a href="#hero">Beyondwill LLP</a>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#mission-vision">Mission &amp; Vision</a></li>
+        <li><a href="#team">Team</a></li>
+        <li><a href="#soulmonk-portfolio">Soulmonk</a></li>
+        <li><a href="#recognition">Recognitions</a></li>
+        <li><a href="#partners">Partners</a></li>
+        <li><a href="#invest">Invest</a></li>
+        <li><a href="#faq">FAQs</a></li>
+        <li><a href="#verticals">Verticals</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero" id="hero">
+    <video autoplay class="bg-video" loop muted playsinline>
+      <source src="https://cdn.shopify.com/videos/c/o/v/02133c70fe8f477ca1553cc1cd89ed55.webm" type="video/webm"/>
       Your browser does not support the video tag.
     </video>
-<div class="hero-content" data-aos="fade-up">
-<h1>Beyondwill LLP</h1>
-<p>Innovative. Style-driven. Future-focused.</p>
-</div>
-</section>
-<!-- MAIN CONTENT -->
-<main id="main-content">
-<!-- ABOUT SECTION (Image removed, text centered) -->
-<section class="section" id="about">
-<h2 data-aos="fade-up">About Beyondwill LLP</h2>
-<div class="about-container" data-aos="fade-up" data-aos-delay="100">
-<div class="about-text">
-<p>
+    <div class="hero-content" data-aos="fade-up">
+      <h1>Beyondwill LLP</h1>
+      <p>Innovative. Style-driven. Future-focused.</p>
+    </div>
+  </section>
+
+  <!-- MAIN CONTENT -->
+  <main id="main-content">
+    <!-- ABOUT SECTION -->
+    <section class="section" id="about">
+      <h2 data-aos="fade-up">About Beyondwill LLP</h2>
+      <div class="about-container" data-aos="fade-up" data-aos-delay="100">
+        <div class="about-text">
+          <p>
             Beyondwill LLP is a visionary brand incubator committed to redefining fashion, entrepreneurship,
             and brand building. We don’t just create fashion—we design experiences, build communities,
             and nurture scalable ventures with style and substance.
           </p>
-<p>
+          <p>
             Our approach is rooted in balancing creativity, operational discipline, and brand-first strategies,
             starting with our flagship venture <strong><a href="https://www.mysoulmonk.com" target="_blank">Soulmonk</a></strong>.
             We’re recognized by Startup India, actively fostering collaborations and innovation.
           </p>
-</div>
-</div>
-<!-- Infographics Row using iframes (200×200) -->
-<div class="infographics" data-aos="fade-up" data-aos-delay="200">
-<div class="info-card">
-<div class="info-icon">
-<iframe allowfullscreen="" class="lazy-lottie" data-src="https://lottie.host/embed/db57d5a5-78e2-49a4-bd9b-dbd687dff8e4/GFBw4A34Xd.lottie" height="200" style="border:0;" width="200">
-</iframe>
-</div>
+        </div>
+      </div>
+      <!-- Infographics Row -->
+      <div class="infographics" data-aos="fade-up" data-aos-delay="200">
+        <div class="info-card">
+          <div class="info-icon">
+            <iframe allowfullscreen class="lazy-lottie" data-src="https://lottie.host/embed/db57d5a5-78e2-49a4-bd9b-dbd687dff8e4/GFBw4A34Xd.lottie" height="200" style="border:0;" width="200"></iframe>
+          </div>
+          <lottie-player src="animations/Visionary Innovation.json" background="transparent" speed="1" loop autoplay style="width:200px;height:200px;"></lottie-player>
+          <h3>Visionary Innovation</h3>
+          <p>We build purposeful brands driven by creativity, strategy, and long-term value.</p>
+        </div>
+        <div class="info-card">
+          <div class="info-icon">
+            <iframe allowfullscreen class="lazy-lottie" data-src="https://lottie.host/embed/d470c606-080c-4145-8e27-1af59b7ec9de/V7ZL1NdrYw.lottie" height="200" style="border:0;" width="200"></iframe>
+          </div>
+          <lottie-player src="animations/Sustainable Growth.json" background="transparent" speed="1" loop autoplay style="width:200px;height:200px;"></lottie-player>
+          <h3>Sustainable Growth</h3>
+          <p>We grow ventures with balance—scaling sustainably while keeping our values intact.</p>
+        </div>
+        <div class="info-card">
+          <div class="info-icon">
+            <iframe allowfullscreen class="lazy-lottie" data-src="https://lottie.host/embed/606227b2-d50b-47fe-8b72-0d841aa2f83f/0XLm9hYLIW.lottie" height="200" style="border:0;" width="200"></iframe>
+          </div>
+          <lottie-player src="animations/Collaborative DNA.json" background="transparent" speed="1" loop autoplay style="width:200px;height:200px;"></lottie-player>
+          <h3>Collaborative DNA</h3>
+          <p>Partnerships are at our core. We collaborate to innovate across industries and ideas.</p>
+        </div>
+        <div class="info-card">
+          <div class="info-icon">
+            <iframe allowfullscreen class="lazy-lottie" data-src="https://lottie.host/embed/5ef5e278-dcde-46bd-91c7-8466facd4b40/3NpTsiJFEr.lottie" height="200" style="border:0;" width="200"></iframe>
+          </div>
+          <lottie-player src="animations/Ethical Sourcing.json" background="transparent" speed="1" loop autoplay style="width:200px;height:200px;"></lottie-player>
+          <h3>Ethical Sourcing</h3>
+          <p>Our supply chain is built on transparency, fairness, and responsible production.</p>
+        </div>
+        <div class="info-card">
+          <div class="info-icon">
+            <iframe allowfullscreen class="lazy-lottie" data-src="https://lottie.host/embed/247e016d-2840-4518-9ac7-4e805b8ddcf1/i0oniX3gAO.lottie" height="200" style="border:0;" width="200"></iframe>
+          </div>
+          <lottie-player src="animations/Future-Focused.json" background="transparent" speed="1" loop autoplay style="width:200px;height:200px;"></lottie-player>
+          <h3>Future-Focused</h3>
+          <p>We create brands that are built to last—designed for relevance and resilience.</p>
+        </div>
+      </div>
+    </section>
 
-      <lottie-player src="animations/Visionary Innovation.json" background="transparent" speed="1" loop autoplay style="width:200px;height:200px;"></lottie-player>
-    <h3>Visionary Innovation</h3>
-<p>We build purposeful brands driven by creativity, strategy, and long-term value.</p>
-</div>
-<div class="info-card">
-<div class="info-icon">
-<iframe allowfullscreen="" class="lazy-lottie" data-src="https://lottie.host/embed/d470c606-080c-4145-8e27-1af59b7ec9de/V7ZL1NdrYw.lottie" height="200" style="border:0;" width="200">
-</iframe>
-</div>
+    <!-- MISSION & VISION SECTION -->
+    <section class="section" id="mission-vision">
+      <h2 data-aos="fade-up">Mission &amp; Vision</h2>
+      <div class="mission-vision" data-aos="fade-up" data-aos-delay="100">
+        <div class="mission">
+          <h3>Our Mission</h3>
+          <p>To build and scale innovative, style-driven brands that reflect modern lifestyles, fostering creativity, sustainability, and strategic growth.</p>
+        </div>
+        <div class="vision">
+          <h3>Our Vision</h3>
+          <p>To be a trusted and recognized leader in the fashion industry and beyond, incubating creative ventures that shape the future.</p>
+        </div>
+      </div>
+    </section>
 
-      <lottie-player src="animations/Sustainable Growth.json" background="transparent" speed="1" loop autoplay style="width:200px;height:200px;"></lottie-player>
-    <h3>Sustainable Growth</h3>
-<p>We grow ventures with balance—scaling sustainably while keeping our values intact.</p>
-</div>
-<div class="info-card">
-<div class="info-icon">
-<iframe allowfullscreen="" class="lazy-lottie" data-src="https://lottie.host/embed/606227b2-d50b-47fe-8b72-0d841aa2f83f/0XLm9hYLIW.lottie" height="200" style="border:0;" width="200">
-</iframe>
-</div>
+    <!-- TEAM SECTION -->
+    <section class="section" id="team">
+      <h2 data-aos="fade-up">Meet the Core Team</h2>
+      <div class="team-cards" data-aos="fade-up" data-aos-delay="100">
+        <div class="team-card">
+          <h3>Lijo Mathew Jacob</h3>
+          <p>CEO &amp; Designated Partner</p>
+        </div>
+        <div class="team-card">
+          <h3>Saiju V Thankachan</h3>
+          <p>Partner – Finance &amp; Compliance</p>
+        </div>
+        <div class="team-card">
+          <h3>Ajuraj R</h3>
+          <p>Partner – Accounts &amp; Operations</p>
+        </div>
+      </div>
+    </section>
 
-      <lottie-player src="animations/Collaborative DNA.json" background="transparent" speed="1" loop autoplay style="width:200px;height:200px;"></lottie-player>
-    <h3>Collaborative DNA</h3>
-<p>Partnerships are at our core. We collaborate to innovate across industries and ideas.</p>
-</div>
-<div class="info-card">
-<div class="info-icon">
-<iframe allowfullscreen="" class="lazy-lottie" data-src="https://lottie.host/embed/5ef5e278-dcde-46bd-91c7-8466facd4b40/3NpTsiJFEr.lottie" height="200" style="border:0;" width="200">
-</iframe>
-</div>
+    <!-- RECOGNITIONS & AWARDS SECTION -->
+    <section class="section" id="recognition">
+      <h2 data-aos="fade-up">Recognitions &amp; Awards</h2>
+      <div class="verticals-cards" data-aos="fade-up" data-aos-delay="100">
+        <div class="vertical-card">
+          <h4>Startup India Recognized</h4>
+          <p>Beyondwill LLP is proudly recognized by the Department for Promotion of Industry and Internal Trade (DPIIT) under the Startup India initiative.</p>
+        </div>
+        <div class="vertical-card">
+          <h4>Innovative Brand Incubator Award</h4>
+          <p>Honored for our forward-thinking approach in nurturing purpose-led fashion brands.</p>
+        </div>
+      </div>
+    </section>
 
-      <lottie-player src="animations/Ethical Sourcing.json" background="transparent" speed="1" loop autoplay style="width:200px;height:200px;"></lottie-player>
-    <h3>Ethical Sourcing</h3>
-<p>Our supply chain is built on transparency, fairness, and responsible production.</p>
-</div>
-<div class="info-card">
-<div class="info-icon">
-<iframe allowfullscreen="" class="lazy-lottie" data-src="https://lottie.host/embed/247e016d-2840-4518-9ac7-4e805b8ddcf1/i0oniX3gAO.lottie" height="200" style="border:0;" width="200">
-</iframe>
-</div>
+    <!-- SOULMONK PORTFOLIO SECTION -->
+    <section class="section" id="soulmonk-portfolio">
+      <h2 data-aos="fade-up">Soulmonk Portfolio</h2>
+      <div class="portfolio-container" data-aos="fade-up" data-aos-delay="100">
+        <div class="portfolio-item">
+          <img src="https://cdn.shopify.com/s/files/1/0686/7795/9910/files/Front_view_of_Soulmonk_Originals_oversized_unisex_soft_pink_T-shirt_made_from_100_cotton_with_180_GSM_fabric._Minimalist_streetwear_design_from_the_Soulmonk_collection..jpg?v=1742897568" alt="Urban Streetwear">
+          <h3>Urban Streetwear</h3>
+          <p>Experience the perfect blend of modern urban aesthetics and timeless design—crafted for today’s trailblazers.</p>
+        </div>
+        <div class="portfolio-item">
+          <img src="https://cdn.shopify.com/s/files/1/0686/7795/9910/files/Front_view_of_Soulmonk_Originals_oversized_unisex_off_white_T-shirt_made_from_100_cotton_with_220_GSM_fabric._Minimalist_streetwear_design_from_the_Soulmonk_collection..jpg?v=1742897541" alt="Eco-Chic Collection">
+          <h3>Eco-Chic Collection</h3>
+          <p>A forward-thinking collection that harmonizes sustainability with style, epitomizing ethical fashion with a modern twist.</p>
+        </div>
+        <div class="portfolio-item">
+          <img src="https://cdn.shopify.com/s/files/1/0686/7795/9910/files/Untitled_design_6.png?v=1740557456" alt="Heritage Remix">
+          <h3>Heritage Remix</h3>
+          <p>An homage to classic craftsmanship—blending tradition with contemporary design for a look that's both timeless and trendsetting.</p>
+        </div>
+      </div>
+    </section>
 
-      <lottie-player src="animations/Future-Focused.json" background="transparent" speed="1" loop autoplay style="width:200px;height:200px;"></lottie-player>
-    <h3>Future-Focused</h3>
-<p>We create brands that are built to last—designed for relevance and resilience.</p>
-</div>
-</div>
-</section>
-<!-- MISSION & VISION SECTION -->
-<section class="section" id="mission-vision">
-<h2 data-aos="fade-up">Mission &amp; Vision</h2>
-<div class="mission-vision" data-aos="fade-up" data-aos-delay="100">
-<div class="mission">
-<h3>Our Mission</h3>
-<p>
-            To build and scale innovative, style-driven brands that reflect modern lifestyles, fostering creativity, sustainability, and strategic growth.
-          </p>
-</div>
-<div class="vision">
-<h3>Our Vision</h3>
-<p>
-            To be a trusted and recognized leader in the fashion industry and beyond, incubating creative ventures that shape the future.
-          </p>
-</div>
-</div>
-</section>
-<!-- TEAM SECTION -->
-<section class="section" id="team">
-<h2 data-aos="fade-up">Meet the Core Team</h2>
-<div class="team-cards" data-aos="fade-up" data-aos-delay="100">
-<div class="team-card">
-<h3>Lijo Mathew Jacob</h3>
-<p>CEO &amp; Designated Partner</p>
-</div>
-<div class="team-card">
-<h3>Saiju V Thankachan</h3>
-<p>Partner – Finance &amp; Compliance</p>
-</div>
-<div class="team-card">
-<h3>Ajuraj R</h3>
-<p>Partner – Accounts &amp; Operations</p>
-</div>
-</div>
-</section>
-<!-- RECOGNITIONS & AWARDS SECTION -->
-<section class="section" id="recognition">
-<h2 data-aos="fade-up">Recognitions &amp; Awards</h2>
-<div class="verticals-cards" data-aos="fade-up" data-aos-delay="100">
-<div class="vertical-card">
-<h4>Startup India Recognized</h4>
-<p>Beyondwill LLP is proudly recognized by the Department for Promotion of Industry and Internal Trade (DPIIT) under the Startup India initiative.</p>
-</div>
-<div class="vertical-card">
-<h4>Innovative Brand Incubator Award</h4>
-<p>Honored for our forward-thinking approach in nurturing purpose-led fashion brands.</p>
-</div>
-</div>
-</section>
-<!-- PARTNERS & COLLABORATORS SECTION -->
-<section class="section" id="partners">
-<h2 data-aos="fade-up">Partners &amp; Collaborators</h2>
-<div class="verticals-cards" data-aos="fade-up" data-aos-delay="100">
-<div class="vertical-card">
-<h4>Micro-Influencers</h4>
-<p>We collaborate with creators who resonate with our brand values and bring authenticity to our storytelling.</p>
-</div>
-<div class="vertical-card">
-<h4>Production Houses</h4>
-<p>We partner with ethical and sustainable manufacturers to maintain quality without compromising our values.</p>
-</div>
-<div class="vertical-card">
-<h4>Tech &amp; Marketing Agencies</h4>
-<p>Strategic collaborations drive our digital growth, innovative campaigns, and data-driven insights.</p>
-</div>
-</div>
-</section>
-<!-- INVEST WITH US SECTION -->
-<section class="section" id="invest">
-<h2 data-aos="fade-up">Invest with Us</h2>
-<div class="contact-section" data-aos="fade-up" data-aos-delay="100">
-<p>We're building fashion-first consumer brands for the next generation. If you’re an angel investor or venture partner looking to fuel scalable, design-led businesses—let's talk.</p>
-<a class="contact-btn" href="mailto:founders@beyondwill.in">Connect with Founders</a>
-</div>
-</section>
-<!-- FAQs SECTION -->
-<section class="section" id="faq">
-<h2 data-aos="fade-up">Frequently Asked Questions</h2>
-<div class="verticals-cards" data-aos="fade-up" data-aos-delay="100">
-<div class="vertical-card">
-<h4>What is Beyondwill LLP?</h4>
-<p>We are a fashion brand incubator focused on launching, scaling, and supporting new-age consumer labels.</p>
-</div>
-<div class="vertical-card">
-<h4>How is Soulmonk related?</h4>
-<p>Soulmonk is our flagship fashion brand under the Beyondwill LLP umbrella, designed for urban, style-conscious consumers.</p>
-</div>
-<div class="vertical-card">
-<h4>Are you open to partnerships?</h4>
-<p>Absolutely. We believe collaboration drives innovation. Reach out to explore synergy.</p>
-</div>
-<div class="vertical-card">
-<h4>Can I invest or collaborate?</h4>
-<p>Yes—if you're aligned with our mission. Let's build something impactful together.</p>
-</div>
-</div>
-</section>
-<!-- BUSINESS VERTICALS SECTION -->
-<section class="section" id="verticals">
-<h2 data-aos="fade-up">Our Business Verticals</h2>
-<div class="verticals-cards" data-aos="fade-up" data-aos-delay="100">
-<div class="vertical-card" data-aos="zoom-in">
-<h4>Fashion &amp; Apparel</h4>
-<p>From design to distribution, we create style-driven brands that resonate with today’s consumers.</p>
-</div>
-<div class="vertical-card" data-aos="zoom-in" data-aos-delay="100">
-<h4>Future Ventures</h4>
-<p>Beyond fashion, our roadmap includes expanding into high-growth sectors where innovation meets tradition.</p>
-</div>
-<div class="vertical-card" data-aos="zoom-in" data-aos-delay="200">
-<h4>Incubation &amp; Support</h4>
-<p>We incubate creative ventures by providing strategic guidance, operational expertise, and financial support.</p>
-</div>
-</div>
-</section>
-<!-- REVIEWS SECTION -->
-<section class="section" id="reviews">
-<h2 data-aos="fade-up">Early Reviews</h2>
-<div class="reviews-cards" data-aos="fade-up" data-aos-delay="100">
-<div class="review-card" data-aos="zoom-in">
-<h4>Jane Doe</h4>
-<p>“Soulmonk’s clothing line is the perfect blend of style and comfort. Beyondwill LLP is redefining fashion with innovation and elegance.”</p>
-</div>
-<div class="review-card" data-aos="zoom-in" data-aos-delay="100">
-<h4>John Smith</h4>
-<p>“A refreshing brand that marries sustainability with high fashion. Beyondwill LLP continues to push boundaries in every venture.”</p>
-</div>
-<div class="review-card" data-aos="zoom-in" data-aos-delay="200">
-<h4>Alex Johnson</h4>
-<p>“The Soulmonk experience is truly exceptional—seamless e-commerce, engaging design, and unmatched quality.”</p>
-</div>
-</div>
-</section>
-<!-- CONTACT SECTION -->
-<section class="section" id="contact">
-<h2 data-aos="fade-up">Contact / Get in Touch</h2>
-<div class="contact-section" data-aos="fade-up" data-aos-delay="100">
-<p>For inquiries, collaborations, or just to say hi, reach out to us at:</p>
-<p>Email: <a href="mailto:support@beyondwill.in">support@beyondwill.in</a> | Phone: <a href="tel:+917907069771">91 7907069771</a></p>
-<button class="contact-btn" id="openModal">Send a Message</button>
-</div>
-</section>
-</main>
-<!-- FOOTER SECTION -->
-<footer>
+    <!-- PARTNERS & COLLABORATORS SECTION -->
+    <section class="section" id="partners">
+      <h2 data-aos="fade-up">Partners &amp; Collaborators</h2>
+      <div class="verticals-cards" data-aos="fade-up" data-aos-delay="100">
+        <div class="vertical-card">
+          <h4>Micro-Influencers</h4>
+          <p>We collaborate with creators who resonate with our brand values and bring authenticity to our storytelling.</p>
+        </div>
+        <div class="vertical-card">
+          <h4>Production Houses</h4>
+          <p>We partner with ethical and sustainable manufacturers to maintain quality without compromising our values.</p>
+        </div>
+        <div class="vertical-card">
+          <h4>Tech &amp; Marketing Agencies</h4>
+          <p>Strategic collaborations drive our digital growth, innovative campaigns, and data-driven insights.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- INVEST WITH US SECTION -->
+    <section class="section" id="invest">
+      <h2 data-aos="fade-up">Invest with Us</h2>
+      <div class="contact-section" data-aos="fade-up" data-aos-delay="100">
+        <p>We're building fashion-first consumer brands for the next generation. If you’re an angel investor or venture partner looking to fuel scalable, design-led businesses—let's talk.</p>
+        <a class="contact-btn" href="mailto:founders@beyondwill.in">Connect with Founders</a>
+      </div>
+    </section>
+
+    <!-- FAQs SECTION -->
+    <section class="section" id="faq">
+      <h2 data-aos="fade-up">Frequently Asked Questions</h2>
+      <div class="verticals-cards" data-aos="fade-up" data-aos-delay="100">
+        <div class="vertical-card">
+          <h4>What is Beyondwill LLP?</h4>
+          <p>We are a fashion brand incubator focused on launching, scaling, and supporting new-age consumer labels.</p>
+        </div>
+        <div class="vertical-card">
+          <h4>How is Soulmonk related?</h4>
+          <p>Soulmonk is our flagship fashion brand under the Beyondwill LLP umbrella, designed for urban, style-conscious consumers.</p>
+        </div>
+        <div class="vertical-card">
+          <h4>Are you open to partnerships?</h4>
+          <p>Absolutely. We believe collaboration drives innovation. Reach out to explore synergy.</p>
+        </div>
+        <div class="vertical-card">
+          <h4>Can I invest or collaborate?</h4>
+          <p>Yes—if you're aligned with our mission. Let's build something impactful together.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- BUSINESS VERTICALS SECTION -->
+    <section class="section" id="verticals">
+      <h2 data-aos="fade-up">Our Business Verticals</h2>
+      <div class="verticals-cards" data-aos="fade-up" data-aos-delay="100">
+        <div class="vertical-card" data-aos="zoom-in">
+          <h4>Fashion &amp; Apparel</h4>
+          <p>From design to distribution, we create style-driven brands that resonate with today’s consumers.</p>
+        </div>
+        <div class="vertical-card" data-aos="zoom-in" data-aos-delay="100">
+          <h4>Future Ventures</h4>
+          <p>Beyond fashion, our roadmap includes expanding into high-growth sectors where innovation meets tradition.</p>
+        </div>
+        <div class="vertical-card" data-aos="zoom-in" data-aos-delay="200">
+          <h4>Incubation &amp; Support</h4>
+          <p>We incubate creative ventures by providing strategic guidance, operational expertise, and financial support.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- REVIEWS SECTION -->
+    <section class="section" id="reviews">
+      <h2 data-aos="fade-up">Early Reviews</h2>
+      <div class="reviews-cards" data-aos="fade-up" data-aos-delay="100">
+        <div class="review-card" data-aos="zoom-in">
+          <h4>Jane Doe</h4>
+          <p>“Soulmonk’s clothing line is the perfect blend of style and comfort. Beyondwill LLP is redefining fashion with innovation and elegance.”</p>
+        </div>
+        <div class="review-card" data-aos="zoom-in" data-aos-delay="100">
+          <h4>John Smith</h4>
+          <p>“A refreshing brand that marries sustainability with high fashion. Beyondwill LLP continues to push boundaries in every venture.”</p>
+        </div>
+        <div class="review-card" data-aos="zoom-in" data-aos-delay="200">
+          <h4>Alex Johnson</h4>
+          <p>“The Soulmonk experience is truly exceptional—seamless e-commerce, engaging design, and unmatched quality.”</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS SECTION -->
+    <section class="section" id="stats">
+      <h2 data-aos="fade-up">Our Impact in Numbers</h2>
+      <div class="team-cards" data-aos="fade-up">
+        <div class="team-card">
+          <h3 class="counter" data-target="10000">0</h3>
+          <p>Products Delivered</p>
+        </div>
+        <div class="team-card">
+          <h3 class="counter" data-target="1500">0</h3>
+          <p>Happy Customers</p>
+        </div>
+        <div class="team-card">
+          <h3 class="counter" data-target="25">0</h3>
+          <p>Partners</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION (with Fancy Button replacing the old button) -->
+    <section class="section" id="contact">
+      <h2 data-aos="fade-up">Contact / Get in Touch</h2>
+      <div class="contact-section" data-aos="fade-up" data-aos-delay="100">
+        <p>For inquiries, collaborations, or just to say hi, reach out to us at:</p>
+        <p>Email: <a href="mailto:support@beyondwill.in">support@beyondwill.in</a> | Phone: <a href="tel:+917907069771">91 7907069771</a></p>
+        
+        <!-- New Fancy Button UI Replacing the Old "Send a Message" Button -->
+        <!-- SVG Filters for Fancy Button -->
+        <svg style="position: absolute; width: 0; height: 0;">
+          <filter width="300%" x="-100%" height="300%" y="-100%" id="unopaq">
+            <feColorMatrix values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 9 0"></feColorMatrix>
+          </filter>
+          <filter width="300%" x="-100%" height="300%" y="-100%" id="unopaq2">
+            <feColorMatrix values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 3 0"></feColorMatrix>
+          </filter>
+          <filter width="300%" x="-100%" height="300%" y="-100%" id="unopaq3">
+            <feColorMatrix values="1 0 0 0.2 0  0 1 0 0.2 0  0 0 1 0.2 0  0 0 0 2 0"></feColorMatrix>
+          </filter>
+        </svg>
+        <!-- Hidden real button with id "openModal" to trigger modal -->
+        <button id="openModal" class="real-button"></button>
+        <!-- Backdrop for the fancy button -->
+        <div class="backdrop"></div>
+        <!-- Fancy Button Container -->
+        <div class="button-container">
+          <div class="spin spin-blur"></div>
+          <div class="spin spin-intense"></div>
+          <div class="backdrop"></div>
+          <div class="button-border">
+            <div class="spin spin-inside"></div>
+            <div class="button">Send A Message</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER SECTION -->
+  <footer>
     © <span id="year"></span> Beyondwill LLP. All rights reserved.
   </footer>
-<!-- Back-to-Top Button -->
-<button id="back-to-top" title="Back to Top">↑</button>
-<!-- Modal for Contact Form -->
-<div class="modal" id="contactModal">
-<div class="modal-content" data-aos="fade-up">
-<span class="close-modal" id="closeModal">×</span>
-<h2>Contact Us</h2>
-<form id="contactForm">
-<input name="name" placeholder="Your Name" required="" type="text"/>
-<input name="email" placeholder="Your Email" required="" type="email"/>
-<textarea name="message" placeholder="Your Message" required="" rows="4"></textarea>
-<button type="submit">Submit</button>
-</form>
-</div>
-</div>
-<!-- Cookie Consent Banner -->
-<!-- AOS Library & Custom Scripts -->
-<script crossorigin="anonymous" integrity="sha512-eL4+7j3TCaIug1So6xQnZX3Zg0woXgIViTt4TX37cG49Gk0yAN3RVcxTCu1d5Yi7SJPX1cRUEtzfS2duHcG4Cg==" referrerpolicy="no-referrer" src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-<script>
+
+  <!-- Back-to-Top Button -->
+  <button id="back-to-top" title="Back to Top">↑</button>
+
+  <!-- Modal for Contact Form -->
+  <div class="modal" id="contactModal">
+    <div class="modal-content" data-aos="fade-up">
+      <span class="close-modal" id="closeModal">×</span>
+      <h2>Contact Us</h2>
+      <form id="contactForm">
+        <input name="name" placeholder="Your Name" required type="text"/>
+        <input name="email" placeholder="Your Email" required type="email"/>
+        <textarea name="message" placeholder="Your Message" required rows="4"></textarea>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- AOS Library & Custom Scripts -->
+  <script crossorigin="anonymous" integrity="sha512-eL4+7j3TCaIug1So6xQnZX3Zg0woXgIViTt4TX37cG49Gk0yAN3RVcxTCu1d5Yi7SJPX1cRUEtzfS2duHcG4Cg==" referrerpolicy="no-referrer" src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
     document.addEventListener("DOMContentLoaded", function() {
-      // Initialize AOS with a reduced duration for smoother animations
+      // Initialize AOS
       AOS.init({ duration: 800, once: true });
       
       // Toggle header style on scroll
@@ -1118,105 +1229,78 @@
           contactForm.reset();
         });
       }
-      
-      
     });
   </script>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const lazyLotties = document.querySelectorAll(".lazy-lottie");
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const iframe = entry.target;
-        if (!iframe.src) {
-          iframe.src = iframe.getAttribute("data-src");
+  <script>
+    // Lazy-load Lottie iframes
+    document.addEventListener("DOMContentLoaded", function () {
+      const lazyLotties = document.querySelectorAll(".lazy-lottie");
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const iframe = entry.target;
+            if (!iframe.src) {
+              iframe.src = iframe.getAttribute("data-src");
+            }
+            observer.unobserve(iframe);
+          }
+        });
+      }, { threshold: 0.25 });
+      lazyLotties.forEach(iframe => observer.observe(iframe));
+    });
+  </script>
+  <script>
+    // FAQ toggle on click
+    document.addEventListener("DOMContentLoaded", function() {
+      const faqCards = document.querySelectorAll("#faq .vertical-card");
+      faqCards.forEach(card => {
+        const question = card.querySelector("h4");
+        const answer = card.querySelector("p");
+        if (question && answer) {
+          answer.style.display = "none";
+          question.style.cursor = "pointer";
+          question.addEventListener("click", () => {
+            const isVisible = answer.style.display === "block";
+            answer.style.display = isVisible ? "none" : "block";
+          });
         }
-        observer.unobserve(iframe);
+      });
+    });
+  </script>
+  <script>
+    // Stats counter animation
+    document.addEventListener("DOMContentLoaded", function () {
+      const counters = document.querySelectorAll(".counter");
+      let started = false;
+      function startCounters() {
+        if (started) return;
+        counters.forEach(counter => {
+          const target = +counter.getAttribute("data-target");
+          const duration = 1500;
+          let start = 0;
+          const increment = target / (duration / 16);
+          const updateCounter = () => {
+            start += increment;
+            if (start < target) {
+              counter.textContent = Math.ceil(start);
+              requestAnimationFrame(updateCounter);
+            } else {
+              counter.textContent = target;
+            }
+          };
+          updateCounter();
+        });
+        started = true;
+      }
+      const observer = new IntersectionObserver(entries => {
+        if (entries[0].isIntersecting) {
+          startCounters();
+        }
+      }, { threshold: 0.5 });
+      if (counters.length) {
+        observer.observe(counters[0].parentElement);
       }
     });
-  }, {
-    threshold: 0.25
-  });
-  lazyLotties.forEach(iframe => observer.observe(iframe));
-});
-</script>
-<!-- Cookie Consent Banner -->
-<div class="cookie-consent-modern" id="cookieConsent">
-  <span>This website uses cookies to ensure you get the best experience.</span>
-  <div class="cookie-buttons">
-    <button id="acceptCookies">Accept</button>
-    <button id="declineCookies">Decline</button>
-  </div>
-</div>
-<style>
-.cookie-consent-modern {
-  position: fixed;
-  bottom: 20px;
-  left: 20px;
-  right: 20px;
-  background: rgba(30, 30, 30, 0.95);
-  color: #fff;
-  padding: 16px 24px;
-  border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 15px;
-  z-index: 9999;
-  font-size: 0.95rem;
-  max-width: 700px;
-  margin: 0 auto;
-}
-.cookie-buttons {
-  display: flex;
-  gap: 10px;
-}
-.cookie-buttons button {
-  background: #ff4500;
-  border: none;
-  padding: 8px 16px;
-  color: white;
-  font-weight: bold;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-.cookie-buttons button:hover {
-  background: #e03e00;
-}
-.cookie-buttons #declineCookies {
-  background: transparent;
-  color: #ccc;
-  border: 1px solid #555;
-}
-.cookie-buttons #declineCookies:hover {
-  background: #444;
-  color: white;
-}
-</style>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const cookieConsent = document.getElementById("cookieConsent");
-  const acceptBtn = document.getElementById("acceptCookies");
-  const declineBtn = document.getElementById("declineCookies");
-
-  if (localStorage.getItem("cookiesAccepted") === "true" || localStorage.getItem("cookiesAccepted") === "false") {
-    cookieConsent.style.display = "none";
-  }
-
-  acceptBtn.addEventListener("click", function () {
-    localStorage.setItem("cookiesAccepted", "true");
-    cookieConsent.style.display = "none";
-  });
-
-  declineBtn.addEventListener("click", function () {
-    localStorage.setItem("cookiesAccepted", "false");
-    cookieConsent.style.display = "none";
-  });
-});
-</script>
-
+  </script>
 </body>
 </html>
