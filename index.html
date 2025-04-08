@@ -999,7 +999,7 @@ footer {
 }
 </style>
 </head>
-<body>
+<body><div id="mobileSidebar" style="position:fixed;top:0;right:-100%;width:250px;height:100%;background:rgba(0,0,0,0.85);color:#fff;z-index:1100;padding:40px 20px;transition:right 0.3s ease;display:flex;flex-direction:column;gap:20px;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);"><a href="#home" style="color:#fff;text-decoration:none;font-weight:600;">Home</a><a href="#about" style="color:#fff;text-decoration:none;font-weight:600;">About</a><a href="#mission-vision" style="color:#fff;text-decoration:none;font-weight:600;">Mission &amp; Vision</a><a href="#team" style="color:#fff;text-decoration:none;font-weight:600;">Team</a><a href="#soulmonk" style="color:#fff;text-decoration:none;font-weight:600;">Soulmonk</a><a href="#recognitions" style="color:#fff;text-decoration:none;font-weight:600;">Recognitions</a><a href="#partners" style="color:#fff;text-decoration:none;font-weight:600;">Partners</a><a href="#invest" style="color:#fff;text-decoration:none;font-weight:600;">Invest</a><a href="#faqs" style="color:#fff;text-decoration:none;font-weight:600;">FAQs</a><a href="#verticals" style="color:#fff;text-decoration:none;font-weight:600;">Verticals</a><a href="#reviews" style="color:#fff;text-decoration:none;font-weight:600;">Reviews</a><a href="#contact" style="color:#fff;text-decoration:none;font-weight:600;">Contact</a></div>
 <!-- Skip to content link for accessibility -->
 <a class="skip-to-content" href="#main-content" style="position:absolute; top:-40px; left:0; background:#000; color:#fff; padding:8px; z-index:1001;">Skip to Content</a>
 <!-- HEADER SECTION -->
@@ -1692,5 +1692,34 @@ function render() {
       camera.position.y = -scrollY * 0.3;
     }
   });
+</script><script>
+document.addEventListener("DOMContentLoaded", function () {
+  const hamburger = document.getElementById("hamburger");
+  const sidebar = document.getElementById("mobileSidebar");
+
+  hamburger.addEventListener("click", () => {
+    if (sidebar.style.right === "0px") {
+      sidebar.style.right = "-100%";
+    } else {
+      sidebar.style.right = "0px";
+    }
+  });
+
+  // Optional: Close sidebar on link click
+  sidebar.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", () => {
+      sidebar.style.right = "-100%";
+    });
+  });
+});
+
+// Close sidebar when clicking outside of it
+document.addEventListener("click", function(event) {
+  const sidebar = document.getElementById("mobileSidebar");
+  const hamburger = document.getElementById("hamburger");
+  if (!sidebar.contains(event.target) && !hamburger.contains(event.target)) {
+    sidebar.style.right = "-100%";
+  }
+});
 </script></body>
 </html>
