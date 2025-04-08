@@ -192,15 +192,20 @@
       text-align: center;
       animation: fadeInUp 1.5s ease forwards;
     }
-    h1 {
-      font-size: 4rem;
-      margin-bottom: 20px;
-      background: linear-gradient(90deg, #ff00cc, #3333ff, #00ffff);
-      background-size: 200% auto;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: textGradient 5s linear infinite;
-    }
+    
+
+h1 {
+  font-size: 4rem;
+  font-family: "Poppins", sans-serif;
+  margin-bottom: 20px;
+  background: linear-gradient(90deg, #d4af37, #ffffff);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textGradient 6s linear infinite;
+}
+
+
     h2 {
       font-size: 2.5rem;
       margin-bottom: 10px;
@@ -229,11 +234,13 @@
       -webkit-text-fill-color: transparent;
       animation: textGradient 5s linear infinite;
     }
-    .hero-content p {
-      font-size: 1.5rem;
-      margin: 0 auto;
-      color: var(--text-color);
-    }
+    
+.hero-content p {
+  color: #ffffff;
+  font-size: 1.25rem;
+  text-shadow: 0 0 4px #d4af37, 0 0 8px #c5a300;
+}
+
     @media (max-width: 1024px) {
       .hero {
         height: calc(100vh - var(--header-height));
@@ -809,7 +816,29 @@
         scale: 0.75;
       }
     }
-  </style>
+  
+h1 {
+  font-size: 4rem;
+  margin-bottom: 20px;
+  background: linear-gradient(90deg, #d4af37, #ffffff);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textGradient 6s linear infinite, fadeIn 2s ease-in-out forwards;
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+.hero-content p {
+  color: #ffffff;
+  font-size: 1.25rem;
+  text-shadow: 0 0 4px #d4af37, 0 0 8px #c5a300;
+  animation: fadeIn 2s ease-in-out 1.2s forwards;
+  opacity: 0;
+}
+</style>
 <style>
 /* Corrected backdrop CSS to remove extra blank space issue */
 .backdrop {
@@ -893,8 +922,6 @@ footer {
   color: #fff;
 }
 </style>
-
-
 <style>
 .beyond-modal {
   display: none !important;
@@ -994,8 +1021,7 @@ footer {
 </div>
 </header>
 <!-- HERO SECTION -->
-<section class="hero" id="hero">
-
+<section class="hero" id="hero"><canvas id="heroParticleCanvas" style="position:absolute;top:0;left:0;width:100%;height:100%;z-index:1.5;pointer-events:none;"></canvas>
 <div class="hero-content" data-aos="fade-up">
 <h1>Beyondwill LLP</h1>
 <p>Innovative. Style-driven. Future-focused.</p>
@@ -1233,24 +1259,22 @@ footer {
 </div>
 </div>
 </section>
-
 <!-- OUR VENTURES SECTION -->
 <section class="section" id="ventures">
-  <h2 data-aos="fade-up">Our Ventures</h2>
-  <div class="team-cards" data-aos="fade-up" data-aos-delay="100">
-    <div class="team-card">
-      <h3>Soulmonk</h3>
-      <p>A premium fashion brand under Beyondwill LLP. Redefining urban style through minimalism, streetwear, and sustainability.</p>
-      <a href="https://soulmonk.in" target="_blank" style="color: var(--accent-color); font-weight: 600;">Visit Soulmonk →</a>
-    </div>
-    <div class="team-card">
-      <h3>Next Venture</h3>
-      <p>We’re brewing something bold. Stay tuned for our next disruptive label launching soon under the Beyondwill banner.</p>
-      <a href="#invest" style="color: var(--accent-color); font-weight: 600;">Learn More →</a>
-    </div>
-  </div>
+<h2 data-aos="fade-up">Our Ventures</h2>
+<div class="team-cards" data-aos="fade-up" data-aos-delay="100">
+<div class="team-card">
+<h3>Soulmonk</h3>
+<p>A premium fashion brand under Beyondwill LLP. Redefining urban style through minimalism, streetwear, and sustainability.</p>
+<a href="https://soulmonk.in" style="color: var(--accent-color); font-weight: 600;" target="_blank">Visit Soulmonk →</a>
+</div>
+<div class="team-card">
+<h3>Next Venture</h3>
+<p>We’re brewing something bold. Stay tuned for our next disruptive label launching soon under the Beyondwill banner.</p>
+<a href="#invest" style="color: var(--accent-color); font-weight: 600;">Learn More →</a>
+</div>
+</div>
 </section>
-
 <!-- CONTACT SECTION (with Fancy Button replacing the old button) -->
 <section class="section" id="contact">
 <h2 data-aos="fade-up">Contact / Get in Touch</h2>
@@ -1440,8 +1464,6 @@ footer {
 </form>
 </div>
 </div>
-
-
 <script>
 document.addEventListener("DOMContentLoaded", function () {
   const modal = document.getElementById("beyondModal");
@@ -1463,10 +1485,6 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 </script>
-
-
-
-
 <script>
   // REMOVED SINGLE PARTICLE INIT, {
     fullScreen: { enable: true, zIndex: -1 },
@@ -1503,12 +1521,9 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 </script>
-
-
 <!-- MULTI-LAYER PARTICLE BACKGROUNDS -->
 <div id="particles-back" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:-2;"></div>
 <div id="particles-front" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;"></div>
-
 <!-- MULTI-LAYER PARTICLE SCRIPTS -->
 <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.11.1/tsparticles.bundle.min.js"></script>
 <script>
@@ -1559,11 +1574,96 @@ tsParticles.load("particles-front", {
   }
 });
 </script>
-
-
 <!-- Spline 3D Viewer -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script><script>
+document.addEventListener('DOMContentLoaded', function () {
+  let scene, camera, renderer, particleSystem;
+  let mouseX = 0, mouseY = 0;
+  let windowHalfX = window.innerWidth / 2;
+  let windowHalfY = window.innerHeight / 2;
 
+  const canvas = document.getElementById('heroParticleCanvas');
+  if (!canvas) return;
 
+  init();
+  animate();
 
-</body>
+  function init() {
+    scene = new THREE.Scene();
+    camera = new THREE.PerspectiveCamera(75, canvas.clientWidth / canvas.clientHeight, 1, 4000);
+    camera.position.z = 1000;
+
+    renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, canvas: canvas });
+    renderer.setSize(canvas.clientWidth, canvas.clientHeight);
+
+    const particleTexture = new THREE.Texture(generateCircleTexture());
+    particleTexture.needsUpdate = true;
+
+    const particlesCount = 12000;
+    const geometry = new THREE.BufferGeometry();
+    const positions = new Float32Array(particlesCount * 3);
+    for (let i = 0; i < particlesCount; i++) {
+      positions[i * 3]     = (Math.random() * 2 - 1) * 1000;
+      positions[i * 3 + 1] = (Math.random() * 2 - 1) * 1000;
+      positions[i * 3 + 2] = (Math.random() * 2 - 1) * 1000;
+    }
+    geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+
+    const material = new THREE.PointsMaterial({
+      color: 0xffa500,
+      size: 4,
+      map: particleTexture,
+      transparent: true,
+      alphaTest: 0.5,
+      sizeAttenuation: false
+    });
+
+    particleSystem = new THREE.Points(geometry, material);
+    scene.add(particleSystem);
+
+    document.addEventListener('mousemove', onDocumentMouseMove, false);
+    window.addEventListener('resize', onWindowResize, false);
+  }
+
+  function generateCircleTexture() {
+    const size = 64;
+    const canvasTemp = document.createElement('canvas');
+    canvasTemp.width = size;
+    canvasTemp.height = size;
+    const context = canvasTemp.getContext('2d');
+    context.clearRect(0, 0, size, size);
+    context.fillStyle = 'white';
+    context.beginPath();
+    context.arc(size / 2, size / 2, size / 2, 0, Math.PI * 2);
+    context.fill();
+    return canvasTemp;
+  }
+
+  function onDocumentMouseMove(event) {
+    mouseX = event.clientX - windowHalfX;
+    mouseY = event.clientY - windowHalfY;
+  }
+
+  function onWindowResize() {
+    windowHalfX = window.innerWidth / 2;
+    windowHalfY = window.innerHeight / 2;
+    camera.aspect = canvas.clientWidth / canvas.clientHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(canvas.clientWidth, canvas.clientHeight);
+  }
+
+  function animate() {
+    requestAnimationFrame(animate);
+    render();
+  }
+
+  function render() {
+    camera.position.x += (mouseX - camera.position.x) * 0.05;
+    camera.position.y += (-mouseY - camera.position.y) * 0.05;
+    camera.lookAt(scene.position);
+    particleSystem.rotation.y += 0.0005;
+    renderer.render(scene, camera);
+  }
+});
+</script></body>
 </html>
