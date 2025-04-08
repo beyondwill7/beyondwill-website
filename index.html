@@ -1013,14 +1013,12 @@ footer {
   }
 }
 </style>
-
 <link crossorigin="" href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link as="fetch" crossorigin="anonymous" href="/animation/Visionary-Innovation.json" rel="preload"/>
 <link as="fetch" crossorigin="anonymous" href="/animation/Sustainable-Growth.json" rel="preload"/>
 <link as="fetch" crossorigin="anonymous" href="/animation/Collaborative-DNA.json" rel="preload"/>
 <link as="fetch" crossorigin="anonymous" href="/animation/Ethical-Sourcing.json" rel="preload"/>
-
 <style>
 .fade-in {
   opacity: 0;
@@ -1032,6 +1030,23 @@ footer {
   transform: translateY(0);
 }
 </style>
+<style>
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  will-change: opacity, transform;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.fade-in:nth-child(2) { transition-delay: 100ms; }
+.fade-in:nth-child(3) { transition-delay: 200ms; }
+.fade-in:nth-child(4) { transition-delay: 300ms; }
+.fade-in:nth-child(5) { transition-delay: 400ms; }
+</style>
+
 </head>
 <body><div id="mobileSidebar" style="position:fixed;top:0;right:-100%;width:250px;height:100%;background:rgba(0,0,0,0.85);color:#fff;z-index:1100;padding:40px 20px;transition:right 0.3s ease;display:flex;flex-direction:column;gap:20px;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);"><span id="sidebarClose" style="position:absolute;top:20px;right:20px;font-size:24px;font-weight:bold;color:#fff;cursor:pointer;z-index:2000;">×</span><a href="#home" style="color:#fff;text-decoration:none;font-weight:600;">Home</a><a href="#about" style="color:#fff;text-decoration:none;font-weight:600;">About</a><a href="#mission-vision" style="color:#fff;text-decoration:none;font-weight:600;">Mission &amp; Vision</a><a href="#team" style="color:#fff;text-decoration:none;font-weight:600;">Team</a><a href="#soulmonk" style="color:#fff;text-decoration:none;font-weight:600;">Soulmonk</a><a href="#recognitions" style="color:#fff;text-decoration:none;font-weight:600;">Recognitions</a><a href="#partners" style="color:#fff;text-decoration:none;font-weight:600;">Partners</a><a href="#invest" style="color:#fff;text-decoration:none;font-weight:600;">Invest</a><a href="#faqs" style="color:#fff;text-decoration:none;font-weight:600;">FAQs</a><a href="#verticals" style="color:#fff;text-decoration:none;font-weight:600;">Verticals</a><a href="#reviews" style="color:#fff;text-decoration:none;font-weight:600;">Reviews</a><a href="#contact" style="color:#fff;text-decoration:none;font-weight:600;">Contact</a></div>
 <!-- Skip to content link for accessibility -->
@@ -1092,27 +1107,27 @@ footer {
 <!-- Infographics Row -->
 <div class="infographics" data-aos="fade-up" data-aos-delay="200">
 <div class="info-card fade-in">
-<div class="info-icon"><div class="lottie-container" data-lottie="animation/Visionary-Innovation.json" style="width:200px;height:200px;margin:0 auto;"></div></div>
+<div class="info-icon"><div class="lottie-container" data-lottie="animation/Visionary-Innovation.json" style="width:200px;height:200px;margin:0 auto;min-width:200px;min-height:200px;will-change: transform;"></div></div>
 <h3>Visionary Innovation</h3>
 <p>We build purposeful brands driven by creativity, strategy, and long-term value.</p>
 </div>
 <div class="info-card fade-in">
-<div class="info-icon"><div class="lottie-container" data-lottie="animation/Sustainable-Growth.json" style="width:200px;height:200px;margin:0 auto;"></div></div>
+<div class="info-icon"><div class="lottie-container" data-lottie="animation/Sustainable-Growth.json" style="width:200px;height:200px;margin:0 auto;min-width:200px;min-height:200px;will-change: transform;"></div></div>
 <h3>Sustainable Growth</h3>
 <p>We grow ventures with balance—scaling sustainably while keeping our values intact.</p>
 </div>
 <div class="info-card fade-in">
-<div class="info-icon"><div class="lottie-container" data-lottie="animation/Collaborative-DNA.json" style="width:200px;height:200px;margin:0 auto;"></div></div>
+<div class="info-icon"><div class="lottie-container" data-lottie="animation/Collaborative-DNA.json" style="width:200px;height:200px;margin:0 auto;min-width:200px;min-height:200px;will-change: transform;"></div></div>
 <h3>Collaborative DNA</h3>
 <p>Partnerships are at our core. We collaborate to innovate across industries and ideas.</p>
 </div>
 <div class="info-card fade-in">
-<div class="info-icon"><div class="lottie-container" data-lottie="animation/Ethical-Sourcing.json" style="width:200px;height:200px;margin:0 auto;"></div></div>
+<div class="info-icon"><div class="lottie-container" data-lottie="animation/Ethical-Sourcing.json" style="width:200px;height:200px;margin:0 auto;min-width:200px;min-height:200px;will-change: transform;"></div></div>
 <h3>Ethical Sourcing</h3>
 <p>Our supply chain is built on transparency, fairness, and responsible production.</p>
 </div>
 <div class="info-card fade-in">
-<div class="info-icon"><div class="lottie-container" data-lottie="animation/Future-Focused.json" style="width:200px;height:200px;margin:0 auto;"></div></div>
+<div class="info-icon"><div class="lottie-container" data-lottie="animation/Future-Focused.json" style="width:200px;height:200px;margin:0 auto;min-width:200px;min-height:200px;will-change: transform;"></div></div>
 <h3>Future-Focused</h3>
 <p>We create brands that are built to last—designed for relevance and resilience.</p>
 </div>
@@ -1790,7 +1805,6 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 </script>
-
 <script>
 document.addEventListener("DOMContentLoaded", function () {
   const observer = new IntersectionObserver(entries => {
@@ -1807,5 +1821,24 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 </script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach((entry, index) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add("visible");
+          obs.unobserve(entry.target);
+        }, index * 100); // stagger animation
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll(".fade-in").forEach((el, index) => {
+    observer.observe(el);
+  });
+});
+</script>
+
 </body>
 </html>
