@@ -1365,8 +1365,18 @@ footer {
   input:checked + .slider:before {
     transform: translateX(22px);
   }
-</style>
 
+@media (max-width: 768px) {
+  #themeToggleWrapper {
+    top: auto !important;
+    bottom: 20px !important;
+    right: 20px !important;
+  }
+}
+#themeToggleWrapper {
+  transition: top 0.3s ease, bottom 0.3s ease;
+}
+</style>
 <div id="scroll-progress-bar" style="position:fixed;top:0;left:0;height:4px;width:0;background:#ff6a00;z-index:9999;transition:width 0.2s ease;"></div>
 <script>
   document.addEventListener('scroll', function () {
@@ -1906,11 +1916,11 @@ tsParticles.load("particles-back", {
   fullScreen: { enable: false },
   background: { color: "transparent" },
   particles: {
-    number: { value: 50 },
+    number: { value: 20 },
     color: { value: "#222222" },
-    size: { value: 2 },
-    move: { enable: true, speed: 0.5, direction: "none", outModes: "bounce" },
-    opacity: { value: 0.3 }
+    size: { value: 1.5 },
+    move: { enable: true, speed: 0.3, direction: "none", outModes: "bounce" },
+    opacity: { value: 0.15 }
   },
   interactivity: { events: {} }
 });
@@ -1919,23 +1929,23 @@ tsParticles.load("particles-front", {
   fullScreen: { enable: false },
   background: { color: "transparent" },
   particles: {
-    number: { value: 60 },
+    number: { value: 30 },
     color: { value: "#ff6a00" },
     shape: { type: "circle" },
     links: {
       enable: true,
-      distance: 120,
+      distance: 100,
       color: "#ff6a00",
-      opacity: 0.4,
+      opacity: 0.25,
       width: 1
     },
     move: {
       enable: true,
-      speed: 1.8,
+      speed: 1.0,
       outModes: "bounce"
     },
-    size: { value: 2 },
-    opacity: { value: 0.6 }
+    size: { value: 1.8 },
+    opacity: { value: 0.5 }
   },
   interactivity: {
     events: {
@@ -1943,8 +1953,8 @@ tsParticles.load("particles-front", {
       onClick: { enable: true, mode: "push" }
     },
     modes: {
-      grab: { distance: 140, links: { opacity: 0.6 } },
-      push: { quantity: 4 }
+      grab: { distance: 120, links: { opacity: 0.4 } },
+      push: { quantity: 2 }
     }
   }
 });
@@ -2229,7 +2239,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 </script>
-
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     const toggle = document.getElementById("themeToggle");
@@ -2257,5 +2266,30 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 </script>
-</body>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const lazyLotties = document.querySelectorAll(".lottie-container");
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const container = entry.target;
+        const lottiePath = container.getAttribute("data-lottie");
+        if (!container.dataset.loaded) {
+          lottie.loadAnimation({
+            container: container,
+            renderer: "svg",
+            loop: true,
+            autoplay: true,
+            path: lottiePath
+          });
+          container.dataset.loaded = true;
+        }
+        observer.unobserve(container);
+      }
+    });
+  }, { threshold: 0.3 });
+
+  lazyLotties.forEach(el => observer.observe(el));
+});
+</script></body>
 </html>
