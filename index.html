@@ -1046,7 +1046,278 @@ footer {
 .fade-in:nth-child(4) { transition-delay: 300ms; }
 .fade-in:nth-child(5) { transition-delay: 400ms; }
 </style>
+<style>
+/* Floating Labels */
+.floating-input {
+  position: relative;
+  margin-bottom: 20px;
+}
+.floating-input input,
+.floating-input textarea {
+  width: 100%;
+  padding: 14px 12px;
+  border-radius: 10px;
+  border: 1px solid #444;
+  background: rgba(255, 255, 255, 0.03);
+  color: #fff;
+  font-size: 1rem;
+}
+.floating-input label {
+  position: absolute;
+  top: 12px;
+  left: 14px;
+  color: #aaa;
+  font-size: 0.9rem;
+  pointer-events: none;
+  transition: 0.2s ease;
+}
+.floating-input input:focus + label,
+.floating-input input:not(:placeholder-shown) + label,
+.floating-input textarea:focus + label,
+.floating-input textarea:not(:placeholder-shown) + label {
+  top: -10px;
+  left: 10px;
+  font-size: 0.75rem;
+  color: var(--accent-color);
+}
 
+/* Modal Styling */
+.modern-contact-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  backdrop-filter: blur(8px);
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 9999;
+  justify-content: center;
+  align-items: center;
+}
+.modern-contact-content {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 30px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 0 25px rgba(255, 106, 0, 0.3);
+  color: #fff;
+  animation: fadeInUp 0.6s ease forwards;
+}
+.close-modern-modal {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #fff;
+}
+.modern-contact-btn {
+  background: var(--accent-color);
+  padding: 14px 28px;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.modern-contact-btn:hover {
+  background: #ff6a00;
+  transform: scale(1.05);
+}
+.modern-contact-submit {
+  background: linear-gradient(135deg, #ff4500, #ff6a00);
+  padding: 12px 20px;
+  border: none;
+  color: #fff;
+  font-weight: bold;
+  font-size: 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+.modern-contact-submit:hover {
+  transform: scale(1.05);
+}
+</style>
+<style>
+.animated-border-wrapper {
+  position: relative;
+  display: inline-block;
+  padding: 3px;
+  border-radius: 12px;
+  background: conic-gradient(
+    from 0deg,
+    #ff6a00,
+    #ff4500,
+    #ff6a00,
+    #ff4500,
+    #ff6a00
+  );
+  background-size: 200% 200%;
+  animation: rotateGradient 4s linear infinite;
+}
+
+.animated-gradient-btn {
+  position: relative;
+  padding: 14px 30px;
+  border: none;
+  border-radius: 10px;
+  background: #0e0e0e;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  z-index: 1;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.animated-gradient-btn span {
+  position: relative;
+  z-index: 2;
+}
+
+.animated-gradient-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: rgba(255, 106, 0, 0.1);
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.animated-gradient-btn:hover::before {
+  opacity: 1;
+}
+
+.animated-gradient-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(255, 106, 0, 0.3);
+}
+
+@keyframes rotateGradient {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+</style>
+<style>
+.glow-button-wrapper {
+  position: relative;
+  display: inline-block;
+  padding: 4px;
+  border-radius: 16px;
+  background: linear-gradient(145deg, #1e90ff, #ff6a00);
+  box-shadow: 0 0 25px rgba(255, 106, 0, 0.15);
+  overflow: hidden;
+}
+
+.glow-button {
+  position: relative;
+  padding: 16px 36px;
+  background: #0e0e0e;
+  color: #ffffff;
+  font-size: 1.05rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  z-index: 1;
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  transform-style: preserve-3d;
+  backdrop-filter: blur(2px);
+  box-shadow: inset 0 0 0 transparent;
+}
+
+.glow-button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(60deg, rgba(255,255,255,0.06), transparent);
+  z-index: -1;
+}
+
+.glow-button:hover {
+  transform: perspective(800px) translateZ(10px) scale(1.05);
+  box-shadow:
+    0 12px 25px rgba(255, 106, 0, 0.2),
+    inset 0 0 20px rgba(255, 255, 255, 0.05);
+}
+
+.glow-button-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: -20px;
+  border-radius: 20px;
+  background: radial-gradient(circle at center, rgba(255, 106, 0, 0.15), transparent 80%);
+  filter: blur(12px);
+  z-index: -2;
+  animation: pulseGlow 3s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.2;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.06);
+  }
+}
+</style>
+
+
+<style>
+.animated-founders-btn-wrapper {
+  position: relative;
+  display: inline-block;
+  border-radius: 14px;
+  padding: 2px;
+  background: #111;
+  overflow: hidden;
+}
+
+.animated-founders-btn-wrapper::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(from 0deg, red, orange, yellow, green, blue, indigo, violet, red);
+  animation: rotateGradient 6s linear infinite;
+  z-index: 0;
+  filter: blur(10px);
+}
+
+.animated-founders-btn {
+  position: relative;
+  display: inline-block;
+  padding: 14px 30px;
+  background: #111;
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 12px;
+  text-decoration: none;
+  z-index: 1;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.animated-founders-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
+}
+
+@keyframes rotateGradient {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+</style>
 </head>
 <body><div id="mobileSidebar" style="position:fixed;top:0;right:-100%;width:250px;height:100%;background:rgba(0,0,0,0.85);color:#fff;z-index:1100;padding:40px 20px;transition:right 0.3s ease;display:flex;flex-direction:column;gap:20px;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);"><span id="sidebarClose" style="position:absolute;top:20px;right:20px;font-size:24px;font-weight:bold;color:#fff;cursor:pointer;z-index:2000;">×</span><a href="#home" style="color:#fff;text-decoration:none;font-weight:600;">Home</a><a href="#about" style="color:#fff;text-decoration:none;font-weight:600;">About</a><a href="#mission-vision" style="color:#fff;text-decoration:none;font-weight:600;">Mission &amp; Vision</a><a href="#team" style="color:#fff;text-decoration:none;font-weight:600;">Team</a><a href="#soulmonk" style="color:#fff;text-decoration:none;font-weight:600;">Soulmonk</a><a href="#recognitions" style="color:#fff;text-decoration:none;font-weight:600;">Recognitions</a><a href="#partners" style="color:#fff;text-decoration:none;font-weight:600;">Partners</a><a href="#invest" style="color:#fff;text-decoration:none;font-weight:600;">Invest</a><a href="#faqs" style="color:#fff;text-decoration:none;font-weight:600;">FAQs</a><a href="#verticals" style="color:#fff;text-decoration:none;font-weight:600;">Verticals</a><a href="#reviews" style="color:#fff;text-decoration:none;font-weight:600;">Reviews</a><a href="#contact" style="color:#fff;text-decoration:none;font-weight:600;">Contact</a></div>
 <!-- Skip to content link for accessibility -->
@@ -1223,7 +1494,7 @@ footer {
 <h2 data-aos="fade-up">Invest with Us</h2>
 <div class="contact-section" data-aos="fade-up" data-aos-delay="100">
 <p>We're building fashion-first consumer brands for the next generation. If you’re an angel investor or venture partner looking to fuel scalable, design-led businesses—let's talk.</p>
-<a class="contact-btn" href="mailto:founders@beyondwill.in">Connect with Founders</a>
+<div class="animated-founders-btn-wrapper"><a class="animated-founders-btn" href="mailto:support@beyondwill.in" style="">Connect with Founders</a></div>
 </div>
 </section>
 <!-- FAQs SECTION -->
@@ -1324,7 +1595,11 @@ footer {
 <div class="contact-section" data-aos="fade-up" data-aos-delay="100">
 <p>For inquiries, collaborations, or just to say hi, reach out to us at:</p>
 <p>Email: support@beyondwill.in | Phone: 91 7907069771</p>
-<button class="beyond-trigger" id="beyondTrigger">Send a Message</button>
+<div class="glow-button-wrapper">
+<button class="glow-button" id="openNewContactModal">
+<span>Let’s Talk</span>
+</button>
+</div>
 </div>
 </section>
 </main>
@@ -1839,6 +2114,43 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 </script>
+<div class="modern-contact-modal" id="newContactModal">
+<div class="modern-contact-content">
+<span class="close-modern-modal" id="closeNewContactModal">×</span>
+<h2>Let’s Connect</h2>
+<form action="https://formspree.io/f/xjkypakp" method="POST">
+<div class="floating-input">
+<input name="name" placeholder=" " required="" type="text"/>
+<label>Your Name</label>
+</div>
+<div class="floating-input">
+<input name="email" placeholder=" " required="" type="email"/>
+<label>Your Email</label>
+</div>
+<div class="floating-input">
+<textarea name="message" placeholder=" " required=""></textarea>
+<label>Your Message</label>
+</div>
+<button class="modern-contact-submit" type="submit">Send Message</button>
+</form>
+</div>
+</div>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const openBtn = document.getElementById("openNewContactModal");
+    const closeBtn = document.getElementById("closeNewContactModal");
+    const modal = document.getElementById("newContactModal");
 
+    openBtn.addEventListener("click", () => {
+      modal.style.display = "flex";
+    });
+    closeBtn.addEventListener("click", () => {
+      modal.style.display = "none";
+    });
+    window.addEventListener("click", (e) => {
+      if (e.target === modal) modal.style.display = "none";
+    });
+  });
+</script>
 </body>
 </html>
