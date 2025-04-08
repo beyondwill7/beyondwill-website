@@ -847,6 +847,11 @@ h1 {
     font-size: 1rem;
   }
 }
+
+header {
+  transition: opacity 0.4s ease;
+}
+
 </style>
 <style>
 /* Corrected backdrop CSS to remove extra blank space issue */
@@ -1712,14 +1717,30 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const header = document.getElementById("header");
+  const heroSection = document.querySelector(".hero");
 
-// Close sidebar when clicking outside of it
-document.addEventListener("click", function(event) {
-  const sidebar = document.getElementById("mobileSidebar");
-  const hamburger = document.getElementById("hamburger");
-  if (!sidebar.contains(event.target) && !hamburger.contains(event.target)) {
-    sidebar.style.right = "-100%";
+  const observer = new IntersectionObserver(
+    function (entries) {
+      if (!entries[0].isIntersecting) {
+        header.style.opacity = "0";
+        setTimeout(() => { header.style.display = "none"; }, 400);
+      } else {
+        header.style.display = "flex";
+        setTimeout(() => { header.style.opacity = "1"; }, 0);
+      }
+    },
+    { threshold: 0.1 }
+  );
+
+  if (heroSection) {
+    observer.observe(heroSection);
   }
 });
-</script></body>
+</script>
+
+</body>
 </html>
