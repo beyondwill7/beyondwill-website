@@ -1585,6 +1585,11 @@ document.addEventListener('DOMContentLoaded', function () {
   const canvas = document.getElementById('heroParticleCanvas');
   if (!canvas) return;
 
+  let scrollOffsetY = 0;
+  window.addEventListener('scroll', () => {
+    scrollOffsetY = window.scrollY;
+  });
+
   init();
   animate();
 
@@ -1658,13 +1663,25 @@ const particlesCount = isMobile ? 3000 : 12000;
     render();
   }
 
-  function render() {
-    camera.position.x += (mouseX - camera.position.x) * 0.05;
-    camera.position.y += (-mouseY - camera.position.y) * 0.05;
-    camera.lookAt(scene.position);
-    particleSystem.rotation.y += 0.0005;
-    renderer.render(scene, camera);
-  }
+  
+function render() {
+  camera.position.x += (mouseX - camera.position.x) * 0.05;
+  camera.position.y += (-mouseY - camera.position.y - scrollOffsetY * 0.3) * 0.05;
+  camera.position.z = 1000 + scrollOffsetY * 0.5;
+  camera.lookAt(scene.position);
+  particleSystem.rotation.y += 0.0005;
+  renderer.render(scene, camera);
+}
+
 });
+
+  // Scroll-based animation effect
+  window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+    if (camera) {
+      camera.position.z = 1000 + scrollY * 0.5;
+      camera.position.y = -scrollY * 0.3;
+    }
+  });
 </script></body>
 </html>
