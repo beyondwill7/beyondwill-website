@@ -1003,6 +1003,16 @@ footer {
   cursor: pointer;
 }
 </style>
+<style>
+@media (max-width: 768px) {
+  #heroParticleCanvas {
+    display: none !important;
+  }
+  .hero::after {
+    background: linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0.9)) !important;
+  }
+}
+</style>
 </head>
 <body><div id="mobileSidebar" style="position:fixed;top:0;right:-100%;width:250px;height:100%;background:rgba(0,0,0,0.85);color:#fff;z-index:1100;padding:40px 20px;transition:right 0.3s ease;display:flex;flex-direction:column;gap:20px;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);"><span id="sidebarClose" style="position:absolute;top:20px;right:20px;font-size:24px;font-weight:bold;color:#fff;cursor:pointer;z-index:2000;">×</span><a href="#home" style="color:#fff;text-decoration:none;font-weight:600;">Home</a><a href="#about" style="color:#fff;text-decoration:none;font-weight:600;">About</a><a href="#mission-vision" style="color:#fff;text-decoration:none;font-weight:600;">Mission &amp; Vision</a><a href="#team" style="color:#fff;text-decoration:none;font-weight:600;">Team</a><a href="#soulmonk" style="color:#fff;text-decoration:none;font-weight:600;">Soulmonk</a><a href="#recognitions" style="color:#fff;text-decoration:none;font-weight:600;">Recognitions</a><a href="#partners" style="color:#fff;text-decoration:none;font-weight:600;">Partners</a><a href="#invest" style="color:#fff;text-decoration:none;font-weight:600;">Invest</a><a href="#faqs" style="color:#fff;text-decoration:none;font-weight:600;">FAQs</a><a href="#verticals" style="color:#fff;text-decoration:none;font-weight:600;">Verticals</a><a href="#reviews" style="color:#fff;text-decoration:none;font-weight:600;">Reviews</a><a href="#contact" style="color:#fff;text-decoration:none;font-weight:600;">Contact</a></div>
 <!-- Skip to content link for accessibility -->
@@ -1063,42 +1073,27 @@ footer {
 <!-- Infographics Row -->
 <div class="infographics" data-aos="fade-up" data-aos-delay="200">
 <div class="info-card">
-<div class="info-icon">
-<iframe allowfullscreen="" class="lazy-lottie" data-src="https://lottie.host/embed/db57d5a5-78e2-49a4-bd9b-dbd687dff8e4/GFBw4A34Xd.lottie" height="200" style="border:0;" width="200"></iframe>
-</div>
-<lottie-player autoplay="" background="transparent" loop="" speed="1" src="animations/Visionary Innovation.json" style="width:200px;height:200px;"></lottie-player>
+<div class="info-icon"><div class="lottie-container" data-lottie="animation/Visionary-Innovation.json" style="width:200px;height:200px;margin:0 auto;"></div></div>
 <h3>Visionary Innovation</h3>
 <p>We build purposeful brands driven by creativity, strategy, and long-term value.</p>
 </div>
 <div class="info-card">
-<div class="info-icon">
-<iframe allowfullscreen="" class="lazy-lottie" data-src="https://lottie.host/embed/d470c606-080c-4145-8e27-1af59b7ec9de/V7ZL1NdrYw.lottie" height="200" style="border:0;" width="200"></iframe>
-</div>
-<lottie-player autoplay="" background="transparent" loop="" speed="1" src="animations/Sustainable Growth.json" style="width:200px;height:200px;"></lottie-player>
+<div class="info-icon"><div class="lottie-container" data-lottie="animation/Sustainable-Growth.json" style="width:200px;height:200px;margin:0 auto;"></div></div>
 <h3>Sustainable Growth</h3>
 <p>We grow ventures with balance—scaling sustainably while keeping our values intact.</p>
 </div>
 <div class="info-card">
-<div class="info-icon">
-<iframe allowfullscreen="" class="lazy-lottie" data-src="https://lottie.host/embed/606227b2-d50b-47fe-8b72-0d841aa2f83f/0XLm9hYLIW.lottie" height="200" style="border:0;" width="200"></iframe>
-</div>
-<lottie-player autoplay="" background="transparent" loop="" speed="1" src="animations/Collaborative DNA.json" style="width:200px;height:200px;"></lottie-player>
+<div class="info-icon"><div class="lottie-container" data-lottie="animation/Collaborative-DNA.json" style="width:200px;height:200px;margin:0 auto;"></div></div>
 <h3>Collaborative DNA</h3>
 <p>Partnerships are at our core. We collaborate to innovate across industries and ideas.</p>
 </div>
 <div class="info-card">
-<div class="info-icon">
-<iframe allowfullscreen="" class="lazy-lottie" data-src="https://lottie.host/embed/5ef5e278-dcde-46bd-91c7-8466facd4b40/3NpTsiJFEr.lottie" height="200" style="border:0;" width="200"></iframe>
-</div>
-<lottie-player autoplay="" background="transparent" loop="" speed="1" src="animations/Ethical Sourcing.json" style="width:200px;height:200px;"></lottie-player>
+<div class="info-icon"><div class="lottie-container" data-lottie="animation/Ethical-Sourcing.json" style="width:200px;height:200px;margin:0 auto;"></div></div>
 <h3>Ethical Sourcing</h3>
 <p>Our supply chain is built on transparency, fairness, and responsible production.</p>
 </div>
 <div class="info-card">
-<div class="info-icon">
-<iframe allowfullscreen="" class="lazy-lottie" data-src="https://lottie.host/embed/247e016d-2840-4518-9ac7-4e805b8ddcf1/i0oniX3gAO.lottie" height="200" style="border:0;" width="200"></iframe>
-</div>
-<lottie-player autoplay="" background="transparent" loop="" speed="1" src="animations/Future-Focused.json" style="width:200px;height:200px;"></lottie-player>
+<div class="info-icon"><div class="lottie-container" data-lottie="animation/Future-Focused.json" style="width:200px;height:200px;margin:0 auto;"></div></div>
 <h3>Future-Focused</h3>
 <p>We create brands that are built to last—designed for relevance and resilience.</p>
 </div>
@@ -1751,5 +1746,30 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
-</script></body>
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.9.4/lottie.min.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !entry.target.dataset.loaded) {
+        lottie.loadAnimation({
+          container: entry.target,
+          renderer: 'canvas',
+          loop: true,
+          autoplay: true,
+          path: entry.target.dataset.lottie
+        });
+        entry.target.dataset.loaded = "true";
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+
+  document.querySelectorAll(".lottie-container").forEach(el => {
+    observer.observe(el);
+  });
+});
+</script>
+</body>
 </html>
