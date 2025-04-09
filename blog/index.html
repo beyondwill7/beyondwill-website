@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,13 +11,11 @@
     :root {
       --gradient: linear-gradient(to right, #ff6ec4, #7873f5);
     }
-
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-
     body {
       font-family: 'Inter', sans-serif;
       background: #0a0a0a;
@@ -26,12 +23,24 @@
       padding: 2rem;
       overflow-x: hidden;
     }
-
     .wrapper {
       max-width: 1200px;
       margin: 0 auto;
     }
-
+    .search-bar {
+      margin: 2rem 0 1rem;
+      text-align: center;
+    }
+    .search-bar input {
+      width: 100%;
+      max-width: 400px;
+      padding: 0.75rem 1rem;
+      border-radius: 999px;
+      border: none;
+      background: rgba(255, 255, 255, 0.08);
+      color: white;
+      font-size: 1rem;
+    }
     .spotlight {
       background: #111;
       border-radius: 1.5rem;
@@ -42,7 +51,6 @@
       position: relative;
       overflow: hidden;
     }
-
     .spotlight small {
       color: #ff6ec4;
       letter-spacing: 1px;
@@ -51,12 +59,10 @@
       align-items: center;
       gap: 0.5rem;
     }
-
     .lottie-icon {
       width: 32px;
       height: 32px;
     }
-
     .spotlight h2 {
       font-size: 2.5rem;
       background: var(--gradient);
@@ -64,12 +70,10 @@
       -webkit-text-fill-color: transparent;
       margin: 0.5rem 0;
     }
-
     .spotlight p {
       color: #bbb;
       max-width: 600px;
     }
-
     .spotlight a {
       margin-top: 1.5rem;
       display: inline-block;
@@ -81,18 +85,16 @@
       text-decoration: none;
       transition: background 0.3s;
     }
-
     .spotlight a:hover {
       background: rgba(255, 255, 255, 0.2);
     }
-
     .tags {
       display: flex;
       gap: 1rem;
       margin-bottom: 2rem;
       flex-wrap: wrap;
+      justify-content: center;
     }
-
     .tag {
       padding: 0.4rem 1rem;
       border-radius: 999px;
@@ -103,50 +105,47 @@
       transition: background 0.3s;
       cursor: pointer;
     }
-
     .tag:hover,
     .tag.active {
       background: #ff6ec4;
       color: #000;
     }
-
     .blog-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 2rem;
+      transition: all 0.4s ease-in-out;
     }
-
     .blog-card {
       background: rgba(255, 255, 255, 0.05);
       border-radius: 1.5rem;
       padding: 1.5rem;
       backdrop-filter: blur(16px);
       transition: transform 0.3s ease, opacity 0.3s ease;
-      animation: fadeUp 1s ease forwards;
       border: 1px solid rgba(255, 255, 255, 0.1);
+      opacity: 1;
+      transform: translateY(0);
+      animation: fadeUp 0.5s ease forwards;
     }
-
-    .blog-card:hover {
-      transform: translateY(-6px) scale(1.02);
+    .blog-card.hide {
+      opacity: 0;
+      transform: translateY(40px);
+      pointer-events: none;
     }
-
     .blog-meta {
       color: #ff6ec4;
       font-weight: 600;
       margin-bottom: 0.5rem;
     }
-
     .blog-title {
       font-size: 1.4rem;
       font-weight: 600;
       margin-bottom: 0.5rem;
     }
-
     .blog-excerpt {
       font-size: 1rem;
       color: #ccc;
     }
-
     .read-btn {
       display: inline-block;
       margin-top: 1rem;
@@ -157,7 +156,6 @@
       text-decoration: none;
       font-weight: bold;
     }
-
     .load-more {
       margin: 3rem auto;
       display: block;
@@ -170,7 +168,6 @@
       font-weight: bold;
       cursor: pointer;
     }
-
     @keyframes fadeUp {
       0% {
         opacity: 0;
@@ -181,7 +178,6 @@
         transform: translateY(0);
       }
     }
-
     @keyframes fadeIn {
       from {
         opacity: 0;
@@ -192,7 +188,6 @@
     }
   </style>
 </head>
-
 <body>
   <div class="wrapper">
     <section class="spotlight">
@@ -201,6 +196,10 @@
       <p>A complete guide to building your brand, designing your first drop, and scaling online in 2025.</p>
       <a href="/posts/2025-04-09-future-of-fashion.html">Read Now</a>
     </section>
+
+    <div class="search-bar">
+      <input id="searchInput" type="text" placeholder="Search blog posts...">
+    </div>
 
     <div class="tags">
       <div class="tag active" data-tag="All">All</div>
@@ -249,16 +248,22 @@
     const container = document.getElementById('blog-container');
     const tagButtons = document.querySelectorAll('.tag');
     const loadMoreBtn = document.getElementById('loadMore');
+    const searchInput = document.getElementById('searchInput');
+
     let currentTag = 'All';
     let visibleCount = 0;
     const increment = 2;
 
-    function renderPosts(tag, reset = false) {
+    function renderPosts(tag, reset = false, query = '') {
       if (reset) {
         container.innerHTML = '';
         visibleCount = 0;
       }
-      const filtered = tag === 'All' ? posts : posts.filter(p => p.tag === tag);
+      const filtered = posts.filter(p =>
+        (tag === 'All' || p.tag === tag) &&
+        (p.title.toLowerCase().includes(query.toLowerCase()) || p.excerpt.toLowerCase().includes(query.toLowerCase()))
+      );
+
       const nextPosts = filtered.slice(visibleCount, visibleCount + increment);
       nextPosts.forEach((post, index) => {
         const card = document.createElement('div');
@@ -284,14 +289,17 @@
         document.querySelector('.tag.active').classList.remove('active');
         btn.classList.add('active');
         currentTag = btn.dataset.tag;
-        renderPosts(currentTag, true);
+        renderPosts(currentTag, true, searchInput.value);
       });
     });
 
     loadMoreBtn.addEventListener('click', () => {
-      renderPosts(currentTag);
+      renderPosts(currentTag, false, searchInput.value);
+    });
+
+    searchInput.addEventListener('input', () => {
+      renderPosts(currentTag, true, searchInput.value);
     });
   </script>
 </body>
-
 </html>
