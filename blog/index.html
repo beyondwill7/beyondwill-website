@@ -4,44 +4,198 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Beyondwill Blog | Insights on Fashion, Startups & Sustainability</title>
-  <meta name="description" content="Explore insights from Beyondwill LLP on fashion brand incubation, sustainability, and startup growth. Fresh content for forward-thinkers." />
-  <link rel="canonical" href="https://beyondwill.in/blog/" />
+  <meta name="description" content="Explore insights from Beyondwill LLP on fashion brand incubation, sustainability, and startup growth. Fresh content for forward-thinkers.">
+  <link rel="canonical" href="https://beyondwill.in/blog/">
   <link rel="stylesheet" href="/style.css">
   <style>
-    body { font-family: 'Poppins', sans-serif; background: #0e0e0e; color: #fff; padding: 40px; }
-    h1 { color: #ff6a00; margin-bottom: 20px; }
-    .blog-list { max-width: 800px; margin: auto; display: flex; flex-direction: column; gap: 30px; }
-    .post-preview { border: 1px solid #333; border-radius: 10px; padding: 20px; background: rgba(255, 255, 255, 0.03); transition: transform 0.2s ease; }
-    .post-preview:hover { transform: translateY(-5px); box-shadow: 0 0 15px rgba(255,106,0,0.2); }
-    .post-preview h2 { margin-bottom: 10px; font-size: 1.5rem; color: #ff6a00; }
-    .post-preview p { color: #ccc; font-size: 1rem; margin-bottom: 0; }
-    a { text-decoration: none; color: inherit; }
+    /* Minimal Modern Carousel Styles */
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #0e0e0e;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      padding: 20px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      color: #ff6a00;
+    }
+    .carousel-container {
+      position: relative;
+      max-width: 1200px;
+      margin: 40px auto;
+      overflow: hidden;
+    }
+    .carousel-track {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+    .carousel-slide {
+      min-width: 100%;
+      box-sizing: border-box;
+      padding: 20px;
+    }
+    .slide-content {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 10px;
+      padding: 40px;
+      text-align: center;
+    }
+    .slide-content h2 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      color: #ff6a00;
+    }
+    .slide-content p {
+      font-size: 1rem;
+      color: #ccc;
+      margin-bottom: 0;
+    }
+    .slide-content a {
+      color: inherit;
+      text-decoration: none;
+    }
+    .carousel-nav {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+    }
+    .carousel-button {
+      background: rgba(0, 0, 0, 0.5);
+      border: none;
+      color: #fff;
+      font-size: 2rem;
+      padding: 10px;
+      cursor: pointer;
+      border-radius: 50%;
+      transition: background 0.3s ease;
+    }
+    .carousel-button:hover {
+      background: rgba(0, 0, 0, 0.8);
+    }
+    .carousel-dots {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .carousel-dot {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      background: #555;
+      border-radius: 50%;
+      margin: 0 5px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .carousel-dot.active {
+      background: #ff6a00;
+    }
+    @media (max-width: 768px) {
+      .slide-content h2 { font-size: 1.5rem; }
+      .slide-content p { font-size: 0.9rem; }
+    }
   </style>
 </head>
 <body>
-  <main class="blog-list">
+  <header>
     <h1>Beyondwill Blog</h1>
-
-    <div class="post-preview">
-      <a href="/blog/fashion-brand-incubator.html">
-        <h2>What Is a Fashion Brand Incubator?</h2>
-        <p>Learn how fashion brand incubators like Beyondwill LLP help startups grow with creative strategy, funding, and sustainable vision.</p>
-      </a>
+  </header>
+  <div class="carousel-container">
+    <div class="carousel-track">
+      <!-- Slide 1: What Is a Fashion Brand Incubator? -->
+      <div class="carousel-slide">
+        <div class="slide-content">
+          <h2><a href="/blog/fashion-brand-incubator.html">What Is a Fashion Brand Incubator?</a></h2>
+          <p>Learn how fashion brand incubators like Beyondwill LLP help startups grow with creative strategy, funding, and sustainable vision.</p>
+        </div>
+      </div>
+      <!-- Slide 2: How Soulmonk Balances Sustainability & Streetwear -->
+      <div class="carousel-slide">
+        <div class="slide-content">
+          <h2><a href="/blog/soulmonk-sustainable-streetwear.html">How Soulmonk Balances Sustainability &amp; Streetwear</a></h2>
+          <p>Soulmonk by Beyondwill LLP blends eco-conscious design with urban fashion to create sustainable streetwear made for the modern world.</p>
+        </div>
+      </div>
+      <!-- Slide 3: Why Angel Investors Are Betting on Fashion Startups in 2025 -->
+      <div class="carousel-slide">
+        <div class="slide-content">
+          <h2><a href="/blog/investing-in-fashion-startups.html">Why Angel Investors Are Betting on Fashion Startups in 2025</a></h2>
+          <p>Discover why investors are turning to fashion startups like Soulmonk—led by Beyondwill LLP—for high-growth, purpose-driven opportunities.</p>
+        </div>
+      </div>
     </div>
-
-    <div class="post-preview">
-      <a href="/blog/soulmonk-sustainable-streetwear.html">
-        <h2>How Soulmonk Balances Sustainability & Streetwear</h2>
-        <p>Soulmonk by Beyondwill LLP blends eco-conscious design with urban fashion to create sustainable streetwear made for the modern world.</p>
-      </a>
+    <div class="carousel-nav">
+      <button class="carousel-button" id="prevBtn">&#10094;</button>
+      <button class="carousel-button" id="nextBtn">&#10095;</button>
     </div>
-
-    <div class="post-preview">
-      <a href="/blog/investing-in-fashion-startups.html">
-        <h2>Why Angel Investors Are Betting on Fashion Startups in 2025</h2>
-        <p>Discover why investors are turning to fashion startups like Soulmonk—led by Beyondwill LLP—for high-growth, purpose-driven opportunities.</p>
-      </a>
-    </div>
-  </main>
+  </div>
+  <div class="carousel-dots" id="carouselDots">
+    <span class="carousel-dot active" data-index="0"></span>
+    <span class="carousel-dot" data-index="1"></span>
+    <span class="carousel-dot" data-index="2"></span>
+  </div>
+  <script>
+    const track = document.querySelector('.carousel-track');
+    const slides = Array.from(track.children);
+    const nextButton = document.getElementById('nextBtn');
+    const prevButton = document.getElementById('prevBtn');
+    const dotsNav = document.getElementById('carouselDots');
+    const dots = Array.from(dotsNav.children);
+    let currentIndex = 0;
+    
+    // Set slide positions
+    const setSlidePosition = () => {
+      const slideWidth = slides[0].getBoundingClientRect().width;
+      slides.forEach((slide, index) => {
+        slide.style.left = slideWidth * index + 'px';
+      });
+    };
+    
+    setSlidePosition();
+    window.addEventListener('resize', setSlidePosition);
+    
+    const moveToSlide = (targetIndex) => {
+      const targetSlide = slides[targetIndex];
+      track.style.transform = 'translateX(-' + targetSlide.style.left + ')';
+    };
+    
+    const updateDots = (targetIndex) => {
+      dots.forEach(dot => dot.classList.remove('active'));
+      dots[targetIndex].classList.add('active');
+    };
+    
+    nextButton.addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % slides.length;
+      moveToSlide(currentIndex);
+      updateDots(currentIndex);
+    });
+    
+    prevButton.addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+      moveToSlide(currentIndex);
+      updateDots(currentIndex);
+    });
+    
+    dotsNav.addEventListener('click', (e) => {
+      if(e.target.classList.contains('carousel-dot')) {
+        currentIndex = parseInt(e.target.getAttribute('data-index'));
+        moveToSlide(currentIndex);
+        updateDots(currentIndex);
+      }
+    });
+    
+    // Auto-play every 5 seconds
+    setInterval(() => {
+      nextButton.click();
+    }, 5000);
+  </script>
 </body>
 </html>
