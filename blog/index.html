@@ -1,29 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Beyondwill Blog</title>
-    <link rel="stylesheet" href="style.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;800&display=swap" rel="stylesheet" />
-  </head>
-  <body>
-    <div class="blog-container">
-      <header class="blog-hero">
-        <h1 class="gradient-title">Beyondwill Blog</h1>
-        <p class="subheading">Insights, stories, and strategies shaping fashion entrepreneurship in India.</p>
-        <div class="filter-buttons">
-          <button class="tag active" data-filter="all">All</button>
-          <button class="tag" data-filter="branding">💼 Branding</button>
-          <button class="tag" data-filter="sustainability">🌱 Sustainability</button>
-          <button class="tag" data-filter="strategy">📊 Strategy</button>
-        </div>
-      </header>
-
-      <section id="blog-list" class="card-grid"></section>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Beyondwill Blog</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <section class="hero">
+    <h1 class="gradient-title">Beyondwill Blog</h1>
+    <p>Insights, stories, and strategies shaping fashion entrepreneurship in India.</p>
+    <div class="tag-filters">
+      <button class="filter active" data-tag="all">All</button>
+      <button class="filter" data-tag="branding">💡 Branding</button>
+      <button class="filter" data-tag="sustainability">🌱 Sustainability</button>
+      <button class="filter" data-tag="strategy">💼 Strategy</button>
     </div>
+  </section>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="script.js"></script>
-  </body>
+  <section class="blog-list" id="blogListContainer">
+    <!-- Blogs dynamically inserted here -->
+  </section>
+</body>
 </html>
