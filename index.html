@@ -1325,8 +1325,195 @@ footer {
   border: 1px solid rgba(255, 255, 255, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-</style></head>
+</style>
+
+<style>
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+h1, h2, h3 {
+  background: linear-gradient(90deg, #ffffff 0%, #ff6a00 50%, #ffffff 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 2.5s linear infinite, fadeIn 2s ease-in-out forwards;
+  opacity: 0;
+}
+
+</style>
+
+<!-- VanillaTilt.js (CDN) -->
+<script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.7.2/dist/vanilla-tilt.min.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  VanillaTilt.init(document.querySelectorAll(
+    ".info-card, .team-card, .vertical-card, .review-card"
+  ), {
+    max: 12,
+    speed: 400,
+    glare: true,
+    "max-glare": 0.2
+  });
+});
+</script>
+
+
+
+<!-- START: Magnetic Button Hover Effect -->
+<style>
+.magnetic-button {
+  display: inline-block;
+  padding: 14px 32px;
+  background: #ff6a00;
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s ease;
+}
+
+.magnetic-button-wrapper {
+  display: inline-block;
+  position: relative;
+  perspective: 1000px;
+}
+
+.magnetic-button:hover {
+  transform: scale(1.03);
+}
+</style>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const buttons = document.querySelectorAll(".magnetic-button");
+
+  buttons.forEach((button) => {
+    const wrapper = document.createElement("div");
+    wrapper.classList.add("magnetic-button-wrapper");
+    button.parentNode.insertBefore(wrapper, button);
+    wrapper.appendChild(button);
+
+    wrapper.addEventListener("mousemove", (e) => {
+      const rect = wrapper.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+      button.style.transform = `translate(${x * 0.1}px, ${y * 0.1}px)`;
+    });
+
+    wrapper.addEventListener("mouseleave", () => {
+      button.style.transform = "translate(0px, 0px)";
+    });
+  });
+});
+</script>
+<!-- END: Magnetic Button Hover Effect -->
+
+</head>
 <body>
+
+<!-- START: UIBall Orbit Loader Preloader -->
+<div id="preloader">
+  <div class="container">
+    <div class="slice"></div>
+    <div class="slice"></div>
+    <div class="slice"></div>
+    <div class="slice"></div>
+    <div class="slice"></div>
+    <div class="slice"></div>
+  </div>
+</div>
+
+<style>
+#preloader {
+  position: fixed;
+  inset: 0;
+  background: #0e0e0e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+#preloader.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.container {
+  --uib-size: 45px;
+  --uib-color: #ff6a00;
+  --uib-speed: 2.5s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: var(--uib-size);
+  width: var(--uib-size);
+}
+
+.slice {
+  position: relative;
+  height: calc(var(--uib-size) / 6);
+  width: 100%;
+}
+
+.slice::before,
+.slice::after {
+  --uib-a: calc(var(--uib-speed) / -2);
+  --uib-b: calc(var(--uib-speed) / -6);
+  content: '';
+  position: absolute;
+  top: 0;
+  left: calc(50% - var(--uib-size) / 12);
+  height: 100%;
+  width: calc(100% / 6);
+  border-radius: 50%;
+  background-color: var(--uib-color);
+  flex-shrink: 0;
+  animation: orbit var(--uib-speed) linear infinite;
+  transition: background-color 0.3s ease;
+}
+
+.slice:nth-child(1)::after { animation-delay: var(--uib-a); }
+.slice:nth-child(2)::before { animation-delay: var(--uib-b); }
+.slice:nth-child(2)::after { animation-delay: calc(var(--uib-a) + var(--uib-b)); }
+.slice:nth-child(3)::before { animation-delay: calc(var(--uib-b) * 2); }
+.slice:nth-child(3)::after { animation-delay: calc(var(--uib-a) + var(--uib-b) * 2); }
+.slice:nth-child(4)::before { animation-delay: calc(var(--uib-b) * 3); }
+.slice:nth-child(4)::after { animation-delay: calc(var(--uib-a) + var(--uib-b) * 3); }
+.slice:nth-child(5)::before { animation-delay: calc(var(--uib-b) * 4); }
+.slice:nth-child(5)::after { animation-delay: calc(var(--uib-a) + var(--uib-b) * 4); }
+.slice:nth-child(6)::before { animation-delay: calc(var(--uib-b) * 5); }
+.slice:nth-child(6)::after { animation-delay: calc(var(--uib-a) + var(--uib-b) * 5); }
+
+@keyframes orbit {
+  0%   { transform: translateX(calc(var(--uib-size) * 0.25)) scale(0.73684); opacity: 0.65; }
+  25%  { transform: translateX(0%) scale(0.47368); opacity: 0.3; }
+  50%  { transform: translateX(calc(var(--uib-size) * -0.25)) scale(0.73684); opacity: 0.65; }
+  75%  { transform: translateX(0%) scale(1); opacity: 1; }
+  100% { transform: translateX(calc(var(--uib-size) * 0.25)) scale(0.73684); opacity: 0.65; }
+}
+</style>
+<script>
+window.addEventListener("load", () => {
+  const preloader = document.getElementById("preloader");
+  if (preloader) {
+    preloader.classList.add("hidden");
+  }
+});
+</script>
+<!-- END: UIBall Orbit Loader Preloader -->
+
 <div id="themeToggleWrapper" style="position:fixed;top:20px;right:20px;z-index:10000;">
 <label class="switch">
 <input id="themeToggle" type="checkbox"/>
@@ -2291,5 +2478,28 @@ document.addEventListener("DOMContentLoaded", function () {
 
   lazyLotties.forEach(el => observer.observe(el));
 });
-</script></body>
+</script>
+<!-- START: Animated KPI Counter Section -->
+<section class="kpi-section" style="padding: 80px 0; background-color: #0e0e0e; color: white; text-align: center;">
+  <div style="max-width: 900px; margin: 0 auto; display: flex; justify-content: space-around; flex-wrap: wrap; gap: 40px;">
+    <div>
+      <div class="kpi-counter" data-count="12000" data-suffix="+"
+           style="font-size: 2.5rem; font-weight: bold;">0</div>
+      <div style="margin-top: 8px; font-size: 1.2rem;">Orders Fulfilled</div>
+    </div>
+    <div>
+      <div class="kpi-counter" data-count="4900" data-suffix="+"
+           style="font-size: 2.5rem; font-weight: bold;">0</div>
+      <div style="margin-top: 8px; font-size: 1.2rem;">Happy Customers</div>
+    </div>
+    <div>
+      <div class="kpi-counter" data-count="18" data-suffix="+"
+           style="font-size: 2.5rem; font-weight: bold;">0</div>
+      <div style="margin-top: 8px; font-size: 1.2rem;">Countries Served</div>
+    </div>
+  </div>
+</section>
+<!-- END: Animated KPI Counter Section -->
+
+</body>
 </html>
