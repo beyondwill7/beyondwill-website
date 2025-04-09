@@ -1,65 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Beyondwill Blog | Insights on Fashion, Startups & Sustainability</title>
-  <meta name="description" content="Explore insights from Beyondwill LLP on fashion brand incubation, sustainability, and startup growth. Fresh content for forward-thinkers.">
-  <link rel="canonical" href="https://beyondwill.in/blog/">
-  <link rel="stylesheet" href="/style.css">
+  <meta name="description" content="Dive into the world of fashion brand incubation, sustainability, and innovative startup strategies with Beyondwill LLP.">
+  <link rel="canonical" href="https://beyondwill.in/blog/" />
+  <link rel="stylesheet" href="/style.css" />
   <style>
-    /* Minimal Modern Carousel Styles */
+    /* Reset & Basic Styles */
     body {
+      margin: 0;
+      padding: 0;
       font-family: 'Poppins', sans-serif;
-      background: #0e0e0e;
+      background-color: #0e0e0e;
       color: #fff;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    h1, h2, p {
       margin: 0;
       padding: 0;
     }
+    /* Header */
     header {
-      padding: 20px;
       text-align: center;
+      padding: 30px 15px;
+      background: #111;
+      border-bottom: 1px solid #222;
     }
     header h1 {
-      margin: 0;
       font-size: 2.5rem;
       color: #ff6a00;
     }
+    /* Carousel Container */
     .carousel-container {
-      position: relative;
       max-width: 1200px;
       margin: 40px auto;
+      position: relative;
       overflow: hidden;
+      padding: 0 15px;
     }
     .carousel-track {
       display: flex;
-      transition: transform 0.5s ease-in-out;
+      transition: transform 0.6s ease-in-out;
     }
     .carousel-slide {
       min-width: 100%;
       box-sizing: border-box;
       padding: 20px;
     }
-    .slide-content {
-      background: rgba(255, 255, 255, 0.05);
+    /* Slide Content Card */
+    .slide-card {
+      background: #1a1a1a;
+      padding: 20px;
       border-radius: 10px;
-      padding: 40px;
-      text-align: center;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
     }
-    .slide-content h2 {
-      font-size: 2rem;
-      margin-bottom: 10px;
+    .slide-card img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+    .slide-card h2 {
+      font-size: 1.8rem;
+      margin-bottom: 15px;
       color: #ff6a00;
     }
-    .slide-content p {
+    .slide-card p {
       font-size: 1rem;
+      margin-bottom: 20px;
       color: #ccc;
-      margin-bottom: 0;
+      line-height: 1.6;
     }
-    .slide-content a {
-      color: inherit;
-      text-decoration: none;
+    .read-more-btn {
+      align-self: flex-start;
+      background: #ff6a00;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-weight: 600;
+      transition: background 0.3s ease;
     }
+    .read-more-btn:hover {
+      background: #e05500;
+    }
+    /* Carousel Navigation */
     .carousel-nav {
       position: absolute;
       top: 50%;
@@ -67,20 +100,24 @@
       display: flex;
       justify-content: space-between;
       transform: translateY(-50%);
+      pointer-events: none;
+      padding: 0 15px;
     }
     .carousel-button {
-      background: rgba(0, 0, 0, 0.5);
+      background: rgba(0,0,0,0.6);
       border: none;
       color: #fff;
-      font-size: 2rem;
-      padding: 10px;
-      cursor: pointer;
+      font-size: 2.5rem;
+      padding: 8px 12px;
       border-radius: 50%;
+      cursor: pointer;
+      pointer-events: all;
       transition: background 0.3s ease;
     }
     .carousel-button:hover {
-      background: rgba(0, 0, 0, 0.8);
+      background: rgba(0,0,0,0.8);
     }
+    /* Dots navigation */
     .carousel-dots {
       text-align: center;
       margin-top: 20px;
@@ -99,8 +136,15 @@
       background: #ff6a00;
     }
     @media (max-width: 768px) {
-      .slide-content h2 { font-size: 1.5rem; }
-      .slide-content p { font-size: 0.9rem; }
+      header h1 {
+        font-size: 2rem;
+      }
+      .slide-card h2 {
+        font-size: 1.5rem;
+      }
+      .slide-card p {
+        font-size: 0.9rem;
+      }
     }
   </style>
 </head>
@@ -112,23 +156,30 @@
     <div class="carousel-track">
       <!-- Slide 1: What Is a Fashion Brand Incubator? -->
       <div class="carousel-slide">
-        <div class="slide-content">
+        <div class="slide-card">
+          <!-- Replace with an actual featured image URL if available -->
+          <img src="https://via.placeholder.com/1200x600.png?text=Fashion+Brand+Incubator" alt="Fashion Brand Incubator" />
           <h2><a href="/blog/fashion-brand-incubator.html">What Is a Fashion Brand Incubator?</a></h2>
-          <p>Learn how fashion brand incubators like Beyondwill LLP help startups grow with creative strategy, funding, and sustainable vision.</p>
+          <p>In the ever-evolving fashion industry, creativity alone isn't enough. Enter the brand incubator—a game-changer for emerging labels. Discover how Beyondwill LLP empowers startups with creative strategy, funding, and sustainable vision.</p>
+          <a class="read-more-btn" href="/blog/fashion-brand-incubator.html">Read More</a>
         </div>
       </div>
       <!-- Slide 2: How Soulmonk Balances Sustainability & Streetwear -->
       <div class="carousel-slide">
-        <div class="slide-content">
+        <div class="slide-card">
+          <img src="https://via.placeholder.com/1200x600.png?text=Soulmonk+Sustainable+Streetwear" alt="Soulmonk Streetwear" />
           <h2><a href="/blog/soulmonk-sustainable-streetwear.html">How Soulmonk Balances Sustainability &amp; Streetwear</a></h2>
-          <p>Soulmonk by Beyondwill LLP blends eco-conscious design with urban fashion to create sustainable streetwear made for the modern world.</p>
+          <p>Sustainability meets urban style. Soulmonk blends eco-conscious design with streetwear aesthetics to create sustainable fashion that resonates with modern consumers. Learn how we merge ethics with edgy style.</p>
+          <a class="read-more-btn" href="/blog/soulmonk-sustainable-streetwear.html">Read More</a>
         </div>
       </div>
       <!-- Slide 3: Why Angel Investors Are Betting on Fashion Startups in 2025 -->
       <div class="carousel-slide">
-        <div class="slide-content">
+        <div class="slide-card">
+          <img src="https://via.placeholder.com/1200x600.png?text=Fashion+Startups+Investment" alt="Fashion Startups Investment" />
           <h2><a href="/blog/investing-in-fashion-startups.html">Why Angel Investors Are Betting on Fashion Startups in 2025</a></h2>
-          <p>Discover why investors are turning to fashion startups like Soulmonk—led by Beyondwill LLP—for high-growth, purpose-driven opportunities.</p>
+          <p>Angel investors are increasingly turning their gaze to fashion startups. Discover how consumer behavior, innovative DTC models, and digital strategies are transforming the fashion investment landscape.</p>
+          <a class="read-more-btn" href="/blog/investing-in-fashion-startups.html">Read More</a>
         </div>
       </div>
     </div>
@@ -151,26 +202,26 @@
     const dots = Array.from(dotsNav.children);
     let currentIndex = 0;
     
-    // Set slide positions
-    const setSlidePosition = () => {
+    // Set slide positions dynamically
+    const setSlidePositions = () => {
       const slideWidth = slides[0].getBoundingClientRect().width;
       slides.forEach((slide, index) => {
         slide.style.left = slideWidth * index + 'px';
       });
-    };
+    }
+    setSlidePositions();
+    window.addEventListener('resize', setSlidePositions);
     
-    setSlidePosition();
-    window.addEventListener('resize', setSlidePosition);
-    
-    const moveToSlide = (targetIndex) => {
-      const targetSlide = slides[targetIndex];
+    // Move to slide with animation
+    const moveToSlide = (index) => {
+      const targetSlide = slides[index];
       track.style.transform = 'translateX(-' + targetSlide.style.left + ')';
-    };
+    }
     
-    const updateDots = (targetIndex) => {
+    const updateDots = (index) => {
       dots.forEach(dot => dot.classList.remove('active'));
-      dots[targetIndex].classList.add('active');
-    };
+      dots[index].classList.add('active');
+    }
     
     nextButton.addEventListener('click', () => {
       currentIndex = (currentIndex + 1) % slides.length;
@@ -185,17 +236,18 @@
     });
     
     dotsNav.addEventListener('click', (e) => {
-      if(e.target.classList.contains('carousel-dot')) {
-        currentIndex = parseInt(e.target.getAttribute('data-index'));
+      if (e.target.classList.contains('carousel-dot')) {
+        const targetIndex = parseInt(e.target.getAttribute('data-index'));
+        currentIndex = targetIndex;
         moveToSlide(currentIndex);
         updateDots(currentIndex);
       }
     });
     
-    // Auto-play every 5 seconds
+    // Auto-play the carousel every 6 seconds
     setInterval(() => {
       nextButton.click();
-    }, 5000);
+    }, 6000);
   </script>
 </body>
 </html>
