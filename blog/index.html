@@ -9,7 +9,7 @@
   <!-- Global Stylesheet -->
   <link rel="stylesheet" href="/style.css" />
   <style>
-    /* Minimal Modern Blog Landing Page Styles */
+    /* Modern Minimal Blog Landing Page Styles */
     body {
       margin: 0;
       padding: 0;
@@ -191,20 +191,26 @@
   </div>
 
   <script>
-    // Function to open modal and load content
+    // Function to open modal and load content from the blog page URL
     function openModal(url) {
       const modal = document.getElementById('modal');
       const modalBody = document.getElementById('modal-body');
       modal.style.display = 'block';
-      // Optionally show a loader message
-      modalBody.innerHTML = '<p style="text-align:center;">Loading...</p>';
+      // Show a simple loader
+      modalBody.innerHTML = '<p style="text-align:center;">Loading content...</p>';
       fetch(url)
         .then(response => {
-          if (!response.ok) { throw new Error('Network response was not ok'); }
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
           return response.text();
         })
         .then(data => {
-          modalBody.innerHTML = data;
+          // Assuming the fetched file is a complete HTML document,
+          // Extract just the <body> content using DOMParser
+          const parser = new DOMParser();
+          const doc = parser.parseFromString(data, 'text/html');
+          modalBody.innerHTML = doc.body.innerHTML;
         })
         .catch(error => {
           modalBody.innerHTML = '<p style="text-align:center;">Error loading content.</p>';
@@ -212,12 +218,12 @@
         });
     }
 
-    // Close modal function
+    // Function to close the modal
     function closeModal() {
       document.getElementById('modal').style.display = 'none';
     }
 
-    // Event listeners for read-more buttons
+    // Add event listeners to Read More buttons
     document.querySelectorAll('.read-more').forEach(button => {
       button.addEventListener('click', function(e) {
         const url = e.target.getAttribute('data-url');
@@ -225,10 +231,10 @@
       });
     });
 
-    // Event listener for closing modal via the close button
+    // Event listener for closing the modal when clicking the close button
     document.querySelector('.modal-close').addEventListener('click', closeModal);
 
-    // Close the modal if user clicks outside of the modal content
+    // Close modal if user clicks outside the modal content area
     window.addEventListener('click', function(event) {
       const modal = document.getElementById('modal');
       if (event.target == modal) {
