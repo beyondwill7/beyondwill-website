@@ -1,0 +1,33 @@
+name: Weekly Blog Publish
+
+on:
+  schedule:
+    - cron: '30 4 * * 4'  # Every Thursday at 10:00 AM IST
+  workflow_dispatch:      # Also allow manual trigger
+
+jobs:
+  publish-next-blog:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Move next draft to posts
+        run: |
+          DRAFT_FILE=$(ls content/drafts/*.md | sort | head -n 1)
+          if [ -z "$DRAFT_FILE" ]; then
+            echo "No drafts to publish!"
+            exit 0
+          fi
+          POST_FILE="content/posts/$(basename $DRAFT_FILE)"
+          mv "$DRAFT_FILE" "$POST_FILE"
+          echo "Moved $DRAFT_FILE to $POST_FILE"
+
+      - name: Commit and push changes
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add content/posts/
+          git commit -m "Publish next blog post"
+          git push
