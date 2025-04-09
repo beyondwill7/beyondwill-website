@@ -852,6 +852,47 @@ header {
   transition: opacity 0.4s ease;
 }
 
+
+.theme-toggle-container {
+  background: none !important;
+  backdrop-filter: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
+/* New glow and repositioned toggle */
+.theme-toggle-container {
+  top: auto !important;
+  bottom: 20px !important;
+  right: 20px !important;
+  left: auto !important;
+}
+
+.theme-toggle-switch .slider-icon:hover {
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.4), 0 0 20px rgba(255, 255, 255, 0.2);
+  transition: box-shadow 0.3s ease;
+}
+
+/* Animated background transition */
+body {
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+/* Updated slider icon to use inline SVGs */
+.theme-toggle-switch .slider-icon::before {
+  content: '';
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="yellow" viewBox="0 0 24 24"><path d="M21.64 13.65A9 9 0 0 1 10.35 2.36a9 9 0 1 0 11.29 11.29z"/></svg>') no-repeat center;
+  background-size: contain;
+  display: block;
+  width: 20px;
+  height: 20px;
+}
+
+.theme-toggle-switch input:checked + .slider .slider-icon::before {
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="orange" viewBox="0 0 24 24"><path d="M12 18a6 6 0 1 0 0-12 6 6 0 0 0 0 12z"/><path d="M12 2v2m0 16v2m10-10h-2M4 12H2m15.54 6.54l-1.41-1.41M6.88 6.88L5.47 5.47m0 13.07l1.41-1.41m12.02-12.02l-1.41 1.41"/></svg>') no-repeat center;
+  background-size: contain;
+}
 </style>
 <style>
 /* Corrected backdrop CSS to remove extra blank space issue */
@@ -1326,7 +1367,6 @@ footer {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 </style>
-
 <style>
 
 @keyframes shimmer {
@@ -1348,7 +1388,6 @@ h1, h2, h3 {
 }
 
 </style>
-
 <!-- VanillaTilt.js (CDN) -->
 <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.7.2/dist/vanilla-tilt.min.js"></script>
 <script>
@@ -1363,9 +1402,6 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 </script>
-
-
-
 <!-- START: Magnetic Button Hover Effect -->
 <style>
 .magnetic-button {
@@ -1417,22 +1453,181 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 </script>
 <!-- END: Magnetic Button Hover Effect -->
-
 </head>
 <body>
+<!-- START: Premium Modern Dark/Light Toggle -->
+<style>
+  .theme-toggle-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+  }
 
+  .theme-toggle-switch {
+    --toggle-size: 32px;
+    --toggle-padding: 4px;
+    --slider-bg: #4a4a4a;
+    --slider-active-bg: #2196F3;
+    position: relative;
+    width: calc(var(--toggle-size) * 2);
+    height: var(--toggle-size);
+    background: var(--slider-bg);
+    border-radius: var(--toggle-size);
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+
+  .theme-toggle-switch input {
+    display: none;
+  }
+
+  .slider-icon {
+    content: '';
+    position: absolute;
+    top: var(--toggle-padding);
+    left: var(--toggle-padding);
+    width: calc(var(--toggle-size) - var(--toggle-padding) * 2);
+    height: calc(var(--toggle-size) - var(--toggle-padding) * 2);
+    background: #fff;
+    border-radius: 50%;
+    transition: transform 0.3s ease, background 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+  }
+
+  .theme-toggle-switch input:checked + .slider {
+    background: var(--slider-active-bg);
+  }
+
+  .theme-toggle-switch input:checked + .slider .slider-icon {
+    transform: translateX(calc(var(--toggle-size)));
+  }
+
+  .slider {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: var(--toggle-size);
+    transition: background 0.3s ease;
+  }
+
+  .slider-icon::before {
+    content: '🌙';
+  }
+
+  .theme-toggle-switch input:checked + .slider .slider-icon::before {
+    content: '☀️';
+  }
+</style>
+<div class="theme-toggle-container">
+<label class="theme-toggle-switch">
+<input id="theme-toggle" onclick="toggleTheme()" type="checkbox"/>
+<div class="slider">
+<div class="slider-icon"></div>
+</div>
+</label>
+</div>
+<script>
+  function toggleTheme() {
+    const theme = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+  }
+  document.addEventListener('DOMContentLoaded', function () {
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    document.getElementById('theme-toggle').checked = savedTheme === 'light';
+  });
+</script>
+<!-- END: Premium Modern Dark/Light Toggle -->
+<!-- START: Modern Dark/Light Toggle -->
+<style>
+  :root {
+    --bg-color: #0e0e0e;
+    --text-color: #ffffff;
+  }
+  [data-theme="light"] {
+    --bg-color: #ffffff;
+    --text-color: #0e0e0e;
+  }
+  body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  .theme-toggle-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+  }
+  .theme-toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+  .theme-toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  .theme-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #555;
+    transition: 0.4s;
+    border-radius: 34px;
+  }
+  .theme-slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+  }
+  input:checked + .theme-slider {
+    background-color: #2196F3;
+  }
+  input:checked + .theme-slider:before {
+    transform: translateX(26px);
+  }
+</style>
+<script>
+  function toggleTheme() {
+    const theme = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+  }
+  document.addEventListener('DOMContentLoaded', function () {
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    document.getElementById('theme-toggle').checked = savedTheme === 'light';
+  });
+</script>
+<!-- END: Modern Dark/Light Toggle -->
 <!-- START: UIBall Orbit Loader Preloader -->
 <div id="preloader">
-  <div class="container">
-    <div class="slice"></div>
-    <div class="slice"></div>
-    <div class="slice"></div>
-    <div class="slice"></div>
-    <div class="slice"></div>
-    <div class="slice"></div>
-  </div>
+<div class="container">
+<div class="slice"></div>
+<div class="slice"></div>
+<div class="slice"></div>
+<div class="slice"></div>
+<div class="slice"></div>
+<div class="slice"></div>
 </div>
-
+</div>
 <style>
 #preloader {
   position: fixed;
@@ -1513,57 +1708,6 @@ window.addEventListener("load", () => {
 });
 </script>
 <!-- END: UIBall Orbit Loader Preloader -->
-
-<div id="themeToggleWrapper" style="position:fixed;top:20px;right:20px;z-index:10000;">
-<label class="switch">
-<input id="themeToggle" type="checkbox"/>
-<span class="slider"></span>
-</label>
-</div>
-<style>
-  .switch {
-    position: relative;
-    display: inline-block;
-    width: 50px;
-    height: 28px;
-  }
-  .switch input { opacity: 0; width: 0; height: 0; }
-  .slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0; left: 0;
-    right: 0; bottom: 0;
-    background-color: #888;
-    transition: .4s;
-    border-radius: 34px;
-  }
-  .slider:before {
-    position: absolute;
-    content: "";
-    height: 20px; width: 20px;
-    left: 4px; bottom: 4px;
-    background-color: white;
-    transition: .4s;
-    border-radius: 50%;
-  }
-  input:checked + .slider {
-    background-color: #ff6a00;
-  }
-  input:checked + .slider:before {
-    transform: translateX(22px);
-  }
-
-@media (max-width: 768px) {
-  #themeToggleWrapper {
-    top: auto !important;
-    bottom: 20px !important;
-    right: 20px !important;
-  }
-}
-#themeToggleWrapper {
-  transition: top 0.3s ease, bottom 0.3s ease;
-}
-</style>
 <div id="scroll-progress-bar" style="position:fixed;top:0;left:0;height:4px;width:0;background:#ff6a00;z-index:9999;transition:width 0.2s ease;"></div>
 <script>
   document.addEventListener('scroll', function () {
@@ -2423,33 +2567,6 @@ document.addEventListener("DOMContentLoaded", function () {
       el.addEventListener("mouseleave", () => {
         el.style.transform = "rotateX(0) rotateY(0)";
       });
-    });
-  });
-</script>
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const toggle = document.getElementById("themeToggle");
-    const root = document.documentElement;
-
-    if (localStorage.getItem("theme") === "light") {
-      root.style.setProperty('--bg-color', '#ffffff');
-      root.style.setProperty('--text-color', '#000000');
-      root.style.setProperty('--header-bg', '#ffffffcc');
-      toggle.checked = true;
-    }
-
-    toggle.addEventListener("change", () => {
-      if (toggle.checked) {
-        root.style.setProperty('--bg-color', '#ffffff');
-        root.style.setProperty('--text-color', '#000000');
-        root.style.setProperty('--header-bg', '#ffffffcc');
-        localStorage.setItem("theme", "light");
-      } else {
-        root.style.setProperty('--bg-color', '#0e0e0e');
-        root.style.setProperty('--text-color', '#ffffff');
-        root.style.setProperty('--header-bg', 'transparent');
-        localStorage.setItem("theme", "dark");
-      }
     });
   });
 </script>
