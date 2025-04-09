@@ -6,39 +6,7 @@
   <meta name="description" content="Beyondwill Blog - Cutting-edge insights on fashion startups, sustainability, branding, and innovation.">
   <title>Beyondwill Blog</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.6/lottie.min.js">
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const modal = document.getElementById("blogModal");
-    const modalBody = document.getElementById("modalBody");
-    const closeModal = document.getElementById("closeModal");
-
-    document.body.addEventListener("click", async (e) => {
-      if (e.target.matches(".read-btn")) {
-        e.preventDefault();
-        const url = e.target.getAttribute("href");
-        try {
-          const res = await fetch(url);
-          const html = await res.text();
-          modalBody.innerHTML = html;
-          modal.style.display = "flex";
-          document.body.style.overflow = "hidden";
-        } catch (err) {
-          modalBody.innerHTML = "<p>Failed to load blog post. Please try again.</p>";
-          modal.style.display = "flex";
-        }
-      }
-
-      if (e.target === closeModal) {
-        modal.style.display = "none";
-        modalBody.innerHTML = "";
-        document.body.style.overflow = "";
-      }
-    });
-  });
-</script>
-
-</script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.6/lottie.min.js"></script>
   <style>
     :root {
       --gradient: linear-gradient(to right, #ff6ec4, #7873f5);
@@ -353,105 +321,52 @@
     transform: translateY(0);
   }
 }
-
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(10, 10, 10, 0.95);
-  backdrop-filter: blur(10px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-  padding: 2rem;
-}
-
-.modal-content {
-  background: rgba(255, 255, 255, 0.05);
-  color: #fff;
-  max-width: 800px;
-  width: 100%;
-  padding: 2rem;
-  border-radius: 1rem;
-  overflow-y: auto;
-  max-height: 90vh;
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
-  position: relative;
-  animation: fadeIn 0.4s ease-in-out;
-}
-
-#closeModal {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  background: #ff6ec4;
-  color: #000;
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 999px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: scale(0.95); }
-  to { opacity: 1; transform: scale(1); }
-}
+</style>
 
 </style>
 
-
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(10, 10, 10, 0.95);
-  backdrop-filter: blur(10px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-  padding: 2rem;
-}
-
-.modal-content {
-  background: rgba(255, 255, 255, 0.05);
-  color: #fff;
-  max-width: 800px;
-  width: 100%;
-  padding: 2rem;
-  border-radius: 1rem;
-  overflow-y: auto;
-  max-height: 90vh;
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
-  position: relative;
-  animation: fadeIn 0.4s ease-in-out;
-}
-
-#closeModal {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  background: #ff6ec4;
-  color: #000;
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 999px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: scale(0.95); }
-  to { opacity: 1; transform: scale(1); }
-}
-
+<style>
+  .modal-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(10px);
+    display: flex; align-items: center; justify-content: center;
+    z-index: 9999;
+    padding: 2rem;
+  }
+  .modal-content {
+    background: rgba(255, 255, 255, 0.05);
+    color: #fff;
+    max-width: 800px;
+    width: 100%;
+    padding: 2rem;
+    border-radius: 1rem;
+    overflow-y: auto;
+    max-height: 90vh;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+    position: relative;
+    animation: fadeIn 0.4s ease-in-out;
+  }
+  #closeModal {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: #ff6ec4;
+    color: #000;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 999px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to   { opacity: 1; transform: scale(1); }
+  }
 </style>
+
 </head>
 <body>
   <div class="wrapper">
@@ -649,39 +564,7 @@
     searchInput.addEventListener('input', () => {
       renderPosts(currentTag, true, searchInput.value);
     });
-  
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const modal = document.getElementById("blogModal");
-    const modalBody = document.getElementById("modalBody");
-    const closeModal = document.getElementById("closeModal");
-
-    document.body.addEventListener("click", async (e) => {
-      if (e.target.matches(".read-btn")) {
-        e.preventDefault();
-        const url = e.target.getAttribute("href");
-        try {
-          const res = await fetch(url);
-          const html = await res.text();
-          modalBody.innerHTML = html;
-          modal.style.display = "flex";
-          document.body.style.overflow = "hidden";
-        } catch (err) {
-          modalBody.innerHTML = "<p>Failed to load blog post. Please try again.</p>";
-          modal.style.display = "flex";
-        }
-      }
-
-      if (e.target === closeModal) {
-        modal.style.display = "none";
-        modalBody.innerHTML = "";
-        document.body.style.overflow = "";
-      }
-    });
-  });
-</script>
-
-</script>
+  </script>
 
 <script>
 function animateCounter(id, end, duration) {
@@ -742,47 +625,38 @@ lottie.loadAnimation({
   autoplay: true,
   path: 'https://assets10.lottiefiles.com/packages/lf20_kxrplbzo.json'
 });
-
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const modal = document.getElementById("blogModal");
-    const modalBody = document.getElementById("modalBody");
-    const closeModal = document.getElementById("closeModal");
-
-    document.body.addEventListener("click", async (e) => {
-      if (e.target.matches(".read-btn")) {
-        e.preventDefault();
-        const url = e.target.getAttribute("href");
-        try {
-          const res = await fetch(url);
-          const html = await res.text();
-          modalBody.innerHTML = html;
-          modal.style.display = "flex";
-          document.body.style.overflow = "hidden";
-        } catch (err) {
-          modalBody.innerHTML = "<p>Failed to load blog post. Please try again.</p>";
-          modal.style.display = "flex";
-        }
-      }
-
-      if (e.target === closeModal) {
-        modal.style.display = "none";
-        modalBody.innerHTML = "";
-        document.body.style.overflow = "";
-      }
-    });
-  });
 </script>
 
-</script>
-
-<!-- Blog Modal -->
-<div id="blogModal" style="display:none;" class="modal-overlay">
+<div id="modal" class="modal-overlay" style="display:none;">
   <div class="modal-content">
-    <button id="closeModal">✕</button>
-    <div id="modalBody"></div>
+    <button id="closeModal">Close</button>
+    <div id="modalBody">Loading blog...</div>
   </div>
 </div>
+<script>
+  const modal = document.getElementById("modal");
+  const modalBody = document.getElementById("modalBody");
+  const closeModal = document.getElementById("closeModal");
+
+  closeModal.onclick = () => modal.style.display = "none";
+
+  document.querySelectorAll(".read-btn").forEach(button => {
+    button.onclick = async (e) => {
+      e.preventDefault();
+      const url = button.getAttribute("href");
+      modalBody.innerHTML = "Loading blog...";
+      modal.style.display = "flex";
+      try {
+        const res = await fetch(url);
+        const text = await res.text();
+        const doc = new DOMParser().parseFromString(text, "text/html");
+        modalBody.innerHTML = doc.body.innerHTML;
+      } catch (err) {
+        modalBody.innerHTML = "Failed to load blog.";
+      }
+    };
+  });
+</script>
 
 </body>
 </html>
