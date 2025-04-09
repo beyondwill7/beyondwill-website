@@ -9,64 +9,17 @@
 </head>
 <body class="bg-[#0e0e0e] text-white">
 
-  <!-- Featured Blog Hero -->
-  <section class="max-w-7xl mx-auto px-4 py-16" data-aos="fade-up">
-    <div class="relative rounded-3xl overflow-hidden shadow-2xl group">
-      <img src="https://via.placeholder.com/1200x600?text=Beyondwill+Spotlight" class="w-full h-96 object-cover group-hover:scale-105 transition duration-700 ease-in-out" />
-      <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent p-6 md:p-12 flex flex-col justify-end">
-        <span class="text-xs font-semibold uppercase text-pink-400">#Spotlight</span>
-        <h2 class="text-3xl md:text-4xl font-bold text-white mt-2 mb-1">How to Launch a Streetwear Brand in India</h2>
-        <p class="text-sm md:text-base text-gray-300">A complete guide to building your brand, designing your first drop, and scaling online in 2025.</p>
-        <button class="mt-4 w-fit bg-white/10 border border-white/20 hover:bg-pink-500 text-white px-5 py-2 rounded-full transition read-more" data-url="/blog/how-to-launch-streetwear-brand-india.html">Read Now</button>
-      </div>
-    </div>
+  <!-- Hero Section -->
+  <section class="max-w-7xl mx-auto px-4 py-16 text-center" data-aos="fade-up">
+    <h1 class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-orange-500 to-pink-500 text-transparent bg-clip-text">
+      Beyondwill Blog
+    </h1>
+    <p class="mt-4 text-gray-400 text-lg">Insights, stories, and strategies shaping fashion entrepreneurship in India.</p>
   </section>
 
-  <!-- Filter Bar -->
-  <div class="max-w-7xl mx-auto px-4 mt-6 overflow-x-auto whitespace-nowrap scrollbar-hide pb-2">
-    <div id="filter-buttons" class="flex gap-4 text-sm font-medium">
-      <button class="px-4 py-2 rounded-full bg-white/10 text-pink-400 border border-white/10" data-filter="all">All</button>
-      <button class="px-4 py-2 rounded-full hover:bg-white/10 transition" data-filter="brand">Branding</button>
-      <button class="px-4 py-2 rounded-full hover:bg-white/10 transition" data-filter="sustainability">Sustainability</button>
-      <button class="px-4 py-2 rounded-full hover:bg-white/10 transition" data-filter="strategy">Startup Strategy</button>
-    </div>
-  </div>
-
-  <!-- Section Label -->
-  <div class="max-w-7xl mx-auto px-4 pt-20 pb-6">
-    <h3 class="text-xl uppercase text-pink-500 font-semibold tracking-wider">Latest from Beyondwill</h3>
-    <hr class="border-pink-500 w-24 mt-2" />
-  </div>
-
-  <!-- Blog Listing Grid (static placeholder) -->
+  <!-- Blog Grid -->
   <div id="blog-grid" class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 pb-20">
-    <div class="blog-card strategy" data-aos="fade-up">
-      <img src="/images/blogs/streetwear-launch.jpg" alt="Streetwear Brand Guide" class="rounded-t-xl">
-      <div class="p-6">
-        <h2 class="text-xl font-bold text-orange-400 mb-2">How to Launch a Streetwear Brand in India</h2>
-        <p class="text-sm text-gray-400">Your 2025 playbook from idea to launch — the essentials to go from sketch to scale.</p>
-        <p class="text-xs text-gray-400 mt-2">Apr 15, 2025 • 5 min read</p>
-        <button class="read-more mt-4 bg-pink-600 px-4 py-2 rounded-full text-white" data-url="/blog/how-to-launch-streetwear-brand-india.html">Read More</button>
-      </div>
-    </div>
-    <div class="blog-card sustainability" data-aos="fade-up" data-aos-delay="100">
-      <img src="/images/blogs/sustainable-fabrics.jpg" alt="Sustainable Fabrics" class="rounded-t-xl">
-      <div class="p-6">
-        <h2 class="text-xl font-bold text-orange-400 mb-2">10 Sustainable Fabrics Redefining Modern Streetwear</h2>
-        <p class="text-sm text-gray-400">Eco-friendly isn’t optional. Discover the top materials reshaping fashion.</p>
-        <p class="text-xs text-gray-400 mt-2">Apr 22, 2025 • 4 min read</p>
-        <button class="read-more mt-4 bg-pink-600 px-4 py-2 rounded-full text-white" data-url="/blog/sustainable-streetwear-fabrics.html">Read More</button>
-      </div>
-    </div>
-    <div class="blog-card brand" data-aos="fade-up" data-aos-delay="200">
-      <img src="/images/blogs/soulmonk.jpg" alt="Soulmonk Story" class="rounded-t-xl">
-      <div class="p-6">
-        <h2 class="text-xl font-bold text-orange-400 mb-2">Behind the Brand: The Soulmonk Story</h2>
-        <p class="text-sm text-gray-400">How a purpose-led brand incubated by Beyondwill became a Gen Z cult label.</p>
-        <p class="text-xs text-gray-400 mt-2">Apr 29, 2025 • 3 min read</p>
-        <button class="read-more mt-4 bg-pink-600 px-4 py-2 rounded-full text-white" data-url="/blog/soulmonk-brand-story.html">Read More</button>
-      </div>
-    </div>
+    <p class="col-span-3 text-center text-gray-400">Loading blogs...</p>
   </div>
 
   <!-- Modal -->
@@ -82,6 +35,45 @@
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>AOS.init({ duration: 1000, once: true });</script>
   <script>
+    async function loadBlogs() {
+      const container = document.getElementById("blog-grid");
+      try {
+        const res = await fetch("/blog");
+        const text = await res.text();
+        const matches = [...text.matchAll(/href=\"(.*?)\.html\"/g)].map(m => m[1] + ".html");
+
+        if (!matches.length) throw new Error("No blogs found.");
+
+        container.innerHTML = "";
+
+        for (const filename of matches) {
+          const blogRes = await fetch(`/blog/${filename}`);
+          const html = await blogRes.text();
+          const metaMatch = html.match(/<!--\s*blog-meta:\s*(\{[\s\S]*?\})\s*-->/);
+          if (!metaMatch) continue;
+
+          const meta = JSON.parse(metaMatch[1]);
+
+          container.innerHTML += `
+            <div class="blog-card ${meta.tag}" data-aos="fade-up">
+              <img src="${meta.image}" alt="${meta.title}" class="rounded-t-xl w-full h-60 object-cover">
+              <div class="p-6">
+                <h2 class="text-xl font-bold text-orange-400 mb-2">${meta.title}</h2>
+                <p class="text-sm text-gray-400">${meta.description}</p>
+                <p class="text-xs text-gray-400 mt-2">${new Date(meta.date).toDateString()} • ${meta.readTime}</p>
+                <button class="read-more mt-4 bg-pink-600 px-4 py-2 rounded-full text-white" data-url="/blog/${filename}">Read More</button>
+              </div>
+            </div>`;
+        }
+
+        AOS.refresh();
+      } catch (err) {
+        container.innerHTML = `<p class='col-span-3 text-center text-red-500'>Error loading blogs: ${err.message}</p>`;
+      }
+    }
+
+    loadBlogs();
+
     const modal = document.getElementById('modal');
     const modalBody = document.getElementById('modal-body');
     const modalClose = document.getElementById('modal-close');
