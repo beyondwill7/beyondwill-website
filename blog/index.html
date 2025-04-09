@@ -1,184 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Beyondwill Blog – Fresh insights, founder stories, and strategic plays shaping the future of fashion entrepreneurship in India." />
-  <title>Beyondwill Blog | Fashion Insights & Startup Stories</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&family=Poppins:wght@600&display=swap" rel="stylesheet" />
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-  <style>
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: 'DM Sans', sans-serif;
-      background: #0e0e10;
-      color: #f5f5f5;
-    }
-    header {
-      text-align: center;
-      padding: 60px 20px 20px;
-    }
-    header h1 {
-      font-family: 'Poppins', sans-serif;
-      font-size: 2.8rem;
-      color: #ff4367;
-      margin: 0;
-    }
-    header p {
-      color: #aaa;
-      max-width: 640px;
-      margin: 12px auto 0;
-      font-size: 1rem;
-    }
-    .filters {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin: 30px auto;
-    }
-    .filters button {
-      padding: 6px 14px;
-      border: none;
-      border-radius: 20px;
-      background: #1a1a1d;
-      color: #f5f5f5;
-      font-size: 0.9rem;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-    .filters button.active,
-    .filters button:hover {
-      background: #ff3f68;
-      color: white;
-    }
-    .blog-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
-      padding: 40px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    .blog-card {
-      background: rgba(255, 255, 255, 0.04);
-      border-radius: 20px;
-      backdrop-filter: blur(16px);
-      box-shadow: 0 0 20px rgba(255, 66, 99, 0.08);
-      overflow: hidden;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .blog-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 10px 30px rgba(255, 66, 99, 0.2);
-    }
-    .blog-card img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-    }
-    .blog-content {
-      padding: 20px;
-    }
-    .blog-tag {
-      display: inline-block;
-      font-size: 0.75rem;
-      color: #ff3f68;
-      background: rgba(255, 63, 104, 0.12);
-      padding: 4px 10px;
-      border-radius: 20px;
-      margin-bottom: 10px;
-    }
-    .blog-title {
-      font-size: 1.2rem;
-      font-weight: 600;
-      margin: 6px 0;
-      color: #fff;
-    }
-    .blog-desc {
-      font-size: 0.9rem;
-      color: #aaa;
-      margin-bottom: 20px;
-    }
-    .blog-content a {
-      background: #ff3f68;
-      color: white;
-      text-decoration: none;
-      padding: 10px 18px;
-      border-radius: 30px;
-      font-weight: 500;
-      transition: all 0.3s ease;
-    }
-    .blog-content a:hover {
-      background: #ff6a85;
-    }
-    @media (max-width: 768px) {
-      header h1 {
-        font-size: 2.1rem;
-      }
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <h1>Beyondwill Blog</h1>
-    <p>Insights, stories, and strategies shaping fashion entrepreneurship in India.</p>
-  </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Beyondwill Blog</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;800&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="blog-container">
+      <header class="blog-hero">
+        <h1 class="gradient-title">Beyondwill Blog</h1>
+        <p class="subheading">Insights, stories, and strategies shaping fashion entrepreneurship in India.</p>
+        <div class="filter-buttons">
+          <button class="tag active" data-filter="all">All</button>
+          <button class="tag" data-filter="branding">💼 Branding</button>
+          <button class="tag" data-filter="sustainability">🌱 Sustainability</button>
+          <button class="tag" data-filter="strategy">📊 Strategy</button>
+        </div>
+      </header>
 
-  <div class="filters">
-    <button class="active">All</button>
-    <button>Branding</button>
-    <button>Sustainability</button>
-    <button>Startup Strategy</button>
-  </div>
+      <section id="blog-list" class="card-grid"></section>
+    </div>
 
-  <section class="blog-grid" id="blogGrid">
-    <!-- Cards loaded here via JavaScript -->
-  </section>
-
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>AOS.init();</script>
-  <script>
-    const blogGrid = document.getElementById('blogGrid');
-    const filters = document.querySelectorAll('.filters button');
-
-    let blogs = [];
-
-    fetch('blog-list.json')
-      .then(res => res.json())
-      .then(data => {
-        blogs = data;
-        renderBlogs('All');
-      });
-
-    filters.forEach(btn => {
-      btn.addEventListener('click', () => {
-        filters.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        renderBlogs(btn.textContent);
-      });
-    });
-
-    function renderBlogs(tag) {
-      blogGrid.innerHTML = '';
-      blogs.filter(b => tag === 'All' || b.tag === tag.toLowerCase())
-        .forEach(data => {
-          blogGrid.innerHTML += `
-            <div class="blog-card" data-aos="fade-up">
-              <img src="${data.image}" alt="${data.title}" loading="lazy" />
-              <div class="blog-content">
-                <span class="blog-tag">${data.tag.charAt(0).toUpperCase() + data.tag.slice(1)}</span>
-                <h3 class="blog-title">${data.title}</h3>
-                <p class="blog-desc">${data.description}</p>
-                <a href="${data.url}">Read More</a>
-              </div>
-            </div>
-          `;
-        });
-    }
-  </script>
-</body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="script.js"></script>
+  </body>
 </html>
