@@ -1,223 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Beyondwill Blog | Insights on Fashion, Startups & Sustainability</title>
-    <meta name="description" content="Dive into the world of fashion brand incubation, sustainability, and innovative startup strategies with Beyondwill LLP." />
-    <link rel="canonical" href="https://beyondwill.in/blog/" />
-    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
-    <link rel="stylesheet" href="/style.css" />
-    <style>
-      body {
-        margin: 0;
-        padding: 0;
-        font-family: 'Poppins', sans-serif;
-        background-color: #0e0e0e;
-        color: #fff;
-      }
-      header {
-        text-align: center;
-        padding: 60px 20px;
-        background-color: #111;
-        border-bottom: 1px solid #222;
-      }
-      header h1 {
-        font-size: 3rem;
-        background: linear-gradient(to right, #ff7a00, #ff007a);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        margin: 0;
-      }
-      .blog-container {
-        max-width: 1280px;
-        margin: 60px auto;
-        padding: 0 20px;
-      }
-      .featured {
-        position: relative;
-        margin-bottom: 60px;
-        border-radius: 24px;
-        overflow: hidden;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-      }
-      .featured img {
-        width: 100%;
-        height: 420px;
-        object-fit: cover;
-        transition: transform 0.5s ease;
-      }
-      .featured:hover img {
-        transform: scale(1.05);
-      }
-      .featured-content {
-        position: absolute;
-        bottom: 0;
-        padding: 40px;
-        background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
-      }
-      .featured-content h2 {
-        font-size: 2rem;
-        margin: 0 0 10px;
-      }
-      .featured-content p {
-        color: #ccc;
-        font-size: 1rem;
-        margin-bottom: 10px;
-      }
-      .featured-tag {
-        background: #ff6a00;
-        color: #fff;
-        padding: 6px 14px;
-        border-radius: 30px;
-        font-size: 0.75rem;
-        text-transform: uppercase;
-        display: inline-block;
-        margin-bottom: 10px;
-      }
-      .grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-        gap: 30px;
-      }
-      .card {
-        background: rgba(255, 255, 255, 0.05);
-        backdrop-filter: blur(10px);
-        border-radius: 20px;
-        overflow: hidden;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-        transition: transform 0.3s ease;
-        display: flex;
-        flex-direction: column;
-      }
-      .card:hover {
-        transform: translateY(-8px);
-      }
-      .card img {
-        width: 100%;
-        height: 200px;
-        object-fit: cover;
-      }
-      .card-content {
-        padding: 20px;
-        display: flex;
-        flex-direction: column;
-      }
-      .card h2 {
-        font-size: 1.3rem;
-        margin: 0 0 10px;
-        color: #fff;
-      }
-      .card p {
-        color: #aaa;
-        font-size: 0.9rem;
-        margin-bottom: 15px;
-      }
-      .read-more {
-        align-self: flex-start;
-        background-color: #ff007a;
-        color: white;
-        padding: 10px 18px;
-        border-radius: 30px;
-        font-size: 0.85rem;
-        border: none;
-        cursor: pointer;
-      }
-      footer {
-        text-align: center;
-        padding: 30px;
-        font-size: 0.85rem;
-        color: #666;
-        background-color: #111;
-        margin-top: 60px;
-      }
-      @media (max-width: 768px) {
-        .featured-content h2 { font-size: 1.5rem; }
-        header h1 { font-size: 2.25rem; }
-      }
-    </style>
-  </head>
-  <body>
-    <header>
-      <h1>Beyondwill Blog</h1>
-    </header>
-
-    <div class="blog-container">
-      <!-- Featured Blog -->
-      <div class="featured" data-aos="fade-up">
-        <img src="https://via.placeholder.com/1200x500?text=Featured+Blog" alt="Featured Blog">
-        <div class="featured-content">
-          <span class="featured-tag">#Soulmonk</span>
-          <h2>Behind the Scenes: How Soulmonk is Shaping Indian Streetwear</h2>
-          <p>Apr 5, 2025 • 3 min read</p>
-        </div>
-      </div>
-
-      <!-- Blog Cards -->
-      <div class="grid">
-        <div class="card" data-aos="fade-up" data-aos-delay="100">
-          <img src="https://via.placeholder.com/600x400.png?text=Fashion+Brand+Incubator" alt="Fashion Brand Incubator">
-          <div class="card-content">
-            <h2>What Is a Fashion Brand Incubator?</h2>
-            <p>Beyondwill empowers emerging fashion labels with our unique incubation model...</p>
-            <button class="read-more" data-url="/blog/fashion-brand-incubator.html">Read More</button>
-          </div>
-        </div>
-
-        <div class="card" data-aos="fade-up" data-aos-delay="200">
-          <img src="https://via.placeholder.com/600x400.png?text=Soulmonk+Streetwear" alt="Soulmonk Sustainable Streetwear">
-          <div class="card-content">
-            <h2>How Soulmonk Balances Sustainability & Streetwear</h2>
-            <p>Urban streetwear meets eco-conscious design. Explore our sustainable future...</p>
-            <button class="read-more" data-url="/blog/soulmonk-sustainable-streetwear.html">Read More</button>
-          </div>
-        </div>
-
-        <div class="card" data-aos="fade-up" data-aos-delay="300">
-          <img src="https://via.placeholder.com/600x400.png?text=Fashion+Startup+Investment" alt="Fashion Startups Investment">
-          <div class="card-content">
-            <h2>Why Angel Investors Are Betting on Fashion Startups in 2025</h2>
-            <p>Why is fashion hot again? Data-backed strategies make it the next unicorn hub...</p>
-            <button class="read-more" data-url="/blog/investing-in-fashion-startups.html">Read More</button>
-          </div>
-        </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Beyondwill Blog</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-[#0e0e0e] text-white">
+  <!-- Blog Listing Grid -->
+  <div class="max-w-7xl mx-auto py-12 px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
+    <div class="bg-[#1a1a1a] rounded-2xl shadow-lg overflow-hidden">
+      <img src="https://via.placeholder.com/600x400.png?text=Fashion+Brand+Incubator" alt="Blog 1">
+      <div class="p-6">
+        <h2 class="text-xl font-bold text-orange-400 mb-2">What Is a Fashion Brand Incubator?</h2>
+        <p class="text-sm text-gray-400">Beyondwill empowers emerging fashion labels with our unique incubation model...</p>
+        <button class="read-more mt-4 bg-pink-600 px-4 py-2 rounded-full text-white" data-url="/blog/fashion-brand-incubator.html">Read More</button>
       </div>
     </div>
-
-    <footer>
-      <p>&copy; 2025 Beyondwill LLP. All rights reserved.</p>
-    </footer>
-
-    <!-- Modal Loader & Scripts -->
-    <div id="modal" class="modal">
-      <div class="modal-content">
-        <span class="modal-close">&times;</span>
-        <div id="modal-body"></div>
+    <div class="bg-[#1a1a1a] rounded-2xl shadow-lg overflow-hidden">
+      <img src="https://via.placeholder.com/600x400.png?text=Soulmonk" alt="Blog 2">
+      <div class="p-6">
+        <h2 class="text-xl font-bold text-orange-400 mb-2">How Soulmonk Balances Sustainability & Streetwear</h2>
+        <p class="text-sm text-gray-400">Urban streetwear meets eco-conscious design. Explore our sustainable future...</p>
+        <button class="read-more mt-4 bg-pink-600 px-4 py-2 rounded-full text-white" data-url="/blog/soulmonk-sustainable-streetwear.html">Read More</button>
       </div>
     </div>
+    <div class="bg-[#1a1a1a] rounded-2xl shadow-lg overflow-hidden">
+      <img src="https://via.placeholder.com/600x400.png?text=Investing" alt="Blog 3">
+      <div class="p-6">
+        <h2 class="text-xl font-bold text-orange-400 mb-2">Why Angel Investors Are Betting on Fashion Startups in 2025</h2>
+        <p class="text-sm text-gray-400">Why is fashion hot again? Data-backed strategies make it the next unicorn hub...</p>
+        <button class="read-more mt-4 bg-pink-600 px-4 py-2 rounded-full text-white" data-url="/blog/investing-in-fashion-startups.html">Read More</button>
+      </div>
+    </div>
+  </div>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>AOS.init({ duration: 800, once: true });</script>
-    <script>
-      document.querySelectorAll('.read-more').forEach(btn => {
-        btn.addEventListener('click', e => {
-          const url = e.target.getAttribute('data-url');
-          const modal = document.getElementById('modal');
-          const modalBody = document.getElementById('modal-body');
-          modal.style.display = 'block';
-          modalBody.innerHTML = '<p style="text-align:center;">Loading content...</p>';
-          fetch(url)
-            .then(r => r.text())
-            .then(html => {
-              const doc = new DOMParser().parseFromString(html, 'text/html');
-              const content = doc.querySelector('#blog-content') || doc.body;
-              modalBody.innerHTML = content.innerHTML;
-            })
-            .catch(() => modalBody.innerHTML = '<p style="text-align:center;">Failed to load content.</p>');
-        });
+  <!-- Modal -->
+  <div id="modal" class="fixed inset-0 z-[100] flex items-center justify-center px-4 bg-black/80 backdrop-blur-md hidden">
+    <div class="relative max-w-3xl w-full max-h-[90vh] overflow-y-auto bg-white/5 backdrop-blur-2xl rounded-2xl border border-white/10 shadow-[0_0_40px_rgba(255,255,255,0.1)] p-6 md:p-10 text-white">
+      <button id="modal-close" class="absolute top-4 right-4 text-white text-xl font-bold bg-white/10 rounded-full w-9 h-9 flex items-center justify-center hover:bg-pink-500 hover:text-white hover:scale-110 transition-all duration-300">&times;</button>
+      <div id="modal-body" class="space-y-6 text-gray-200 leading-relaxed prose prose-invert max-w-none">
+        <p class="text-center text-gray-400">Loading content...</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Script -->
+  <script>
+    const modal = document.getElementById('modal');
+    const modalBody = document.getElementById('modal-body');
+    const modalClose = document.getElementById('modal-close');
+
+    document.querySelectorAll('.read-more').forEach(button => {
+      button.addEventListener('click', async () => {
+        const url = button.getAttribute('data-url');
+        modal.classList.remove('hidden');
+        modalBody.innerHTML = '<p class="text-center text-gray-400">Loading content...</p>';
+
+        try {
+          const res = await fetch(url);
+          const html = await res.text();
+          const doc = new DOMParser().parseFromString(html, 'text/html');
+          const content = doc.querySelector('#blog-content') || doc.body;
+
+          const wrap = document.createElement('div');
+          wrap.innerHTML = content.innerHTML;
+          wrap.querySelectorAll('h1').forEach(el => el.className = 'text-3xl md:text-4xl font-extrabold bg-gradient-to-r from-orange-500 to-pink-500 text-transparent bg-clip-text');
+          wrap.querySelectorAll('h2').forEach(el => el.className = 'text-2xl md:text-3xl font-bold text-orange-400');
+          wrap.querySelectorAll('p').forEach(el => el.className = 'text-base md:text-lg text-gray-300 leading-loose');
+
+          modalBody.innerHTML = wrap.innerHTML;
+        } catch (err) {
+          modalBody.innerHTML = '<p class="text-center text-red-500">Oops! Could not load blog content.</p>';
+          console.error(err);
+        }
       });
-      document.querySelector('.modal-close').onclick = () => document.getElementById('modal').style.display = 'none';
-      window.onclick = e => { if (e.target === document.getElementById('modal')) document.getElementById('modal').style.display = 'none'; };
-    </script>
-  </body>
+    });
+
+    modalClose.addEventListener('click', () => modal.classList.add('hidden'));
+    window.addEventListener('click', (e) => {
+      if (e.target === modal) modal.classList.add('hidden');
+    });
+  </script>
+</body>
 </html>
