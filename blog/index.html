@@ -105,7 +105,7 @@
       border-radius: 1.5rem;
       padding: 1.5rem;
       backdrop-filter: blur(16px);
-      transition: transform 0.3s ease;
+      transition: transform 0.3s ease, opacity 0.3s ease;
       animation: fadeUp 1s ease forwards;
       border: 1px solid rgba(255, 255, 255, 0.1);
     }
@@ -173,10 +173,10 @@
   </section>
 
   <div class="tags">
-    <div class="tag active">All</div>
-    <div class="tag">Branding</div>
-    <div class="tag">Sustainability</div>
-    <div class="tag">Startup Strategy</div>
+    <div class="tag active" data-tag="All">All</div>
+    <div class="tag" data-tag="Branding">Branding</div>
+    <div class="tag" data-tag="Sustainability">Sustainability</div>
+    <div class="tag" data-tag="Startup Strategy">Startup Strategy</div>
   </div>
 
   <section class="blog-grid" id="blog-container"></section>
@@ -207,19 +207,34 @@
     ];
 
     const container = document.getElementById('blog-container');
+    const tagButtons = document.querySelectorAll('.tag');
 
-    posts.forEach((post, index) => {
-      const card = document.createElement('div');
-      card.className = 'blog-card';
-      card.style.animationDelay = `${index * 0.1}s`;
-      card.innerHTML = `
-        <div class="blog-meta">${post.tag}</div>
-        <div class="blog-title">${post.title}</div>
-        <div class="blog-excerpt">${post.excerpt}</div>
-        <div class="blog-excerpt" style="margin-top: 0.5rem; font-size: 0.85rem; color: #888">${post.meta}</div>
-        <a class="read-btn" href="${post.url}">Read More</a>
-      `;
-      container.appendChild(card);
+    function renderPosts(tag) {
+      container.innerHTML = '';
+      const filtered = tag === 'All' ? posts : posts.filter(p => p.tag === tag);
+      filtered.forEach((post, index) => {
+        const card = document.createElement('div');
+        card.className = 'blog-card';
+        card.style.animationDelay = `${index * 0.1}s`;
+        card.innerHTML = `
+          <div class="blog-meta">${post.tag}</div>
+          <div class="blog-title">${post.title}</div>
+          <div class="blog-excerpt">${post.excerpt}</div>
+          <div class="blog-excerpt" style="margin-top: 0.5rem; font-size: 0.85rem; color: #888">${post.meta}</div>
+          <a class="read-btn" href="${post.url}">Read More</a>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    renderPosts('All');
+
+    tagButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelector('.tag.active').classList.remove('active');
+        btn.classList.add('active');
+        renderPosts(btn.dataset.tag);
+      });
     });
   </script>
 </body>
