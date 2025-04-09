@@ -38,35 +38,9 @@
     <hr class="border-pink-500 w-24 mt-2" />
   </div>
 
-  <!-- Blog Listing Grid -->
+  <!-- Blog Listing Grid (dynamically populated) -->
   <div id="blog-grid" class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 pb-20">
-    <div class="blog-card strategy" data-aos="fade-up">
-      <img src="https://via.placeholder.com/600x400.png?text=Streetwear+Launch" alt="Streetwear Brand Guide">
-      <div class="p-6">
-        <h2 class="text-xl font-bold text-orange-400 mb-2">How to Launch a Streetwear Brand in India</h2>
-        <p class="text-sm text-gray-400">Your 2025 playbook from idea to launch — the essentials to go from sketch to scale.</p>
-        <p class="text-xs text-gray-400 mt-2">Apr 15, 2025 • 5 min read</p>
-        <button class="read-more mt-4 bg-pink-600 px-4 py-2 rounded-full text-white" data-url="/blog/how-to-launch-streetwear-brand-india.html">Read More</button>
-      </div>
-    </div>
-    <div class="blog-card sustainability" data-aos="fade-up" data-aos-delay="100">
-      <img src="https://via.placeholder.com/600x400.png?text=Sustainable+Fabrics" alt="Sustainable Fabrics">
-      <div class="p-6">
-        <h2 class="text-xl font-bold text-orange-400 mb-2">10 Sustainable Fabrics Redefining Modern Streetwear</h2>
-        <p class="text-sm text-gray-400">Eco-friendly isn’t optional. Discover the top materials reshaping fashion.</p>
-        <p class="text-xs text-gray-400 mt-2">Apr 22, 2025 • 4 min read</p>
-        <button class="read-more mt-4 bg-pink-600 px-4 py-2 rounded-full text-white" data-url="/blog/sustainable-streetwear-fabrics.html">Read More</button>
-      </div>
-    </div>
-    <div class="blog-card brand" data-aos="fade-up" data-aos-delay="200">
-      <img src="https://via.placeholder.com/600x400.png?text=Soulmonk" alt="Soulmonk Story">
-      <div class="p-6">
-        <h2 class="text-xl font-bold text-orange-400 mb-2">Behind the Brand: The Soulmonk Story</h2>
-        <p class="text-sm text-gray-400">How a purpose-led brand incubated by Beyondwill became a Gen Z cult label.</p>
-        <p class="text-xs text-gray-400 mt-2">Apr 29, 2025 • 3 min read</p>
-        <button class="read-more mt-4 bg-pink-600 px-4 py-2 rounded-full text-white" data-url="/blog/soulmonk-brand-story.html">Read More</button>
-      </div>
-    </div>
+    <p class="text-gray-400 col-span-3 text-center">Loading blogs...</p>
   </div>
 
   <!-- Modal -->
@@ -79,16 +53,45 @@
     </div>
   </div>
 
+  <!-- Scripts -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>AOS.init({ duration: 1000, once: true });</script>
   <script>
+    async function loadBlogs() {
+      const container = document.getElementById("blog-grid");
+      try {
+        const res = await fetch("/data/blogs.json");
+        const blogs = await res.json();
+        container.innerHTML = "";
+
+        blogs.forEach((blog, index) => {
+          const delay = index * 100;
+          container.innerHTML += `
+            <div class="blog-card ${blog.tag}" data-aos="fade-up" data-aos-delay="${delay}">
+              <img src="${blog.image}" alt="${blog.title}" class="rounded-t-xl">
+              <div class="p-6">
+                <h2 class="text-xl font-bold text-orange-400 mb-2">${blog.title}</h2>
+                <p class="text-sm text-gray-400">${blog.excerpt}</p>
+                <p class="text-xs text-gray-400 mt-2">${new Date(blog.date).toDateString()} • ${blog.readTime}</p>
+                <button class="read-more mt-4 bg-pink-600 px-4 py-2 rounded-full text-white" data-url="/blog/${blog.slug}.html">Read More</button>
+              </div>
+            </div>`;
+        });
+        AOS.refresh();
+      } catch (err) {
+        container.innerHTML = "<p class='text-center text-red-500'>Error loading blogs.</p>";
+      }
+    }
+
+    loadBlogs();
+
     const modal = document.getElementById('modal');
     const modalBody = document.getElementById('modal-body');
     const modalClose = document.getElementById('modal-close');
 
-    document.querySelectorAll('.read-more').forEach(button => {
-      button.addEventListener('click', async () => {
-        const url = button.getAttribute('data-url');
+    document.addEventListener('click', async (e) => {
+      if (e.target.matches('.read-more')) {
+        const url = e.target.getAttribute('data-url');
         modal.classList.remove('hidden');
         modalBody.innerHTML = '<p class="text-center text-gray-400">Loading content...</p>';
 
@@ -108,7 +111,7 @@
         } catch (err) {
           modalBody.innerHTML = '<p class="text-center text-red-500">Oops! Could not load blog content.</p>';
         }
-      });
+      }
     });
 
     modalClose.addEventListener('click', () => modal.classList.add('hidden'));
