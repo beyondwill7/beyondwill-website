@@ -4,10 +4,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Beyondwill Blog - Fresh insights on fashion, innovation, and startup culture in India.">
+  <meta name="description" content="Beyondwill Blog - Cutting-edge insights on fashion startups, sustainability, branding, and innovation.">
   <title>Beyondwill Blog</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --gradient: linear-gradient(to right, #ff6ec4, #7873f5);
+    }
+
     * {
       margin: 0;
       padding: 0;
@@ -22,24 +26,72 @@
       overflow-x: hidden;
     }
 
-    header {
-      text-align: center;
-      margin-bottom: 4rem;
-      animation: fadeIn 1.2s ease-out;
+    .spotlight {
+      background: #111;
+      border-radius: 1.5rem;
+      padding: 3rem;
+      margin-bottom: 3rem;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+      animation: fadeIn 1s ease;
     }
 
-    header h1 {
-      font-size: 3.5rem;
-      background: linear-gradient(to right, #ff6ec4, #7873f5);
+    .spotlight small {
+      color: #ff6ec4;
+      letter-spacing: 1px;
+      font-weight: 600;
+    }
+
+    .spotlight h2 {
+      font-size: 2.5rem;
+      background: var(--gradient);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      animation: floatIn 1s ease forwards;
+      margin: 0.5rem 0;
     }
 
-    header p {
-      margin-top: 1rem;
+    .spotlight p {
       color: #bbb;
-      font-size: 1.1rem;
+      max-width: 600px;
+    }
+
+    .spotlight a {
+      margin-top: 1.5rem;
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.08);
+      padding: 0.75rem 1.5rem;
+      border-radius: 2rem;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #fff;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    .spotlight a:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .tags {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .tag {
+      padding: 0.4rem 1rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #fff;
+      font-size: 0.9rem;
+      transition: background 0.3s;
+      cursor: pointer;
+    }
+
+    .tag:hover,
+    .tag.active {
+      background: #ff6ec4;
+      color: #000;
     }
 
     .blog-grid {
@@ -50,19 +102,22 @@
 
     .blog-card {
       background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: 1.5rem;
       padding: 1.5rem;
       backdrop-filter: blur(16px);
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-      opacity: 0;
-      transform: translateY(40px);
-      animation: fadeUp 0.8s forwards;
       transition: transform 0.3s ease;
+      animation: fadeUp 1s ease forwards;
+      border: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     .blog-card:hover {
-      transform: translateY(-5px) scale(1.02);
+      transform: translateY(-6px) scale(1.02);
+    }
+
+    .blog-meta {
+      color: #ff6ec4;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
     }
 
     .blog-title {
@@ -74,19 +129,25 @@
     .blog-excerpt {
       font-size: 1rem;
       color: #ccc;
-      line-height: 1.5;
     }
 
-    footer {
-      text-align: center;
-      margin-top: 4rem;
-      padding: 2rem;
-      font-size: 0.85rem;
-      color: #666;
+    .read-btn {
+      display: inline-block;
+      margin-top: 1rem;
+      background: #ff2d75;
+      color: white;
+      padding: 0.5rem 1.25rem;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: bold;
     }
 
     @keyframes fadeUp {
-      to {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      100% {
         opacity: 1;
         transform: translateY(0);
       }
@@ -100,63 +161,63 @@
         opacity: 1;
       }
     }
-
-    @keyframes floatIn {
-      from {
-        opacity: 0;
-        transform: translateY(-20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
   </style>
 </head>
 
 <body>
-  <header>
-    <h1>Beyondwill Blog</h1>
-    <p>Where fashion, startups, and creativity converge.</p>
-  </header>
-
-  <section class="blog-grid" id="blog-container">
-    <!-- Cards injected by JS -->
+  <section class="spotlight">
+    <small>#SPOTLIGHT</small>
+    <h2>How to Launch a Streetwear Brand in India</h2>
+    <p>A complete guide to building your brand, designing your first drop, and scaling online in 2025.</p>
+    <a href="/posts/2025-04-09-future-of-fashion.html">Read Now</a>
   </section>
 
-  <footer>
-    &copy; 2025 Beyondwill LLP. All rights reserved.
-  </footer>
+  <div class="tags">
+    <div class="tag active">All</div>
+    <div class="tag">Branding</div>
+    <div class="tag">Sustainability</div>
+    <div class="tag">Startup Strategy</div>
+  </div>
+
+  <section class="blog-grid" id="blog-container"></section>
 
   <script>
     const posts = [
       {
-        title: "The Future of Fashion Startups",
-        excerpt: "Why 2025 is a breakout year for new-age fashion entrepreneurs...",
-        url: "/posts/2025-04-09-future-of-fashion.html"
+        title: "How to Launch a Streetwear Brand in India",
+        excerpt: "Your 2025 playbook from idea to launch — the essentials to go from sketch to scale.",
+        url: "/posts/2025-04-09-future-of-fashion.html",
+        tag: "Branding",
+        meta: "Apr 15, 2025 • 5 min read"
       },
       {
-        title: "Building a Brand That Sticks",
-        excerpt: "Key lessons from Soulmonk's journey in branding and community...",
-        url: "/posts/2025-04-08-building-brand.html"
+        title: "10 Sustainable Fabrics Redefining Modern Streetwear",
+        excerpt: "Eco-friendly isn’t optional. Discover the top materials reshaping fashion.",
+        url: "/posts/2025-04-10-sustainable-fabrics.html",
+        tag: "Sustainability",
+        meta: "Apr 22, 2025 • 4 min read"
       },
       {
-        title: "Top UI/UX Trends in Apparel Ecommerce",
-        excerpt: "How modern interfaces are transforming the way users shop fashion...",
-        url: "/posts/2025-04-07-uiux-trends.html"
+        title: "Behind the Brand: The Soulmonk Story",
+        excerpt: "How a purpose-led brand incubated by Beyondwill became a Gen Z cult label.",
+        url: "/posts/2025-04-08-soulmonk-story.html",
+        tag: "Startup Strategy",
+        meta: "Apr 29, 2025 • 3 min read"
       }
     ];
 
     const container = document.getElementById('blog-container');
 
     posts.forEach((post, index) => {
-      const card = document.createElement('a');
-      card.href = post.url;
+      const card = document.createElement('div');
       card.className = 'blog-card';
-      card.style.animationDelay = `${index * 0.2}s`;
+      card.style.animationDelay = `${index * 0.1}s`;
       card.innerHTML = `
+        <div class="blog-meta">${post.tag}</div>
         <div class="blog-title">${post.title}</div>
         <div class="blog-excerpt">${post.excerpt}</div>
+        <div class="blog-excerpt" style="margin-top: 0.5rem; font-size: 0.85rem; color: #888">${post.meta}</div>
+        <a class="read-btn" href="${post.url}">Read More</a>
       `;
       container.appendChild(card);
     });
