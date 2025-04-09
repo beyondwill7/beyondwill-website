@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beyondwill Blog</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+</head>
+<body class="bg-[#0e0e0e] text-white">
+
+  <!-- Hero Section -->
+  <section class="max-w-7xl mx-auto px-4 py-16 text-center" data-aos="fade-up">
+    <h1 class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-orange-500 to-pink-500 text-transparent bg-clip-text">
+      Beyondwill Blog
+    </h1>
+    <p class="mt-4 text-gray-400 text-lg">Insights, stories, and strategies shaping fashion entrepreneurship in India.</p>
+  </section>
+
+  <!-- Blog Grid -->
+  <div id="blog-grid" class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 pb-20">
+    <p class="col-span-3 text-center text-gray-400">Loading blogs...</p>
+  </div>
+
+  <!-- Modal -->
+  <div id="modal" class="fixed inset-0 z-[100] flex items-center justify-center px-4 bg-black/80 backdrop-blur-md hidden">
+    <div class="relative max-w-3xl w-full max-h-[90vh] overflow-y-auto bg-white/5 backdrop-blur-2xl rounded-2xl border border-white/10 shadow-[0_0_40px_rgba(255,255,255,0.1)] p-6 md:p-10 text-white">
+      <button id="modal-close" class="absolute top-4 right-4 text-white text-xl font-bold bg-white/10 rounded-full w-9 h-9 flex items-center justify-center hover:bg-pink-500 hover:text-white hover:scale-110 transition-all duration-300">&times;</button>
+      <div id="modal-body" class="space-y-6 text-gray-200 leading-relaxed prose prose-invert max-w-none">
+        <p class="text-center text-gray-400">Loading content...</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>AOS.init({ duration: 1000, once: true });</script>
+  <script>
+    async function loadBlogs() {
+      const container = document.getElementById("blog-grid");
+      try {
+        const res = await fetch("/blog");
+        const text = await res.text();
+        const matches = [...text.matchAll(/href=\"(.*?)\.html\"/g)].map(m => m[1] + ".html");
+
+        if (!matches.length) throw new Error("No blogs found.");
+
+        container.innerHTML = "";
+
+        for (const filename of matches) {
+          const blogRes = await fetch(`/blog/${filename}`);
+          const html = await blogRes.text();
+          const metaMatch = html.match(/<!--\s*blog-meta:\s*(\{[\s\S]*?\})\s*-->/);
+          if (!metaMatch) continue;
+
+          const meta = JSON.parse(metaMatch[1]);
+
+          container.innerHTML += `
+            <div class="blog-card ${meta.tag}" data-aos="fade-up">
+              <img src="${meta.image}" alt="${meta.title}" class="rounded-t-xl w-full h-60 object-cover">
+              <div class="p-6">
+                <h2 class="text-xl font-bold text-orange-400 mb-2">${meta.title}</h2>
+                <p class="text-sm text-gray-400">${meta.description}</p>
+                <p class="text-xs text-gray-400 mt-2">${new Date(meta.date).toDateString()} • ${meta.readTime}</p>
+                <button class="read-more mt-4 bg-pink-600 px-4 py-2 rounded-full text-white" data-url="/blog/${filename}">Read More</button>
+              </div>
+            </div>`;
+        }
+
+        AOS.refresh();
+      } catch (err) {
+        container.innerHTML = `<p class='col-span-3 text-center text-red-500'>Error loading blogs: ${err.message}</p>`;
+      }
+    }
+
+    loadBlogs();
+
+    const modal = document.getElementById('modal');
+    const modalBody = document.getElementById('modal-body');
+    const modalClose = document.getElementById('modal-close');
+
+    document.addEventListener('click', async (e) => {
+      if (e.target.matches('.read-more')) {
+        const url = e.target.getAttribute('data-url');
+        modal.classList.remove('hidden');
+        modalBody.innerHTML = '<p class="text-center text-gray-400">Loading content...</p>';
+
+        try {
+          const res = await fetch(url);
+          const html = await res.text();
+          const doc = new DOMParser().parseFromString(html, 'text/html');
+          const content = doc.querySelector('#blog-content') || doc.body;
+
+          const wrap = document.createElement('div');
+          wrap.innerHTML = content.innerHTML;
+          wrap.querySelectorAll('h1').forEach(el => el.className = 'text-3xl md:text-4xl font-extrabold bg-gradient-to-r from-orange-500 to-pink-500 text-transparent bg-clip-text');
+          wrap.querySelectorAll('h2').forEach(el => el.className = 'text-2xl md:text-3xl font-bold text-orange-400');
+          wrap.querySelectorAll('p').forEach(el => el.className = 'text-base md:text-lg text-gray-300 leading-loose');
+
+          modalBody.innerHTML = wrap.innerHTML;
+        } catch (err) {
+          modalBody.innerHTML = '<p class="text-center text-red-500">Oops! Could not load blog content.</p>';
+        }
+      }
+    });
+
+    modalClose.addEventListener('click', () => modal.classList.add('hidden'));
+    window.addEventListener('click', (e) => {
+      if (e.target === modal) modal.classList.add('hidden');
+    });
+  </script>
+
+</body>
+</html>
