@@ -11,88 +11,209 @@
   <style>
     :root {
       --gradient: linear-gradient(to right, #ff6ec4, #7873f5);
-      --bg-dark: #0a0a0a;
-      --bg-light: #f7f7f7;
-      --text-dark: #fff;
-      --text-light: #111;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
     body {
       font-family: 'Inter', sans-serif;
-      background: var(--bg-dark);
-      color: var(--text-dark);
+      background: #0a0a0a;
+      color: #fff;
       padding: 2rem;
       overflow-x: hidden;
-      transition: background 0.3s, color 0.3s;
     }
 
-    body.light-mode {
-      background: var(--bg-light);
-      color: var(--text-light);
+    .wrapper {
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
-    .theme-toggle {
-      position: fixed;
-      top: 1rem;
-      right: 1rem;
-      background: rgba(255, 255, 255, 0.1);
-      border: none;
-      padding: 0.5rem 1rem;
+    .spotlight {
+      background: #111;
+      border-radius: 1.5rem;
+      padding: 3rem;
+      margin-bottom: 3rem;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+      animation: fadeIn 1s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .spotlight small {
+      color: #ff6ec4;
+      letter-spacing: 1px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .lottie-icon {
+      width: 32px;
+      height: 32px;
+    }
+
+    .spotlight h2 {
+      font-size: 2.5rem;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin: 0.5rem 0;
+    }
+
+    .spotlight p {
+      color: #bbb;
+      max-width: 600px;
+    }
+
+    .spotlight a {
+      margin-top: 1.5rem;
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.08);
+      padding: 0.75rem 1.5rem;
+      border-radius: 2rem;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #fff;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    .spotlight a:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .tags {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .tag {
+      padding: 0.4rem 1rem;
       border-radius: 999px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #fff;
+      font-size: 0.9rem;
+      transition: background 0.3s;
+      cursor: pointer;
+    }
+
+    .tag:hover,
+    .tag.active {
+      background: #ff6ec4;
+      color: #000;
+    }
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .blog-card {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 1.5rem;
+      padding: 1.5rem;
+      backdrop-filter: blur(16px);
+      transition: transform 0.3s ease, opacity 0.3s ease;
+      animation: fadeUp 1s ease forwards;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .blog-card:hover {
+      transform: translateY(-6px) scale(1.02);
+    }
+
+    .blog-meta {
+      color: #ff6ec4;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .blog-title {
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .blog-excerpt {
+      font-size: 1rem;
+      color: #ccc;
+    }
+
+    .read-btn {
+      display: inline-block;
+      margin-top: 1rem;
+      background: #ff2d75;
       color: white;
+      padding: 0.5rem 1.25rem;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .load-more {
+      margin: 3rem auto;
+      display: block;
+      padding: 1rem 2rem;
+      background: #ff6ec4;
+      border: none;
+      border-radius: 2rem;
+      font-size: 1rem;
+      color: #000;
       font-weight: bold;
       cursor: pointer;
-      z-index: 1000;
     }
 
-    body.light-mode .theme-toggle {
-      background: rgba(0, 0, 0, 0.1);
-      color: #111;
+    @keyframes fadeUp {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
-    /* Existing styles... (everything below stays unchanged) */
-    /* Inserted styles trimmed for brevity */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
   </style>
 </head>
 
 <body>
-  <button class="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
+  <div class="wrapper">
+    <section class="spotlight">
+      <small><div id="lottie-spotlight" class="lottie-icon"></div>#SPOTLIGHT</small>
+      <h2>How to Launch a Streetwear Brand in India</h2>
+      <p>A complete guide to building your brand, designing your first drop, and scaling online in 2025.</p>
+      <a href="/posts/2025-04-09-future-of-fashion.html">Read Now</a>
+    </section>
 
-  <!-- Spotlight Section -->
-  <section class="spotlight">
-    <small><div id="lottie-spotlight" class="lottie-icon"></div>#SPOTLIGHT</small>
-    <h2>How to Launch a Streetwear Brand in India</h2>
-    <p>A complete guide to building your brand, designing your first drop, and scaling online in 2025.</p>
-    <a href="/posts/2025-04-09-future-of-fashion.html">Read Now</a>
-  </section>
+    <div class="tags">
+      <div class="tag active" data-tag="All">All</div>
+      <div class="tag" data-tag="Branding">Branding</div>
+      <div class="tag" data-tag="Sustainability">Sustainability</div>
+      <div class="tag" data-tag="Startup Strategy">Startup Strategy</div>
+    </div>
 
-  <!-- Tags -->
-  <div class="tags">
-    <div class="tag active" data-tag="All">All</div>
-    <div class="tag" data-tag="Branding">Branding</div>
-    <div class="tag" data-tag="Sustainability">Sustainability</div>
-    <div class="tag" data-tag="Startup Strategy">Startup Strategy</div>
+    <section class="blog-grid" id="blog-container"></section>
+    <button id="loadMore" class="load-more">Load More</button>
   </div>
 
-  <!-- Blog Grid -->
-  <section class="blog-grid" id="blog-container"></section>
-  <button id="loadMore" class="load-more">Load More</button>
-
-  <!-- Scripts -->
   <script>
-    // Theme Toggle
-    function toggleTheme() {
-      document.body.classList.toggle('light-mode');
-      const mode = document.body.classList.contains('light-mode') ? 'light' : 'dark';
-      localStorage.setItem('theme', mode);
-    }
-
-    window.onload = () => {
-      const savedTheme = localStorage.getItem('theme');
-      if (savedTheme === 'light') document.body.classList.add('light-mode');
-    };
-
-    // Lottie
     const lottiePlayer = lottie.loadAnimation({
       container: document.getElementById('lottie-spotlight'),
       renderer: 'svg',
@@ -101,7 +222,6 @@
       path: 'https://assets4.lottiefiles.com/packages/lf20_x62chJ.json'
     });
 
-    // Blog Listing Logic (same as before)
     const posts = [
       {
         title: "How to Launch a Streetwear Brand in India",
