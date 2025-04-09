@@ -7,29 +7,63 @@
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-[#0e0e0e] text-white">
+
+  <!-- Featured Blog Hero -->
+  <section class="max-w-7xl mx-auto px-4 py-16">
+    <div class="relative rounded-3xl overflow-hidden shadow-2xl group">
+      <img src="https://via.placeholder.com/1200x600?text=Beyondwill+Spotlight" class="w-full h-96 object-cover group-hover:scale-105 transition duration-700 ease-in-out" />
+      <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent p-6 md:p-12 flex flex-col justify-end">
+        <span class="text-xs font-semibold uppercase text-pink-400">#Spotlight</span>
+        <h2 class="text-3xl md:text-4xl font-bold text-white mt-2 mb-1">How Beyondwill Is Changing the Game</h2>
+        <p class="text-sm md:text-base text-gray-300">A deep dive into our journey, philosophy, and what’s next.</p>
+        <button class="mt-4 w-fit bg-white/10 border border-white/20 hover:bg-pink-500 text-white px-5 py-2 rounded-full transition">Explore Now</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Category Filter Bar -->
+  <div class="max-w-7xl mx-auto px-4 mt-6 overflow-x-auto whitespace-nowrap scrollbar-hide pb-2">
+    <div class="flex gap-4 text-sm font-medium">
+      <button class="px-4 py-2 rounded-full bg-white/10 text-pink-400 border border-white/10">All</button>
+      <button class="px-4 py-2 rounded-full hover:bg-white/10 transition">Soulmonk</button>
+      <button class="px-4 py-2 rounded-full hover:bg-white/10 transition">Startups</button>
+      <button class="px-4 py-2 rounded-full hover:bg-white/10 transition">Fashion Incubation</button>
+      <button class="px-4 py-2 rounded-full hover:bg-white/10 transition">News</button>
+    </div>
+  </div>
+
+  <!-- Section Label -->
+  <div class="max-w-7xl mx-auto px-4 pt-20 pb-6">
+    <h3 class="text-xl uppercase text-pink-500 font-semibold tracking-wider">Latest from Beyondwill</h3>
+    <hr class="border-pink-500 w-24 mt-2" />
+  </div>
+
   <!-- Blog Listing Grid -->
-  <div class="max-w-7xl mx-auto py-12 px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
+  <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 pb-20">
     <div class="bg-[#1a1a1a] rounded-2xl shadow-lg overflow-hidden">
-      <img src="https://via.placeholder.com/600x400.png?text=Fashion+Brand+Incubator" alt="Blog 1">
+      <img src="https://via.placeholder.com/600x400.png?text=Blog+1" alt="Blog 1">
       <div class="p-6">
         <h2 class="text-xl font-bold text-orange-400 mb-2">What Is a Fashion Brand Incubator?</h2>
         <p class="text-sm text-gray-400">Beyondwill empowers emerging fashion labels with our unique incubation model...</p>
+        <p class="text-xs text-gray-400 mt-2">Apr 9, 2025 • 3 min read</p>
         <button class="read-more mt-4 bg-pink-600 px-4 py-2 rounded-full text-white" data-url="/blog/fashion-brand-incubator.html">Read More</button>
       </div>
     </div>
     <div class="bg-[#1a1a1a] rounded-2xl shadow-lg overflow-hidden">
-      <img src="https://via.placeholder.com/600x400.png?text=Soulmonk" alt="Blog 2">
+      <img src="https://via.placeholder.com/600x400.png?text=Blog+2" alt="Blog 2">
       <div class="p-6">
         <h2 class="text-xl font-bold text-orange-400 mb-2">How Soulmonk Balances Sustainability & Streetwear</h2>
         <p class="text-sm text-gray-400">Urban streetwear meets eco-conscious design. Explore our sustainable future...</p>
+        <p class="text-xs text-gray-400 mt-2">Apr 5, 2025 • 4 min read</p>
         <button class="read-more mt-4 bg-pink-600 px-4 py-2 rounded-full text-white" data-url="/blog/soulmonk-sustainable-streetwear.html">Read More</button>
       </div>
     </div>
     <div class="bg-[#1a1a1a] rounded-2xl shadow-lg overflow-hidden">
-      <img src="https://via.placeholder.com/600x400.png?text=Investing" alt="Blog 3">
+      <img src="https://via.placeholder.com/600x400.png?text=Blog+3" alt="Blog 3">
       <div class="p-6">
         <h2 class="text-xl font-bold text-orange-400 mb-2">Why Angel Investors Are Betting on Fashion Startups in 2025</h2>
         <p class="text-sm text-gray-400">Why is fashion hot again? Data-backed strategies make it the next unicorn hub...</p>
+        <p class="text-xs text-gray-400 mt-2">Mar 27, 2025 • 5 min read</p>
         <button class="read-more mt-4 bg-pink-600 px-4 py-2 rounded-full text-white" data-url="/blog/investing-in-fashion-startups.html">Read More</button>
       </div>
     </div>
