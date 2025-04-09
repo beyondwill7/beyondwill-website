@@ -1,45 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Beyondwill Blog</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
 </head>
 <body class="bg-[#0e0e0e] text-white">
-  <!-- Featured Blog Hero -->
-  <section class="max-w-7xl mx-auto px-4 py-16" data-aos="fade-up">
-    <div class="relative rounded-3xl overflow-hidden shadow-2xl group">
-      <img src="https://via.placeholder.com/1200x600?text=Beyondwill+Spotlight" class="w-full h-96 object-cover group-hover:scale-105 transition duration-700 ease-in-out" />
-      <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent p-6 md:p-12 flex flex-col justify-end">
-        <span class="text-xs font-semibold uppercase text-pink-400">#Spotlight</span>
-        <h2 class="text-3xl md:text-4xl font-bold text-white mt-2 mb-1">How to Launch a Streetwear Brand in India</h2>
-        <p class="text-sm md:text-base text-gray-300">A complete guide to building your brand, designing your first drop, and scaling online in 2025.</p>
-        <button class="mt-4 w-fit bg-white/10 border border-white/20 hover:bg-pink-500 text-white px-5 py-2 rounded-full transition read-more" data-url="/blog/how-to-launch-streetwear-brand-india.html">Read Now</button>
-      </div>
-    </div>
+
+  <!-- Hero Section -->
+  <section class="max-w-7xl mx-auto px-4 py-16 text-center" data-aos="fade-up">
+    <h1 class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-orange-500 to-pink-500 text-transparent bg-clip-text">
+      Beyondwill Blog
+    </h1>
+    <p class="mt-4 text-gray-400 text-lg">Insights, stories, and strategies shaping fashion entrepreneurship in India.</p>
   </section>
 
-  <!-- Filter Bar -->
-  <div class="max-w-7xl mx-auto px-4 mt-6 overflow-x-auto whitespace-nowrap scrollbar-hide pb-2">
-    <div id="filter-buttons" class="flex gap-4 text-sm font-medium">
-      <button class="px-4 py-2 rounded-full bg-white/10 text-pink-400 border border-white/10" data-filter="all">All</button>
-      <button class="px-4 py-2 rounded-full hover:bg-white/10 transition" data-filter="brand">Branding</button>
-      <button class="px-4 py-2 rounded-full hover:bg-white/10 transition" data-filter="sustainability">Sustainability</button>
-      <button class="px-4 py-2 rounded-full hover:bg-white/10 transition" data-filter="strategy">Startup Strategy</button>
-    </div>
-  </div>
-
-  <!-- Section Label -->
-  <div class="max-w-7xl mx-auto px-4 pt-20 pb-6">
-    <h3 class="text-xl uppercase text-pink-500 font-semibold tracking-wider">Latest from Beyondwill</h3>
-    <hr class="border-pink-500 w-24 mt-2" />
-  </div>
-
-  <!-- Blog Listing Grid -->
+  <!-- Blog Grid -->
   <div id="blog-grid" class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 pb-20">
-    <p class="text-gray-400 col-span-3 text-center">Loading blogs...</p>
+    <p class="col-span-3 text-center text-gray-400">Loading blogs...</p>
   </div>
 
   <!-- Modal -->
@@ -52,50 +32,50 @@
     </div>
   </div>
 
-  <!-- Scripts -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>AOS.init({ duration: 1000, once: true });</script>
   <script>
-    const GITHUB_API = "https://api.github.com/repos/beyondwill7/beyondwill-website/contents/blog";
-
-    async function loadBlogsFromGitHub() {
+    async function loadBlogs() {
       const container = document.getElementById("blog-grid");
       try {
-        const res = await fetch(GITHUB_API);
-        const files = await res.json();
-        const htmlFiles = files.filter(f => f.name.endsWith(".html"));
+        const res = await fetch("/blog");
+        const parser = new DOMParser();
+        const indexRes = await res.text();
+        const links = indexRes.match(/href="(.*?)\.html"/g);
+
+        if (!links) throw new Error("No blog files found");
 
         container.innerHTML = "";
 
-        for (let [index, file] of htmlFiles.entries()) {
-          const response = await fetch(file.download_url);
-          const text = await response.text();
-          const metaMatch = text.match(/<!--\s*blog-meta:\s*(\{[\s\S]*?\})\s*-->/);
+        for (const linkTag of links) {
+          const filename = linkTag.match(/href=\"(.*?)\"/)[1];
+          if (!filename.endsWith(".html")) continue;
 
+          const blogRes = await fetch(`/blog/${filename}`);
+          const blogText = await blogRes.text();
+          const metaMatch = blogText.match(/<!--\s*blog-meta:\s*(\{[\s\S]*?\})\s*-->/);
           if (!metaMatch) continue;
 
           const meta = JSON.parse(metaMatch[1]);
-          const delay = index * 100;
-
           container.innerHTML += `
-            <div class="blog-card ${meta.tag}" data-aos="fade-up" data-aos-delay="${delay}">
-              <img src="${meta.image}" alt="${meta.title}" class="rounded-t-xl">
+            <div class="blog-card ${meta.tag}" data-aos="fade-up">
+              <img src="${meta.image}" alt="${meta.title}" class="rounded-t-xl w-full h-60 object-cover">
               <div class="p-6">
                 <h2 class="text-xl font-bold text-orange-400 mb-2">${meta.title}</h2>
                 <p class="text-sm text-gray-400">${meta.description}</p>
                 <p class="text-xs text-gray-400 mt-2">${new Date(meta.date).toDateString()} • ${meta.readTime}</p>
-                <button class="read-more mt-4 bg-pink-600 px-4 py-2 rounded-full text-white" data-url="/blog/${file.name}">Read More</button>
+                <button class="read-more mt-4 bg-pink-600 px-4 py-2 rounded-full text-white" data-url="/blog/${filename}">Read More</button>
               </div>
             </div>`;
         }
 
         AOS.refresh();
       } catch (err) {
-        container.innerHTML = "<p class='text-center text-red-500'>Error loading blogs.</p>";
+        container.innerHTML = `<p class='col-span-3 text-center text-red-500'>Error loading blogs: ${err.message}</p>`;
       }
     }
 
-    loadBlogsFromGitHub();
+    loadBlogs();
 
     const modal = document.getElementById('modal');
     const modalBody = document.getElementById('modal-body');
@@ -130,15 +110,7 @@
     window.addEventListener('click', (e) => {
       if (e.target === modal) modal.classList.add('hidden');
     });
-
-    document.querySelectorAll('#filter-buttons button').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const filter = btn.getAttribute('data-filter');
-        document.querySelectorAll('.blog-card').forEach(card => {
-          card.style.display = (filter === 'all' || card.classList.contains(filter)) ? 'block' : 'none';
-        });
-      });
-    });
   </script>
+
 </body>
 </html>
