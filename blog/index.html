@@ -1,29 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Beyondwill Blog</title>
-  <link rel="stylesheet" href="style.css" />
-  <script defer src="script.js"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Beyondwill LLP - Elevating Fashion Startups. Discover our journey, services, and impact in India's creative ecosystem." />
+  <meta name="keywords" content="Beyondwill, Soulmonk, fashion startup, creative agency, India" />
+  <meta name="author" content="Beyondwill LLP" />
+  <title>Beyondwill LLP | Home</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #0d0d0d, #1a1a1a);
+      color: white;
+      padding: 0;
+      overflow-x: hidden;
+    }
+
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 2rem;
+      background: radial-gradient(circle at top left, #111 0%, #000 100%);
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      background: linear-gradient(to right, #ff6ec4, #7873f5);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      max-width: 600px;
+      color: #ccc;
+      font-size: 1.2rem;
+    }
+
+    .cta {
+      margin-top: 2rem;
+      padding: 1rem 2rem;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 2rem;
+      text-decoration: none;
+      color: white;
+      transition: background 0.3s ease;
+    }
+
+    .cta:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: #888;
+    }
+  </style>
 </head>
+
 <body>
   <section class="hero">
-    <h1 class="gradient-title">Beyondwill Blog</h1>
-    <p>Insights, stories, and strategies shaping fashion entrepreneurship in India.</p>
-    <div class="tag-filters">
-      <button class="filter active" data-tag="all">All</button>
-      <button class="filter" data-tag="branding">💡 Branding</button>
-      <button class="filter" data-tag="sustainability">🌱 Sustainability</button>
-      <button class="filter" data-tag="strategy">💼 Strategy</button>
-    </div>
+    <h1>Welcome to Beyondwill</h1>
+    <p>We're building the next generation of fashion-forward brands in India. Discover our work, story, and how we're empowering creative entrepreneurs.</p>
+    <a class="cta" href="/blog/">Read Our Blog</a>
   </section>
 
-  <section class="blog-list" id="blogListContainer">
-    <!-- Blogs dynamically inserted here -->
-  </section>
+  <footer>
+    &copy; 2025 Beyondwill LLP. All rights reserved.
+  </footer>
 </body>
+
 </html>
-<script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
