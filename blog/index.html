@@ -7,6 +7,7 @@
   <meta name="description" content="Beyondwill Blog - Cutting-edge insights on fashion startups, sustainability, branding, and innovation.">
   <title>Beyondwill Blog</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.6/lottie.min.js"></script>
   <style>
     :root {
       --gradient: linear-gradient(to right, #ff6ec4, #7873f5);
@@ -33,12 +34,22 @@
       margin-bottom: 3rem;
       box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
       animation: fadeIn 1s ease;
+      position: relative;
+      overflow: hidden;
     }
 
     .spotlight small {
       color: #ff6ec4;
       letter-spacing: 1px;
       font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .lottie-icon {
+      width: 40px;
+      height: 40px;
     }
 
     .spotlight h2 {
@@ -166,7 +177,7 @@
 
 <body>
   <section class="spotlight">
-    <small>#SPOTLIGHT</small>
+    <small><div id="lottie-spotlight" class="lottie-icon"></div>#SPOTLIGHT</small>
     <h2>How to Launch a Streetwear Brand in India</h2>
     <p>A complete guide to building your brand, designing your first drop, and scaling online in 2025.</p>
     <a href="/posts/2025-04-09-future-of-fashion.html">Read Now</a>
@@ -182,6 +193,15 @@
   <section class="blog-grid" id="blog-container"></section>
 
   <script>
+    // Lottie Animation
+    const lottiePlayer = lottie.loadAnimation({
+      container: document.getElementById('lottie-spotlight'),
+      renderer: 'svg',
+      loop: true,
+      autoplay: true,
+      path: 'https://assets4.lottiefiles.com/packages/lf20_x62chJ.json' // You can replace with a custom one
+    });
+
     const posts = [
       {
         title: "How to Launch a Streetwear Brand in India",
