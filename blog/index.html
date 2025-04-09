@@ -6,10 +6,10 @@
   <title>Beyondwill Blog | Insights on Fashion, Startups & Sustainability</title>
   <meta name="description" content="Dive into the world of fashion brand incubation, sustainability, and innovative startup strategies with Beyondwill LLP." />
   <link rel="canonical" href="https://beyondwill.in/blog/" />
-  <!-- Link to global stylesheet if available -->
+  <!-- Global Stylesheet -->
   <link rel="stylesheet" href="/style.css" />
   <style>
-    /* Modern Minimal Blog Landing Page Styles */
+    /* Minimal Modern Blog Landing Page Styles */
     body {
       margin: 0;
       padding: 0;
@@ -82,6 +82,8 @@
       font-size: 0.9rem;
       font-weight: 600;
       transition: background-color 0.3s ease;
+      cursor: pointer;
+      border: none;
     }
     .read-more:hover {
       background-color: #e05500;
@@ -101,6 +103,42 @@
       .card h2 { font-size: 1.3rem; }
       .card p { font-size: 0.9rem; }
     }
+
+    /* Modal Styles */
+    .modal {
+      display: none; /* Hidden by default */
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow-y: auto;
+      background-color: rgba(0, 0, 0, 0.8);
+      padding: 40px 20px;
+    }
+    .modal-content {
+      background-color: #111;
+      margin: auto;
+      max-width: 800px;
+      padding: 20px;
+      border-radius: 8px;
+      position: relative;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
+      color: #fff;
+    }
+    .modal-close {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 2rem;
+      font-weight: bold;
+      color: #ff6a00;
+      cursor: pointer;
+    }
+    .modal-close:hover {
+      color: #e05500;
+    }
   </style>
 </head>
 <body>
@@ -113,27 +151,27 @@
       <div class="card">
         <img src="https://via.placeholder.com/600x400.png?text=Fashion+Brand+Incubator" alt="Fashion Brand Incubator">
         <div class="card-content">
-          <h2><a href="/blog/fashion-brand-incubator.html">What Is a Fashion Brand Incubator?</a></h2>
+          <h2>What Is a Fashion Brand Incubator?</h2>
           <p>In the ever-evolving fashion industry, creativity alone isn't enough. Enter the brand incubator—a game-changer for emerging labels. Discover how Beyondwill LLP empowers startups.</p>
-          <a class="read-more" href="/blog/fashion-brand-incubator.html">Read More</a>
+          <button class="read-more" data-url="/blog/fashion-brand-incubator.html">Read More</button>
         </div>
       </div>
       <!-- Blog Post 2 -->
       <div class="card">
         <img src="https://via.placeholder.com/600x400.png?text=Soulmonk+Sustainable+Streetwear" alt="Soulmonk Sustainable Streetwear">
         <div class="card-content">
-          <h2><a href="/blog/soulmonk-sustainable-streetwear.html">How Soulmonk Balances Sustainability &amp; Streetwear</a></h2>
+          <h2>How Soulmonk Balances Sustainability &amp; Streetwear</h2>
           <p>Sustainability isn’t a trend—it’s a responsibility. Explore how Soulmonk blends eco-conscious design with urban fashion to redefine modern streetwear.</p>
-          <a class="read-more" href="/blog/soulmonk-sustainable-streetwear.html">Read More</a>
+          <button class="read-more" data-url="/blog/soulmonk-sustainable-streetwear.html">Read More</button>
         </div>
       </div>
       <!-- Blog Post 3 -->
       <div class="card">
         <img src="https://via.placeholder.com/600x400.png?text=Fashion+Startups+Investment" alt="Fashion Startups Investment">
         <div class="card-content">
-          <h2><a href="/blog/investing-in-fashion-startups.html">Why Angel Investors Are Betting on Fashion Startups in 2025</a></h2>
+          <h2>Why Angel Investors Are Betting on Fashion Startups in 2025</h2>
           <p>Angel investors are turning to fashion startups with bold, innovative models. Discover why Beyondwill LLP’s approach is capturing the attention of investors.</p>
-          <a class="read-more" href="/blog/investing-in-fashion-startups.html">Read More</a>
+          <button class="read-more" data-url="/blog/investing-in-fashion-startups.html">Read More</button>
         </div>
       </div>
     </div>
@@ -141,5 +179,62 @@
   <footer>
     <p>&copy; 2025 Beyondwill LLP. All rights reserved.</p>
   </footer>
+
+  <!-- Modal for displaying full blog post -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="modal-close">&times;</span>
+      <div id="modal-body">
+        <!-- Loaded blog content will appear here -->
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Function to open modal and load content
+    function openModal(url) {
+      const modal = document.getElementById('modal');
+      const modalBody = document.getElementById('modal-body');
+      modal.style.display = 'block';
+      // Optionally show a loader message
+      modalBody.innerHTML = '<p style="text-align:center;">Loading...</p>';
+      fetch(url)
+        .then(response => {
+          if (!response.ok) { throw new Error('Network response was not ok'); }
+          return response.text();
+        })
+        .then(data => {
+          modalBody.innerHTML = data;
+        })
+        .catch(error => {
+          modalBody.innerHTML = '<p style="text-align:center;">Error loading content.</p>';
+          console.error('Error fetching blog content:', error);
+        });
+    }
+
+    // Close modal function
+    function closeModal() {
+      document.getElementById('modal').style.display = 'none';
+    }
+
+    // Event listeners for read-more buttons
+    document.querySelectorAll('.read-more').forEach(button => {
+      button.addEventListener('click', function(e) {
+        const url = e.target.getAttribute('data-url');
+        openModal(url);
+      });
+    });
+
+    // Event listener for closing modal via the close button
+    document.querySelector('.modal-close').addEventListener('click', closeModal);
+
+    // Close the modal if user clicks outside of the modal content
+    window.addEventListener('click', function(event) {
+      const modal = document.getElementById('modal');
+      if (event.target == modal) {
+        closeModal();
+      }
+    });
+  </script>
 </body>
 </html>
