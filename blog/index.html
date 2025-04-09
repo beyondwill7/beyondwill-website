@@ -41,15 +41,36 @@
       color: white;
       font-size: 1rem;
     }
+    .carousel-controls {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+    }
+    .carousel-btn {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .carousel-btn:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
     .spotlight {
       background: #111;
       border-radius: 1.5rem;
       padding: 3rem;
       margin-bottom: 3rem;
       box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
-      animation: fadeIn 1s ease;
       position: relative;
       overflow: hidden;
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .spotlight.fade-out {
+      opacity: 0;
+      transform: translateY(20px);
     }
     .spotlight small {
       color: #ff6ec4;
@@ -88,113 +109,19 @@
     .spotlight a:hover {
       background: rgba(255, 255, 255, 0.2);
     }
-    .tags {
-      display: flex;
-      gap: 1rem;
-      margin-bottom: 2rem;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-    .tag {
-      padding: 0.4rem 1rem;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      color: #fff;
-      font-size: 0.9rem;
-      transition: background 0.3s;
-      cursor: pointer;
-    }
-    .tag:hover,
-    .tag.active {
-      background: #ff6ec4;
-      color: #000;
-    }
-    .blog-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      transition: all 0.4s ease-in-out;
-    }
-    .blog-card {
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 1.5rem;
-      padding: 1.5rem;
-      backdrop-filter: blur(16px);
-      transition: transform 0.3s ease, opacity 0.3s ease;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      opacity: 1;
-      transform: translateY(0);
-      animation: fadeUp 0.5s ease forwards;
-    }
-    .blog-card.hide {
-      opacity: 0;
-      transform: translateY(40px);
-      pointer-events: none;
-    }
-    .blog-meta {
-      color: #ff6ec4;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-    }
-    .blog-title {
-      font-size: 1.4rem;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-    }
-    .blog-excerpt {
-      font-size: 1rem;
-      color: #ccc;
-    }
-    .read-btn {
-      display: inline-block;
-      margin-top: 1rem;
-      background: #ff2d75;
-      color: white;
-      padding: 0.5rem 1.25rem;
-      border-radius: 999px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    .load-more {
-      margin: 3rem auto;
-      display: block;
-      padding: 1rem 2rem;
-      background: #ff6ec4;
-      border: none;
-      border-radius: 2rem;
-      font-size: 1rem;
-      color: #000;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    @keyframes fadeUp {
-      0% {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
-      }
-    }
   </style>
 </head>
 <body>
   <div class="wrapper">
-    <section class="spotlight">
+    <div class="carousel-controls">
+      <button class="carousel-btn" onclick="prevSlide()">⬅ Prev</button>
+      <button class="carousel-btn" onclick="nextSlide()">Next ➡</button>
+    </div>
+    <section class="spotlight" id="spotlight">
       <small><div id="lottie-spotlight" class="lottie-icon"></div>#SPOTLIGHT</small>
-      <h2>How to Launch a Streetwear Brand in India</h2>
-      <p>A complete guide to building your brand, designing your first drop, and scaling online in 2025.</p>
-      <a href="/posts/2025-04-09-future-of-fashion.html">Read Now</a>
+      <h2 id="spotlight-title">Loading...</h2>
+      <p id="spotlight-desc"></p>
+      <a id="spotlight-link" href="#">Read Now</a>
     </section>
 
     <div class="search-bar">
@@ -213,92 +140,61 @@
   </div>
 
   <script>
+    const spotlightPosts = [
+      {
+        title: "How to Launch a Streetwear Brand in India",
+        description: "A complete guide to building your brand, designing your first drop, and scaling online in 2025.",
+        url: "/posts/2025-04-09-future-of-fashion.html"
+      },
+      {
+        title: "10 Sustainable Fabrics Redefining Modern Streetwear",
+        description: "Eco-friendly isn’t optional. Discover the top materials reshaping fashion.",
+        url: "/posts/2025-04-10-sustainable-fabrics.html"
+      },
+      {
+        title: "Behind the Brand: The Soulmonk Story",
+        description: "How a purpose-led brand incubated by Beyondwill became a Gen Z cult label.",
+        url: "/posts/2025-04-08-soulmonk-story.html"
+      }
+    ];
+
+    let currentSpotlight = 0;
+    let isTransitioning = false;
+
+    function updateSpotlight(index) {
+      const spotlight = document.getElementById('spotlight');
+      if (isTransitioning) return;
+      isTransitioning = true;
+      spotlight.classList.add('fade-out');
+      setTimeout(() => {
+        const post = spotlightPosts[index];
+        document.getElementById('spotlight-title').innerText = post.title;
+        document.getElementById('spotlight-desc').innerText = post.description;
+        document.getElementById('spotlight-link').href = post.url;
+        spotlight.classList.remove('fade-out');
+        isTransitioning = false;
+      }, 400);
+    }
+
+    function nextSlide() {
+      currentSpotlight = (currentSpotlight + 1) % spotlightPosts.length;
+      updateSpotlight(currentSpotlight);
+    }
+
+    function prevSlide() {
+      currentSpotlight = (currentSpotlight - 1 + spotlightPosts.length) % spotlightPosts.length;
+      updateSpotlight(currentSpotlight);
+    }
+
+    updateSpotlight(currentSpotlight);
+    setInterval(nextSlide, 5000);
+
     const lottiePlayer = lottie.loadAnimation({
       container: document.getElementById('lottie-spotlight'),
       renderer: 'svg',
       loop: true,
       autoplay: true,
       path: 'https://assets4.lottiefiles.com/packages/lf20_x62chJ.json'
-    });
-
-    const posts = [
-      {
-        title: "How to Launch a Streetwear Brand in India",
-        excerpt: "Your 2025 playbook from idea to launch — the essentials to go from sketch to scale.",
-        url: "/posts/2025-04-09-future-of-fashion.html",
-        tag: "Branding",
-        meta: "Apr 15, 2025 • 5 min read"
-      },
-      {
-        title: "10 Sustainable Fabrics Redefining Modern Streetwear",
-        excerpt: "Eco-friendly isn’t optional. Discover the top materials reshaping fashion.",
-        url: "/posts/2025-04-10-sustainable-fabrics.html",
-        tag: "Sustainability",
-        meta: "Apr 22, 2025 • 4 min read"
-      },
-      {
-        title: "Behind the Brand: The Soulmonk Story",
-        excerpt: "How a purpose-led brand incubated by Beyondwill became a Gen Z cult label.",
-        url: "/posts/2025-04-08-soulmonk-story.html",
-        tag: "Startup Strategy",
-        meta: "Apr 29, 2025 • 3 min read"
-      }
-    ];
-
-    const container = document.getElementById('blog-container');
-    const tagButtons = document.querySelectorAll('.tag');
-    const loadMoreBtn = document.getElementById('loadMore');
-    const searchInput = document.getElementById('searchInput');
-
-    let currentTag = 'All';
-    let visibleCount = 0;
-    const increment = 2;
-
-    function renderPosts(tag, reset = false, query = '') {
-      if (reset) {
-        container.innerHTML = '';
-        visibleCount = 0;
-      }
-      const filtered = posts.filter(p =>
-        (tag === 'All' || p.tag === tag) &&
-        (p.title.toLowerCase().includes(query.toLowerCase()) || p.excerpt.toLowerCase().includes(query.toLowerCase()))
-      );
-
-      const nextPosts = filtered.slice(visibleCount, visibleCount + increment);
-      nextPosts.forEach((post, index) => {
-        const card = document.createElement('div');
-        card.className = 'blog-card';
-        card.style.animationDelay = `${index * 0.1}s`;
-        card.innerHTML = `
-          <div class="blog-meta">${post.tag}</div>
-          <div class="blog-title">${post.title}</div>
-          <div class="blog-excerpt">${post.excerpt}</div>
-          <div class="blog-excerpt" style="margin-top: 0.5rem; font-size: 0.85rem; color: #888">${post.meta}</div>
-          <a class="read-btn" href="${post.url}">Read More</a>
-        `;
-        container.appendChild(card);
-      });
-      visibleCount += increment;
-      loadMoreBtn.style.display = visibleCount >= filtered.length ? 'none' : 'block';
-    }
-
-    renderPosts(currentTag);
-
-    tagButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelector('.tag.active').classList.remove('active');
-        btn.classList.add('active');
-        currentTag = btn.dataset.tag;
-        renderPosts(currentTag, true, searchInput.value);
-      });
-    });
-
-    loadMoreBtn.addEventListener('click', () => {
-      renderPosts(currentTag, false, searchInput.value);
-    });
-
-    searchInput.addEventListener('input', () => {
-      renderPosts(currentTag, true, searchInput.value);
     });
   </script>
 </body>
