@@ -1,15 +1,17 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Beyondwill Blog - Cutting-edge insights on fashion startups, sustainability, branding, and innovation.">
-  <title>Beyondwill Blog</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Beyondwill Blog – Modern</title>
+  <meta name="description" content="Beyondwill's next-gen blog experience – stories, strategy, and startup wisdom with a stunning UI.">
+  <link href="#" onclick="openModal('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.6/lottie.min.js"></script>
   <style>
     :root {
-      --gradient: linear-gradient(to right, #ff6ec4, #7873f5);
+      --gradient: linear-gradient(135deg, #ff6ec4, #7873f5);
+      --glass-bg: rgba(255, 255, 255, 0.06);
     }
     * {
       margin: 0;
@@ -20,362 +22,846 @@
       font-family: 'Inter', sans-serif;
       background: #0a0a0a;
       color: #fff;
-      padding: 2rem;
       overflow-x: hidden;
+      line-height: 1.6;
+    }
+    a {
+      color: inherit;
+      text-decoration: none;
     }
     .wrapper {
-      max-width: 1200px;
+      max-width: 1280px;
       margin: 0 auto;
+      padding: 2rem;
     }
-    .carousel-controls {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 1rem;
+    section {
+      margin-bottom: 6rem;
     }
-    .carousel-btn {
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      color: white;
-      padding: 0.5rem 1rem;
-      border-radius: 999px;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-    .carousel-btn:hover {
-      background: rgba(255, 255, 255, 0.2);
-    }
-    .spotlight {
-      background: #111;
-      border-radius: 1.5rem;
-      padding: 3rem;
-      margin-bottom: 3rem;
-      box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
-      position: relative;
-      overflow: hidden;
-      transition: opacity 0.5s ease, transform 0.5s ease;
-    }
-    .spotlight.fade-out {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    .spotlight small {
-      color: #ff6ec4;
-      letter-spacing: 1px;
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    .lottie-icon {
-      width: 32px;
-      height: 32px;
-    }
-    .spotlight h2 {
-      font-size: 2.5rem;
-      background: var(--gradient);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin: 0.5rem 0;
-    }
-    .spotlight p {
-      color: #bbb;
-      max-width: 600px;
-    }
-    .spotlight a {
-      margin-top: 1.5rem;
-      display: inline-block;
-      background: rgba(255, 255, 255, 0.08);
-      padding: 0.75rem 1.5rem;
-      border-radius: 2rem;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      color: #fff;
-      text-decoration: none;
-      transition: background 0.3s;
-    }
-    .spotlight a:hover {
-      background: rgba(255, 255, 255, 0.2);
-    }
-    .search-bar {
-      margin: 2rem 0 1rem;
-      text-align: center;
-    }
-    .search-bar input {
-      width: 100%;
-      max-width: 400px;
-      padding: 0.75rem 1rem;
-      border-radius: 999px;
-      border: none;
-      background: rgba(255, 255, 255, 0.08);
-      color: white;
-      font-size: 1rem;
-    }
-    .tags {
-      display: flex;
-      gap: 1rem;
-      margin-bottom: 2rem;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-    .tag {
-      padding: 0.4rem 1rem;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      color: #fff;
-      font-size: 0.9rem;
-      transition: background 0.3s;
-      cursor: pointer;
-    }
-    .tag:hover,
-    .tag.active {
-      background: #ff6ec4;
-      color: #000;
-    }
-    .blog-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      transition: all 0.4s ease-in-out;
-    }
-    .blog-card {
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 1.5rem;
-      padding: 1.5rem;
-      backdrop-filter: blur(16px);
-      transition: transform 0.3s ease, opacity 0.3s ease;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      opacity: 1;
-      transform: translateY(0);
-      animation: fadeUp 0.5s ease forwards;
-    }
-    .blog-card.hide {
-      opacity: 0;
-      transform: translateY(40px);
-      pointer-events: none;
-    }
-    .blog-meta {
-      color: #ff6ec4;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-    }
-    .blog-title {
-      font-size: 1.4rem;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-    }
-    .blog-excerpt {
-      font-size: 1rem;
-      color: #ccc;
-    }
-    .read-btn {
-      display: inline-block;
-      margin-top: 1rem;
-      background: #ff2d75;
-      color: white;
-      padding: 0.5rem 1.25rem;
-      border-radius: 999px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    .load-more {
-      margin: 3rem auto;
-      display: block;
-      padding: 1rem 2rem;
-      background: #ff6ec4;
-      border: none;
-      border-radius: 2rem;
-      font-size: 1rem;
-      color: #000;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    @keyframes fadeUp {
-      0% {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
-      }
-    }
-  </style>
+  
+<style>
+.kpi-card {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: inset 0 0 0 rgba(255, 255, 255, 0.1),
+              0 8px 32px rgba(0, 0, 0, 0.25),
+              0 0 16px rgba(255, 255, 255, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.4s ease, background 0.3s ease;
+}
+.kpi-card:hover {
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: inset 0 0 0 rgba(255, 255, 255, 0.1),
+              0 12px 32px rgba(255, 110, 196, 0.15),
+              0 0 24px rgba(255, 110, 196, 0.3);
+}
+
+<style>
+.ripple-effect {
+  position: relative;
+  overflow: hidden;
+}
+.ripple-effect::after {
+  content: "";
+  position: absolute;
+  background: radial-gradient(circle, rgba(255,255,255,0.4) 10%, transparent 10.01%);
+  background-repeat: no-repeat;
+  width: 100px;
+  height: 100px;
+  transform: scale(0);
+  border-radius: 50%;
+  opacity: 0;
+  pointer-events: none;
+  animation: ripple 0.6s ease-out;
+}
+@keyframes ripple {
+  to {
+    transform: scale(2.5);
+    opacity: 0;
+  }
+}
+
+<style>
+.svg-divider-top,
+.svg-divider-bottom {
+  position: relative;
+  height: 120px;
+  overflow: hidden;
+  line-height: 0;
+  width: 100%;
+}
+.svg-divider-top svg,
+.svg-divider-bottom svg {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+</style>
+
+</style>
+
+<script>
+// Add ripple to all .ripple-effect elements
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".ripple-effect").forEach(el => {
+    el.addEventListener("click", function(e) {
+      const ripple = document.createElement("span");
+      ripple.className = "ripple-effect::after";
+      const rect = el.getBoundingClientRect();
+      ripple.style.left = `${e.clientX - rect.left - 50}px`;
+      ripple.style.top = `${e.clientY - rect.top - 50}px`;
+      el.appendChild(ripple);
+      setTimeout(() => ripple.remove(), 600);
+    });
+  });
+});
+</script>
+
+</style>
+
+</style>
 </head>
 <body>
+
   <div class="wrapper">
-    <div class="carousel-controls">
-      <button class="carousel-btn" onclick="prevSlide()">⬅ Prev</button>
-      <button class="carousel-btn" onclick="nextSlide()">Next ➡</button>
-    </div>
-    <section class="spotlight" id="spotlight">
-      <small><div id="lottie-spotlight" class="lottie-icon"></div>#SPOTLIGHT</small>
-      <h2 id="spotlight-title">Loading...</h2>
+    
+<section class="spotlight-carousel">
+  <div class="carousel-wrapper">
+    <div class="carousel-lottie" id="lottie-spotlight"></div>
+    <div class="carousel-content">
+      <small>#SPOTLIGHT</small>
+      <h1 id="spotlight-title">Loading...</h1>
       <p id="spotlight-desc"></p>
-      <a id="spotlight-link" href="#">Read Now</a>
-    </section>
-
-    <div class="search-bar">
-      <input id="searchInput" type="text" placeholder="Search blog posts...">
+      <a id="spotlight-link" class="cta-button ripple-effect" href="#" onclick="openModal('#">Read Now</a>
     </div>
-
-    <div class="tags">
-      <div class="tag active" data-tag="All">All</div>
-      <div class="tag" data-tag="Branding">Branding</div>
-      <div class="tag" data-tag="Sustainability">Sustainability</div>
-      <div class="tag" data-tag="Startup Strategy">Startup Strategy</div>
+    <div class="carousel-controls">
+      <button onclick="prevSlide()">‹</button>
+      <button onclick="nextSlide()">›</button>
     </div>
+  </div>
+</section>
 
-    <section class="blog-grid" id="blog-container"></section>
-    <button id="loadMore" class="load-more">Load More</button>
+<style>
+.spotlight-carousel {
+  position: relative;
+  padding: 4rem 2rem;
+  background: radial-gradient(ellipse at top left, #1a1a1a 0%, #0a0a0a 100%);
+  border-radius: 2rem;
+  box-shadow: 0 0 60px rgba(0,0,0,0.3);
+}
+.carousel-wrapper {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: space-between;
+}
+.carousel-lottie {
+  width: 200px;
+  height: 200px;
+}
+.carousel-content {
+  flex: 1;
+  min-width: 280px;
+}
+.carousel-content small {
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: #ff6ec4;
+}
+.carousel-content h1 {
+  font-size: 2.5rem;
+  margin: 1rem 0;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.carousel-content p {
+  color: #bbb;
+  max-width: 600px;
+}
+.cta-button {
+  margin-top: 1.5rem;
+  padding: 0.75rem 2rem;
+  background: var(--gradient);
+  border: none;
+  color: #000;
+  font-weight: bold;
+  border-radius: 999px;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+.cta-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(255, 110, 196, 0.3);
+}
+.carousel-controls {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  display: flex;
+  gap: 1rem;
+}
+.carousel-controls button {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  color: #fff;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+</style>
+
+<script>
+const spotlightPosts = [
+  {
+    title: "How to Launch a Streetwear Brand in India",
+    description: "A complete guide to building your brand, designing your first drop, and scaling online in 2025.",
+    url: "/posts/2025-04-09-future-of-fashion.html"
+  },
+  {
+    title: "10 Sustainable Fabrics Redefining Modern Streetwear",
+    description: "Eco-friendly isn’t optional. Discover the top materials reshaping fashion.",
+    url: "/posts/2025-04-10-sustainable-fabrics.html"
+  },
+  {
+    title: "Behind the Brand: The Soulmonk Story",
+    description: "How a purpose-led brand incubated by Beyondwill became a Gen Z cult label.",
+    url: "/posts/2025-04-08-soulmonk-story.html"
+  }
+];
+
+let currentSpotlight = 0;
+function updateSpotlight(index) {
+  const post = spotlightPosts[index];
+  document.getElementById('spotlight-title').textContent = post.title;
+  document.getElementById('spotlight-desc').textContent = post.description;
+  document.getElementById('spotlight-link').href = post.url;
+}
+function nextSlide() {
+  currentSpotlight = (currentSpotlight + 1) % spotlightPosts.length;
+  updateSpotlight(currentSpotlight);
+}
+function prevSlide() {
+  currentSpotlight = (currentSpotlight - 1 + spotlightPosts.length) % spotlightPosts.length;
+  updateSpotlight(currentSpotlight);
+}
+document.addEventListener("DOMContentLoaded", () => {
+  updateSpotlight(currentSpotlight);
+  lottie.loadAnimation({
+    container: document.getElementById('lottie-spotlight'),
+    renderer: 'svg',
+    loop: true,
+    autoplay: true,
+    path: 'https://assets4.lottiefiles.com/packages/lf20_x62chJ.json'
+  });
+});
+</script>
+
+    
+<section class="kpi-section">
+  <div class="kpi-card">
+    <div class="kpi-icon" id="kpi-lottie-posts"></div>
+    <h3 id="kpi-posts">0</h3>
+    <p>Posts Published</p>
+  </div>
+  <div class="kpi-card">
+    <div class="kpi-icon" id="kpi-lottie-readtime"></div>
+    <h3 id="kpi-readtime">0</h3>
+    <p>Avg Read Time</p>
+  </div>
+  <div class="kpi-card">
+    <div class="kpi-icon" id="kpi-lottie-tags"></div>
+    <h3 id="kpi-tags">0</h3>
+    <p>Topics Covered</p>
+  </div>
+</section>
+
+<style>
+.kpi-section {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin: 6rem auto;
+  max-width: 1000px;
+}
+.kpi-card {
+  flex: 1 1 250px;
+  background: var(--glass-bg);
+  padding: 2rem;
+  border-radius: 2rem;
+  text-align: center;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 0 30px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease;
+}
+.kpi-card:hover {
+  transform: translateY(-6px);
+}
+.kpi-icon {
+  width: 96px;
+  height: 96px;
+  margin: 0 auto 1rem;
+}
+.kpi-card h3 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.kpi-card p {
+  color: #ccc;
+}
+</style>
+
+<script>
+function animateCounter(id, end, duration) {
+  let start = 0;
+  const increment = end / (duration / 16);
+  const el = document.getElementById(id);
+  const step = () => {
+    start += increment;
+    if (start < end) {
+      el.textContent = Math.round(start);
+      requestAnimationFrame(step);
+    } else {
+      el.textContent = end;
+    }
+  };
+  requestAnimationFrame(step);
+}
+
+document.addEventListener('scroll', () => {
+  const section = document.querySelector('.kpi-section');
+  if (section && !section.classList.contains('visible') && section.getBoundingClientRect().top < window.innerHeight) {
+    section.classList.add('visible');
+    const postCount = 12;
+    const avgTime = 5;
+    const topicCount = 3;
+    animateCounter('kpi-posts', postCount, 1000);
+    animateCounter('kpi-readtime', avgTime, 1000);
+    animateCounter('kpi-tags', topicCount, 1000);
+  }
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  lottie.loadAnimation({
+    container: document.getElementById('kpi-lottie-posts'),
+    renderer: 'svg',
+    loop: true,
+    autoplay: true,
+    path: 'https://assets10.lottiefiles.com/packages/lf20_7NmWkE.json'
+  });
+  lottie.loadAnimation({
+    container: document.getElementById('kpi-lottie-readtime'),
+    renderer: 'svg',
+    loop: true,
+    autoplay: true,
+    path: 'https://assets10.lottiefiles.com/packages/lf20_ydo1amjm.json'
+  });
+  lottie.loadAnimation({
+    container: document.getElementById('kpi-lottie-tags'),
+    renderer: 'svg',
+    loop: true,
+    autoplay: true,
+    path: 'https://assets10.lottiefiles.com/packages/lf20_kxrplbzo.json'
+  });
+});
+</script>
+
+    
+<section class="blog-filter">
+  <input type="text" id="searchInput" placeholder="Search articles..." />
+  <div class="tags">
+    <div class="tag active" data-tag="All">All</div>
+    <div class="tag" data-tag="Branding">Branding</div>
+    <div class="tag" data-tag="Sustainability">Sustainability</div>
+    <div class="tag" data-tag="Startup Strategy">Startup Strategy</div>
+  </div>
+</section>
+
+<section class="blog-grid" id="blog-container"></section>
+
+<style>
+.blog-filter {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+#searchInput {
+  padding: 0.75rem 1.25rem;
+  border-radius: 999px;
+  border: none;
+  background: rgba(255, 255, 255, 0.08);
+  color: white;
+  font-size: 1rem;
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 1rem;
+}
+.tags {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.tag {
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.05);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: white;
+}
+.tag:hover,
+.tag.active {
+  background: var(--gradient);
+  color: black;
+}
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+.blog-card {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(10px);
+  padding: 1.5rem;
+  border-radius: 1.5rem;
+  border: 1px solid rgba(255,255,255,0.1);
+  box-shadow: 0 0 24px rgba(0,0,0,0.25);
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateY(30px);
+}
+.blog-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.blog-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 20px rgba(255, 110, 196, 0.25);
+}
+.blog-card .tag {
+  background: #ff6ec4;
+  color: black;
+  display: inline-block;
+  margin-bottom: 0.5rem;
+}
+.blog-card h4 {
+  font-size: 1.25rem;
+  margin: 0.5rem 0;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.blog-card p {
+  color: #ccc;
+}
+</style>
+
+<script>
+const posts = [
+  {
+    title: "How to Launch a Streetwear Brand in India",
+    excerpt: "Your 2025 playbook from idea to launch — the essentials to go from sketch to scale.",
+    url: "/posts/2025-04-09-future-of-fashion.html",
+    tag: "Branding"
+  },
+  {
+    title: "10 Sustainable Fabrics Redefining Modern Streetwear",
+    excerpt: "Eco-friendly isn’t optional. Discover the top materials reshaping fashion.",
+    url: "/posts/2025-04-10-sustainable-fabrics.html",
+    tag: "Sustainability"
+  },
+  {
+    title: "Behind the Brand: The Soulmonk Story",
+    excerpt: "How a purpose-led brand incubated by Beyondwill became a Gen Z cult label.",
+    url: "/posts/2025-04-08-soulmonk-story.html",
+    tag: "Startup Strategy"
+  }
+];
+
+function renderPosts(filter = "All", query = "") {
+  const container = document.getElementById("blog-container");
+  container.innerHTML = "";
+  const filtered = posts.filter(p =>
+    (filter === "All" || p.tag === filter) &&
+    (p.title.toLowerCase().includes(query.toLowerCase()) || p.excerpt.toLowerCase().includes(query.toLowerCase()))
+  );
+  filtered.forEach((post, i) => {
+    const div = document.createElement("div");
+    div.className = "blog-card";
+    setTimeout(() => div.classList.add("visible"), i * 100);
+    div.innerHTML = `
+      <div class="tag">${post.tag}</div>
+      <h4>${post.title}</h4>
+      <p>${post.excerpt}</p>
+      <a href="#" onclick="openModal('${post.url}" class="cta-button ripple-effect" style="margin-top: 1rem; display:inline-block;">Read More</a>
+    `;
+    container.appendChild(div);
+  });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  renderPosts();
+
+  document.querySelectorAll(".tag").forEach(btn => {
+    btn.addEventListener("click", () => {
+      document.querySelector(".tag.active").classList.remove("active");
+      btn.classList.add("active");
+      renderPosts(btn.dataset.tag, document.getElementById("searchInput").value);
+    });
+  });
+
+  document.getElementById("searchInput").addEventListener("input", e => {
+    const tag = document.querySelector(".tag.active").dataset.tag;
+    renderPosts(tag, e.target.value);
+  });
+});
+</script>
+
+    
+<div class="svg-divider-bottom">
+  <svg viewBox="0 0 1440 120" preserveAspectRatio="none"><path fill="#0a0a0a" fill-opacity="1" d="M0,64L60,74.7C120,85,240,107,360,112C480,117,600,107,720,101.3C840,96,960,96,1080,101.3C1200,107,1320,117,1380,122.7L1440,128L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z"></path></svg>
+</div>
+
+<!-- Newsletter Block -->
   </div>
 
-  <script>
-    const spotlightPosts = [
-      {
-        title: "How to Launch a Streetwear Brand in India",
-        description: "A complete guide to building your brand, designing your first drop, and scaling online in 2025.",
-        url: "/posts/2025-04-09-future-of-fashion.html"
-      },
-      {
-        title: "10 Sustainable Fabrics Redefining Modern Streetwear",
-        description: "Eco-friendly isn’t optional. Discover the top materials reshaping fashion.",
-        url: "/posts/2025-04-10-sustainable-fabrics.html"
-      },
-      {
-        title: "Behind the Brand: The Soulmonk Story",
-        description: "How a purpose-led brand incubated by Beyondwill became a Gen Z cult label.",
-        url: "/posts/2025-04-08-soulmonk-story.html"
-      }
-    ];
+  <!-- Scripts for Lottie & Scroll Effects -->
 
-    const posts = [
-      {
-        title: "How to Launch a Streetwear Brand in India",
-        excerpt: "Your 2025 playbook from idea to launch — the essentials to go from sketch to scale.",
-        url: "/posts/2025-04-09-future-of-fashion.html",
-        tag: "Branding",
-        meta: "Apr 15, 2025 • 5 min read"
-      },
-      {
-        title: "10 Sustainable Fabrics Redefining Modern Streetwear",
-        excerpt: "Eco-friendly isn’t optional. Discover the top materials reshaping fashion.",
-        url: "/posts/2025-04-10-sustainable-fabrics.html",
-        tag: "Sustainability",
-        meta: "Apr 22, 2025 • 4 min read"
-      },
-      {
-        title: "Behind the Brand: The Soulmonk Story",
-        excerpt: "How a purpose-led brand incubated by Beyondwill became a Gen Z cult label.",
-        url: "/posts/2025-04-08-soulmonk-story.html",
-        tag: "Startup Strategy",
-        meta: "Apr 29, 2025 • 3 min read"
-      }
-    ];
 
-    let currentSpotlight = 0;
-    let isTransitioning = false;
+<style>
+.kpi-card {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.kpi-card:hover {
+  box-shadow: 0 0 20px rgba(255, 110, 196, 0.3), 0 10px 20px rgba(0,0,0,0.25);
+}
+</style>
 
-    function updateSpotlight(index) {
-      const spotlight = document.getElementById('spotlight');
-      if (isTransitioning) return;
-      isTransitioning = true;
-      spotlight.classList.add('fade-out');
-      setTimeout(() => {
-        const post = spotlightPosts[index];
-        document.getElementById('spotlight-title').innerText = post.title;
-        document.getElementById('spotlight-desc').innerText = post.description;
-        document.getElementById('spotlight-link').href = post.url;
-        spotlight.classList.remove('fade-out');
-        isTransitioning = false;
-      }, 400);
-    }
-
-    function nextSlide() {
-      currentSpotlight = (currentSpotlight + 1) % spotlightPosts.length;
-      updateSpotlight(currentSpotlight);
-    }
-
-    function prevSlide() {
-      currentSpotlight = (currentSpotlight - 1 + spotlightPosts.length) % spotlightPosts.length;
-      updateSpotlight(currentSpotlight);
-    }
-
-    updateSpotlight(currentSpotlight);
-    setInterval(nextSlide, 5000);
-
-    const lottiePlayer = lottie.loadAnimation({
-      container: document.getElementById('lottie-spotlight'),
-      renderer: 'svg',
-      loop: true,
-      autoplay: true,
-      path: 'https://assets4.lottiefiles.com/packages/lf20_x62chJ.json'
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const cards = document.querySelectorAll('.kpi-card');
+  cards.forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      const rotateX = -(y - centerY) / 20;
+      const rotateY = (x - centerX) / 20;
+      card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
     });
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = `rotateX(0) rotateY(0)`;
+    });
+  });
+});
+</script>
 
-    const container = document.getElementById('blog-container');
-    const tagButtons = document.querySelectorAll('.tag');
-    const loadMoreBtn = document.getElementById('loadMore');
-    const searchInput = document.getElementById('searchInput');
 
-    let currentTag = 'All';
-    let visibleCount = 0;
-    const increment = 2;
+<script>
+function animateCounter(id, end, duration) {
+  let start = 0;
+  const startTime = performance.now();
+  const el = document.getElementById(id);
 
-    function renderPosts(tag, reset = false, query = '') {
-      if (reset) {
-        container.innerHTML = '';
-        visibleCount = 0;
-      }
-      const filtered = posts.filter(p =>
-        (tag === 'All' || p.tag === tag) &&
-        (p.title.toLowerCase().includes(query.toLowerCase()) || p.excerpt.toLowerCase().includes(query.toLowerCase()))
-      );
+  function easeOutExpo(t) {
+    return t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
+  }
 
-      const nextPosts = filtered.slice(visibleCount, visibleCount + increment);
-      nextPosts.forEach((post, index) => {
-        const card = document.createElement('div');
-        card.className = 'blog-card';
-        card.style.animationDelay = `${index * 0.1}s`;
-        card.innerHTML = `
-          <div class="blog-meta">${post.tag}</div>
-          <div class="blog-title">${post.title}</div>
-          <div class="blog-excerpt">${post.excerpt}</div>
-          <div class="blog-excerpt" style="margin-top: 0.5rem; font-size: 0.85rem; color: #888">${post.meta}</div>
-          <a class="read-btn" href="${post.url}">Read More</a>
+  function update(currentTime) {
+    const elapsed = currentTime - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    const eased = easeOutExpo(progress);
+    el.textContent = Math.round(start + (end - start) * eased);
+
+    if (progress < 1) {
+      requestAnimationFrame(update);
+    }
+  }
+  requestAnimationFrame(update);
+}
+</script>
+
+
+<section class="newsletter">
+  <div class="newsletter-lottie" id="newsletter-lottie"></div>
+  <div class="newsletter-content">
+    <h2>Stay in the Loop</h2>
+    <p>Subscribe for insights, updates, and exclusive content from Beyondwill — direct to your inbox.</p>
+    <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Subscribed!');">
+      <input type="email" placeholder="Enter your email" required>
+      <button type="submit" class="ripple-effect">Subscribe</button>
+    </form>
+  </div>
+</section>
+
+<style>
+.newsletter {
+  margin: 6rem auto 4rem;
+  max-width: 900px;
+  padding: 3rem 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  border-radius: 2rem;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.35);
+}
+.newsletter-lottie {
+  width: 120px;
+  height: 120px;
+}
+.newsletter-content {
+  flex: 1;
+  min-width: 260px;
+  text-align: center;
+}
+.newsletter-content h2 {
+  font-size: 2rem;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 0.5rem;
+}
+.newsletter-content p {
+  color: #aaa;
+  margin-bottom: 1.5rem;
+}
+.newsletter-form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+.newsletter-form input {
+  padding: 0.75rem 1rem;
+  border-radius: 999px;
+  border: none;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-size: 1rem;
+  width: 250px;
+}
+.newsletter-form button {
+  padding: 0.75rem 1.5rem;
+  border-radius: 999px;
+  border: none;
+  font-weight: bold;
+  background: var(--gradient);
+  color: #000;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.newsletter-form button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 12px rgba(255, 110, 196, 0.25);
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  lottie.loadAnimation({
+    container: document.getElementById('newsletter-lottie'),
+    renderer: 'svg',
+    loop: true,
+    autoplay: true,
+    path: 'https://assets1.lottiefiles.com/packages/lf20_3rwasyjy.json'
+  });
+});
+</script>
+
+
+<!-- Blog Modal -->
+<div id="blogModal" class="modal">
+  <div class="modal-content">
+    <span class="close-modal" onclick="closeModal()">&times;</span>
+    <div id="modalContent" class="modal-body">
+      
+<h2>Top Indian Streetwear Drops to Watch — April 2025</h2>
+<p><em>Streetwear in India isn't a phase. It's a movement.</em></p>
+<p>As April kicks into full swing, Indian fashion streets are buzzing with fresh energy. New labels are dropping heat, collabs are getting wilder, and the fits? Unreal.</p>
+
+<h3>🚀 5 Streetwear Drops We’re Watching Closely</h3>
+<ul>
+  <li><strong>Jaywalking – “Void Collection”</strong><br>Urban minimalism meets futurism. Matte textures, deep blacks, and techwear-inspired cuts.</li>
+  <li><strong>Bluorng – Candy Pop Pack</strong><br>Playful graphics + nostalgia-drenched colorways. Feels like Gen Z candy.</li>
+  <li><strong>Almost Gods x Divine</strong><br>This myth-meets-music collab blends Indian mythology with street rap energy.</li>
+  <li><strong>Soulmonk – Drop 03: “City Karma”</strong><br>The most mature Soulmonk drop yet:
+    <ul>
+      <li>Oversized glitch-printed hoodies</li>
+      <li>Indigo-washed cargos</li>
+      <li>Reflective logos + Sanskrit type</li>
+    </ul>
+    <a href="https://beyondwill.in/soulmonk" target="_blank">→ Explore the Drop</a>
+  </li>
+  <li><strong>Rare Rabbit x Converse Collab</strong><br>Formalwear gets twisted — cropped suits + classic All Stars? Unexpectedly clean.</li>
+</ul>
+
+<h3>📊 Why This Month Matters</h3>
+<p>April is <strong>end-of-season meets pre-summer chaos</strong> — which means:</p>
+<ul>
+  <li>Micro-collections test trends</li>
+  <li>Smaller brands get bold</li>
+  <li>You get fire fits nobody else has yet</li>
+</ul>
+
+<h3>🧠 Final Thoughts</h3>
+<p>Streetwear in India has never moved this fast. If you’re trying to stay on top of it — or shape it — now’s the time to tap in.</p>
+<p><a href="https://beyondwill.in/#newsletter" target="_blank">→ Subscribe to Beyondwill Blog</a></p>
+
+    </div>
+  </div>
+</div>
+
+<style>
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    padding-top: 5vh;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    background-color: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(6px);
+    animation: fadeIn 0.3s ease;
+  }
+
+  .modal-content {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    margin: auto;
+    padding: 2rem;
+    border-radius: 1.25rem;
+    max-width: 800px;
+    color: white;
+    font-size: 1rem;
+    line-height: 1.7;
+    animation: slideUp 0.5s ease;
+  }
+
+  .close-modal {
+    color: white;
+    float: right;
+    font-size: 1.8rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: -1rem;
+    margin-right: -1rem;
+  }
+
+  @keyframes slideUp {
+    from {
+      transform: translateY(30px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+</style>
+
+<script>
+  function openModal(url) {
+    event.preventDefault();
+    const modal = document.getElementById('blogModal');
+    const content = document.getElementById('modalContent');
+    modal.style.display = 'block';
+    content.innerHTML = '
+<h2>Top Indian Streetwear Drops to Watch — April 2025</h2>
+<p><em>Streetwear in India isn't a phase. It's a movement.</em></p>
+<p>As April kicks into full swing, Indian fashion streets are buzzing with fresh energy. New labels are dropping heat, collabs are getting wilder, and the fits? Unreal.</p>
+
+<h3>🚀 5 Streetwear Drops We’re Watching Closely</h3>
+<ul>
+  <li><strong>Jaywalking – “Void Collection”</strong><br>Urban minimalism meets futurism. Matte textures, deep blacks, and techwear-inspired cuts.</li>
+  <li><strong>Bluorng – Candy Pop Pack</strong><br>Playful graphics + nostalgia-drenched colorways. Feels like Gen Z candy.</li>
+  <li><strong>Almost Gods x Divine</strong><br>This myth-meets-music collab blends Indian mythology with street rap energy.</li>
+  <li><strong>Soulmonk – Drop 03: “City Karma”</strong><br>The most mature Soulmonk drop yet:
+    <ul>
+      <li>Oversized glitch-printed hoodies</li>
+      <li>Indigo-washed cargos</li>
+      <li>Reflective logos + Sanskrit type</li>
+    </ul>
+    <a href="https://beyondwill.in/soulmonk" target="_blank">→ Explore the Drop</a>
+  </li>
+  <li><strong>Rare Rabbit x Converse Collab</strong><br>Formalwear gets twisted — cropped suits + classic All Stars? Unexpectedly clean.</li>
+</ul>
+
+<h3>📊 Why This Month Matters</h3>
+<p>April is <strong>end-of-season meets pre-summer chaos</strong> — which means:</p>
+<ul>
+  <li>Micro-collections test trends</li>
+  <li>Smaller brands get bold</li>
+  <li>You get fire fits nobody else has yet</li>
+</ul>
+
+<h3>🧠 Final Thoughts</h3>
+<p>Streetwear in India has never moved this fast. If you’re trying to stay on top of it — or shape it — now’s the time to tap in.</p>
+<p><a href="https://beyondwill.in/#newsletter" target="_blank">→ Subscribe to Beyondwill Blog</a></p>
+';
+
+    fetch(url)
+      .then(res => {
+        if (!res.ok) throw new Error("Not found");
+        return res.text();
+      })
+      .then(html => {
+        content.innerHTML = html;
+      })
+      .catch(() => {
+        content.innerHTML = `
+          <h2>The Rise of Indian Streetwear</h2>
+          <p>Indian youth are no longer just consuming global fashion — they’re creating their own codes of cool.</p>
+          <ul>
+            <li>Jaywalking</li>
+            <li>Bluorng</li>
+            <li>Almost Gods</li>
+            <li><strong>Soulmonk</strong> — redefining premium streetwear from India.</li>
+          </ul>
+          <p>Expect AR/VR fashion, local sneaker drops and more.</p>
         `;
-        container.appendChild(card);
       });
-      visibleCount += increment;
-      loadMoreBtn.style.display = visibleCount >= filtered.length ? 'none' : 'block';
+  }
+
+  function closeModal() {
+    document.getElementById('blogModal').style.display = 'none';
+  }
+
+  window.addEventListener('click', function(e) {
+    const modal = document.getElementById('blogModal');
+    if (e.target === modal) {
+      closeModal();
     }
+  });
 
-    window.addEventListener('DOMContentLoaded', () => {
-      renderPosts(currentTag, true, searchInput.value);
-    });
+  window.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeModal();
+  });
+</script>
 
-    tagButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelector('.tag.active').classList.remove('active');
-        btn.classList.add('active');
-        currentTag = btn.dataset.tag;
-        renderPosts(currentTag, true, searchInput.value);
-      });
-    });
-
-    loadMoreBtn.addEventListener('click', () => {
-      renderPosts(currentTag, false, searchInput.value);
-    });
-
-    searchInput.addEventListener('input', () => {
-      renderPosts(currentTag, true, searchInput.value);
-    });
-  </script>
 </body>
 </html>
