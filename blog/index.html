@@ -6,7 +6,7 @@
   <title>Beyondwill Blog | Insights on Fashion, Startups & Sustainability</title>
   <meta name="description" content="Dive into the world of fashion brand incubation, sustainability, and innovative startup strategies with Beyondwill LLP." />
   <link rel="canonical" href="https://beyondwill.in/blog/" />
-  <!-- Global Stylesheet -->
+  <!-- Global Stylesheet, if applicable -->
   <link rel="stylesheet" href="/style.css" />
   <style>
     /* Modern Minimal Blog Landing Page Styles */
@@ -103,7 +103,7 @@
       .card h2 { font-size: 1.3rem; }
       .card p { font-size: 0.9rem; }
     }
-
+    
     /* Modal Styles */
     .modal {
       display: none; /* Hidden by default */
@@ -196,21 +196,35 @@
       const modal = document.getElementById('modal');
       const modalBody = document.getElementById('modal-body');
       modal.style.display = 'block';
-      // Show a simple loader
+      // Show a loader
       modalBody.innerHTML = '<p style="text-align:center;">Loading content...</p>';
+      
       fetch(url)
         .then(response => {
           if (!response.ok) {
-            throw new Error('Network response was not ok');
+            throw new Error('Network response was not ok: ' + response.status);
           }
           return response.text();
         })
         .then(data => {
-          // Assuming the fetched file is a complete HTML document,
-          // Extract just the <body> content using DOMParser
+          // Parse the fetched HTML using DOMParser
           const parser = new DOMParser();
           const doc = parser.parseFromString(data, 'text/html');
-          modalBody.innerHTML = doc.body.innerHTML;
+          // Attempt to get content from a known container; adjust the selector if necessary
+          let content = doc.querySelector('.container');
+          if (content) {
+            modalBody.innerHTML = content.innerHTML;
+          } else {
+            // Fallback to the full body content if container not found
+            let bodyContent = doc.body.innerHTML;
+            if (bodyContent.trim() === '') {
+              console.error('Fetched HTML has no body content.');
+              modalBody.innerHTML = '<p style="text-align:center;">Error: No content found.</p>';
+            } else {
+              modalBody.innerHTML = bodyContent;
+            }
+          }
+          console.log('Content loaded successfully from ' + url);
         })
         .catch(error => {
           modalBody.innerHTML = '<p style="text-align:center;">Error loading content.</p>';
@@ -223,7 +237,7 @@
       document.getElementById('modal').style.display = 'none';
     }
 
-    // Add event listeners to Read More buttons
+    // Event listeners for Read More buttons
     document.querySelectorAll('.read-more').forEach(button => {
       button.addEventListener('click', function(e) {
         const url = e.target.getAttribute('data-url');
@@ -231,10 +245,10 @@
       });
     });
 
-    // Event listener for closing the modal when clicking the close button
+    // Event listener for closing the modal via the close button
     document.querySelector('.modal-close').addEventListener('click', closeModal);
 
-    // Close modal if user clicks outside the modal content area
+    // Close modal when clicking outside the modal content area
     window.addEventListener('click', function(event) {
       const modal = document.getElementById('modal');
       if (event.target == modal) {
