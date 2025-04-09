@@ -6,7 +6,7 @@
   <title>Beyondwill Blog | Insights on Fashion, Startups & Sustainability</title>
   <meta name="description" content="Dive into the world of fashion brand incubation, sustainability, and innovative startup strategies with Beyondwill LLP." />
   <link rel="canonical" href="https://beyondwill.in/blog/" />
-  <!-- Global Stylesheet, if applicable -->
+  <!-- Global Stylesheet if available -->
   <link rel="stylesheet" href="/style.css" />
   <style>
     /* Modern Minimal Blog Landing Page Styles */
@@ -180,23 +180,22 @@
     <p>&copy; 2025 Beyondwill LLP. All rights reserved.</p>
   </footer>
 
-  <!-- Modal for displaying full blog post -->
+  <!-- Modal for displaying the full blog post -->
   <div id="modal" class="modal">
     <div class="modal-content">
       <span class="modal-close">&times;</span>
       <div id="modal-body">
-        <!-- Loaded blog content will appear here -->
+        <!-- The blog content will be loaded here -->
       </div>
     </div>
   </div>
 
   <script>
-    // Function to open modal and load content from the blog page URL
+    // Function to open the modal and load the blog content
     function openModal(url) {
       const modal = document.getElementById('modal');
       const modalBody = document.getElementById('modal-body');
       modal.style.display = 'block';
-      // Show a loader
       modalBody.innerHTML = '<p style="text-align:center;">Loading content...</p>';
       
       fetch(url)
@@ -207,22 +206,16 @@
           return response.text();
         })
         .then(data => {
-          // Parse the fetched HTML using DOMParser
+          // Use DOMParser to parse the fetched HTML
           const parser = new DOMParser();
           const doc = parser.parseFromString(data, 'text/html');
-          // Attempt to get content from a known container; adjust the selector if necessary
-          let content = doc.querySelector('.container');
+          // Look for the #blog-content element; ensure your blog post files wrap content in it.
+          let content = doc.querySelector('#blog-content');
           if (content) {
             modalBody.innerHTML = content.innerHTML;
           } else {
-            // Fallback to the full body content if container not found
-            let bodyContent = doc.body.innerHTML;
-            if (bodyContent.trim() === '') {
-              console.error('Fetched HTML has no body content.');
-              modalBody.innerHTML = '<p style="text-align:center;">Error: No content found.</p>';
-            } else {
-              modalBody.innerHTML = bodyContent;
-            }
+            // Fallback: use the full body content if #blog-content not found
+            modalBody.innerHTML = doc.body.innerHTML;
           }
           console.log('Content loaded successfully from ' + url);
         })
@@ -231,27 +224,26 @@
           console.error('Error fetching blog content:', error);
         });
     }
-
+    
     // Function to close the modal
     function closeModal() {
       document.getElementById('modal').style.display = 'none';
     }
-
-    // Event listeners for Read More buttons
+    
+    // Attach event listeners to all "Read More" buttons
     document.querySelectorAll('.read-more').forEach(button => {
       button.addEventListener('click', function(e) {
         const url = e.target.getAttribute('data-url');
         openModal(url);
       });
     });
-
-    // Event listener for closing the modal via the close button
+    
+    // Attach event listener for modal close button
     document.querySelector('.modal-close').addEventListener('click', closeModal);
-
-    // Close modal when clicking outside the modal content area
+    
+    // Close modal if the user clicks outside the modal content
     window.addEventListener('click', function(event) {
-      const modal = document.getElementById('modal');
-      if (event.target == modal) {
+      if (event.target == document.getElementById('modal')) {
         closeModal();
       }
     });
