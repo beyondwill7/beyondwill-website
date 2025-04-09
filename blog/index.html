@@ -863,5 +863,38 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 </script>
 
+
+<!-- Modal Popup -->
+<div id="blogModal" class="modal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;z-index:999;background:rgba(0,0,0,0.9);overflow:auto;padding:2rem;">
+  <div style="background:#111;color:white;padding:2rem;border-radius:1rem;max-width:900px;margin:auto;position:relative;">
+    <button onclick="closeModal()" style="position:absolute;top:1rem;right:1rem;background:#ff2d75;color:white;border:none;border-radius:1rem;padding:0.5rem 1rem;cursor:pointer;">Close</button>
+    <div id="modalContent">Loading...</div>
+  </div>
+</div>
+
+<script>
+  function openModal(postPath) {
+    const modal = document.getElementById('blogModal');
+    const content = document.getElementById('modalContent');
+    modal.style.display = 'block';
+    fetch(postPath)
+      .then(res => res.text())
+      .then(html => {
+        content.innerHTML = html;
+        window.scrollTo(0, 0);
+      })
+      .catch(() => {
+        content.innerHTML = '<p>Failed to load blog. Please try again later.</p>';
+      });
+  }
+
+  function closeModal() {
+    const modal = document.getElementById('blogModal');
+    const content = document.getElementById('modalContent');
+    modal.style.display = 'none';
+    content.innerHTML = '';
+  }
+</script>
+
 </body>
 </html>
