@@ -27,20 +27,6 @@
       max-width: 1200px;
       margin: 0 auto;
     }
-    .search-bar {
-      margin: 2rem 0 1rem;
-      text-align: center;
-    }
-    .search-bar input {
-      width: 100%;
-      max-width: 400px;
-      padding: 0.75rem 1rem;
-      border-radius: 999px;
-      border: none;
-      background: rgba(255, 255, 255, 0.08);
-      color: white;
-      font-size: 1rem;
-    }
     .carousel-controls {
       display: flex;
       justify-content: space-between;
@@ -108,6 +94,20 @@
     }
     .spotlight a:hover {
       background: rgba(255, 255, 255, 0.2);
+    }
+    .search-bar {
+      margin: 2rem 0 1rem;
+      text-align: center;
+    }
+    .search-bar input {
+      width: 100%;
+      max-width: 400px;
+      padding: 0.75rem 1rem;
+      border-radius: 999px;
+      border: none;
+      background: rgba(255, 255, 255, 0.08);
+      color: white;
+      font-size: 1rem;
     }
     .tags {
       display: flex;
@@ -256,6 +256,30 @@
       }
     ];
 
+    const posts = [
+      {
+        title: "How to Launch a Streetwear Brand in India",
+        excerpt: "Your 2025 playbook from idea to launch — the essentials to go from sketch to scale.",
+        url: "/posts/2025-04-09-future-of-fashion.html",
+        tag: "Branding",
+        meta: "Apr 15, 2025 • 5 min read"
+      },
+      {
+        title: "10 Sustainable Fabrics Redefining Modern Streetwear",
+        excerpt: "Eco-friendly isn’t optional. Discover the top materials reshaping fashion.",
+        url: "/posts/2025-04-10-sustainable-fabrics.html",
+        tag: "Sustainability",
+        meta: "Apr 22, 2025 • 4 min read"
+      },
+      {
+        title: "Behind the Brand: The Soulmonk Story",
+        excerpt: "How a purpose-led brand incubated by Beyondwill became a Gen Z cult label.",
+        url: "/posts/2025-04-08-soulmonk-story.html",
+        tag: "Startup Strategy",
+        meta: "Apr 29, 2025 • 3 min read"
+      }
+    ];
+
     let currentSpotlight = 0;
     let isTransitioning = false;
 
@@ -293,6 +317,64 @@
       loop: true,
       autoplay: true,
       path: 'https://assets4.lottiefiles.com/packages/lf20_x62chJ.json'
+    });
+
+    const container = document.getElementById('blog-container');
+    const tagButtons = document.querySelectorAll('.tag');
+    const loadMoreBtn = document.getElementById('loadMore');
+    const searchInput = document.getElementById('searchInput');
+
+    let currentTag = 'All';
+    let visibleCount = 0;
+    const increment = 2;
+
+    function renderPosts(tag, reset = false, query = '') {
+      if (reset) {
+        container.innerHTML = '';
+        visibleCount = 0;
+      }
+      const filtered = posts.filter(p =>
+        (tag === 'All' || p.tag === tag) &&
+        (p.title.toLowerCase().includes(query.toLowerCase()) || p.excerpt.toLowerCase().includes(query.toLowerCase()))
+      );
+
+      const nextPosts = filtered.slice(visibleCount, visibleCount + increment);
+      nextPosts.forEach((post, index) => {
+        const card = document.createElement('div');
+        card.className = 'blog-card';
+        card.style.animationDelay = `${index * 0.1}s`;
+        card.innerHTML = `
+          <div class="blog-meta">${post.tag}</div>
+          <div class="blog-title">${post.title}</div>
+          <div class="blog-excerpt">${post.excerpt}</div>
+          <div class="blog-excerpt" style="margin-top: 0.5rem; font-size: 0.85rem; color: #888">${post.meta}</div>
+          <a class="read-btn" href="${post.url}">Read More</a>
+        `;
+        container.appendChild(card);
+      });
+      visibleCount += increment;
+      loadMoreBtn.style.display = visibleCount >= filtered.length ? 'none' : 'block';
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      renderPosts(currentTag, true, searchInput.value);
+    });
+
+    tagButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelector('.tag.active').classList.remove('active');
+        btn.classList.add('active');
+        currentTag = btn.dataset.tag;
+        renderPosts(currentTag, true, searchInput.value);
+      });
+    });
+
+    loadMoreBtn.addEventListener('click', () => {
+      renderPosts(currentTag, false, searchInput.value);
+    });
+
+    searchInput.addEventListener('input', () => {
+      renderPosts(currentTag, true, searchInput.value);
     });
   </script>
 </body>
