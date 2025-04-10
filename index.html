@@ -388,37 +388,41 @@
 </div>
 </section>
 <!-- MISSION & VISION SECTION -->
-<section class="section" id="mission-vision" style="position: relative; overflow: visible; z-index: 1;">
-<h2 data-aos="fade-up">
-     Mission &amp; Vision
-    </h2>
 
-
-<div class="flip-card-container">
-<div class="flip-card">
-<div class="flip-inner">
-<div class="flip-front">
+<section class="section scroll-section" id="mission-vision">
+<h2 data-aos="fade-up">Mission &amp; Vision</h2>
+<div class="scroll-stack">
+<div class="scroll-card">
 <div class="icon">🎯</div>
 <h3>Our Mission</h3>
-</div>
-<div class="flip-back">
 <p>To build and scale innovative, style-driven brands that reflect modern lifestyles, fostering creativity, sustainability, and strategic growth.</p>
 </div>
-</div>
-</div>
-<div class="flip-card">
-<div class="flip-inner">
-<div class="flip-front">
+<div class="scroll-card">
 <div class="icon">🚀</div>
 <h3>Our Vision</h3>
-</div>
-<div class="flip-back">
 <p>To be a trusted and recognized leader in the fashion industry and beyond, incubating creative ventures that shape the future.</p>
 </div>
 </div>
-</div>
-</div>
 </section>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.utils.toArray(".scroll-card").forEach((card) => {
+      gsap.to(card, {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: card,
+          start: "top 80%",
+          toggleActions: "play none none reverse"
+        }
+      });
+    });
+  });
+</script>
+
 <!-- TEAM SECTION -->
 <section class="section" id="team">
 <h2 data-aos="fade-up">
