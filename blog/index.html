@@ -444,29 +444,17 @@
       }
     ];
 
-    const posts = [
-      {
-        title: "How to Launch a Streetwear Brand in India",
-        excerpt: "Your 2025 playbook from idea to launch — the essentials to go from sketch to scale.",
-        url: "/posts/2025-04-09-future-of-fashion.html",
-        tag: "Branding",
-        meta: "Apr 15, 2025 • 5 min read"
-      },
-      {
-        title: "10 Sustainable Fabrics Redefining Modern Streetwear",
-        excerpt: "Eco-friendly isn’t optional. Discover the top materials reshaping fashion.",
-        url: "/posts/2025-04-10-sustainable-fabrics.html",
-        tag: "Sustainability",
-        meta: "Apr 22, 2025 • 4 min read"
-      },
-      {
-        title: "Behind the Brand: The Soulmonk Story",
-        excerpt: "How a purpose-led brand incubated by Beyondwill became a Gen Z cult label.",
-        url: "/posts/2025-04-08-soulmonk-story.html",
-        tag: "Startup Strategy",
-        meta: "Apr 29, 2025 • 3 min read"
-      }
-    ];
+    
+let posts = [];
+
+fetch('/blog/posts.json')
+  .then(res => res.json())
+  .then(data => {
+    posts = data;
+    renderPosts(currentTag, true, searchInput.value);
+  })
+  .catch(err => console.error("Failed to fetch posts:", err));
+
 
     let currentSpotlight = 0;
     let isTransitioning = false;
