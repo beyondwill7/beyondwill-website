@@ -540,7 +540,8 @@ fetch('/blog/posts.json')
         const res = await fetch(url);
         const text = await res.text();
         const doc = new DOMParser().parseFromString(text, "text/html");
-        modalBody.innerHTML = doc.body.innerHTML;
+        const article = doc.querySelector("article");
+        modalBody.innerHTML = article ? article.outerHTML : "Failed to load content properly.";
       } catch (err) {
         modalBody.innerHTML = "Failed to load blog.";
       }
