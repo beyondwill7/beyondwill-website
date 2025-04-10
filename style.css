@@ -146,7 +146,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      z-index: 0;
+      z-index: 1;
     }
     .hero::after {
       content: "";
@@ -743,7 +743,7 @@ h1 {
       inset: -2px;
       border-radius: inherit;
       filter: blur(2px) url(#unopaq3);
-      z-index: 0;
+      z-index: 1;
     }
     .spin::before {
       content: "";
@@ -1315,7 +1315,7 @@ footer {
   height: 200%;
   background: conic-gradient(from 0deg, red, orange, yellow, green, blue, indigo, violet, red);
   animation: rotateGradient 6s linear infinite;
-  z-index: 0;
+  z-index: 1;
   filter: blur(10px);
 }
 
@@ -1671,11 +1671,11 @@ h1, h2, h3 {
   transform: translateX(-50%);
   width: 600px;
   height: 600px;
-  background: radial-gradient(circle at center, rgba(255, 111, 0, 0.35), transparent 70%);
+  background: radial-gradient(circle at center, rgba(255,140,0,0.4), rgba(255,51,0,0.25));
   border-radius: 50%;
   filter: blur(80px);
   animation: blobMove 20s ease-in-out infinite;
-  z-index: 0;
+  z-index: 1;
   pointer-events: none;
 }
 
