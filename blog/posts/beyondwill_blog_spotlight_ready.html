@@ -1,0 +1,189 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Beyondwill Blog – Modern</title>
+  <meta name="description" content="Beyondwill's next-gen blog experience – stories, strategy, and startup wisdom with a stunning UI.">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.6/lottie.min.js"></script>
+  <style>
+    :root {
+      --gradient: linear-gradient(135deg, #ff6ec4, #7873f5);
+      --glass-bg: rgba(255, 255, 255, 0.06);
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0a0a0a;
+      color: #fff;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+    .wrapper {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    section {
+      margin-bottom: 6rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="wrapper">
+    
+<section class="spotlight-carousel">
+  <div class="carousel-wrapper">
+    <div class="carousel-lottie" id="lottie-spotlight"></div>
+    <div class="carousel-content">
+      <small>#SPOTLIGHT</small>
+      <h1 id="spotlight-title">Loading...</h1>
+      <p id="spotlight-desc"></p>
+      <a id="spotlight-link" class="cta-button" href="#">Read Now</a>
+    </div>
+    <div class="carousel-controls">
+      <button onclick="prevSlide()">‹</button>
+      <button onclick="nextSlide()">›</button>
+    </div>
+  </div>
+</section>
+
+<style>
+.spotlight-carousel {
+  position: relative;
+  padding: 4rem 2rem;
+  background: radial-gradient(ellipse at top left, #1a1a1a 0%, #0a0a0a 100%);
+  border-radius: 2rem;
+  box-shadow: 0 0 60px rgba(0,0,0,0.3);
+}
+.carousel-wrapper {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: space-between;
+}
+.carousel-lottie {
+  width: 200px;
+  height: 200px;
+}
+.carousel-content {
+  flex: 1;
+  min-width: 280px;
+}
+.carousel-content small {
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: #ff6ec4;
+}
+.carousel-content h1 {
+  font-size: 2.5rem;
+  margin: 1rem 0;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.carousel-content p {
+  color: #bbb;
+  max-width: 600px;
+}
+.cta-button {
+  margin-top: 1.5rem;
+  padding: 0.75rem 2rem;
+  background: var(--gradient);
+  border: none;
+  color: #000;
+  font-weight: bold;
+  border-radius: 999px;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+.cta-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(255, 110, 196, 0.3);
+}
+.carousel-controls {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  display: flex;
+  gap: 1rem;
+}
+.carousel-controls button {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  color: #fff;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+</style>
+
+<script>
+const spotlightPosts = [
+  {
+    title: "How to Launch a Streetwear Brand in India",
+    description: "A complete guide to building your brand, designing your first drop, and scaling online in 2025.",
+    url: "/posts/2025-04-09-future-of-fashion.html"
+  },
+  {
+    title: "10 Sustainable Fabrics Redefining Modern Streetwear",
+    description: "Eco-friendly isn’t optional. Discover the top materials reshaping fashion.",
+    url: "/posts/2025-04-10-sustainable-fabrics.html"
+  },
+  {
+    title: "Behind the Brand: The Soulmonk Story",
+    description: "How a purpose-led brand incubated by Beyondwill became a Gen Z cult label.",
+    url: "/posts/2025-04-08-soulmonk-story.html"
+  }
+];
+
+let currentSpotlight = 0;
+function updateSpotlight(index) {
+  const post = spotlightPosts[index];
+  document.getElementById('spotlight-title').textContent = post.title;
+  document.getElementById('spotlight-desc').textContent = post.description;
+  document.getElementById('spotlight-link').href = post.url;
+}
+function nextSlide() {
+  currentSpotlight = (currentSpotlight + 1) % spotlightPosts.length;
+  updateSpotlight(currentSpotlight);
+}
+function prevSlide() {
+  currentSpotlight = (currentSpotlight - 1 + spotlightPosts.length) % spotlightPosts.length;
+  updateSpotlight(currentSpotlight);
+}
+document.addEventListener("DOMContentLoaded", () => {
+  updateSpotlight(currentSpotlight);
+  lottie.loadAnimation({
+    container: document.getElementById('lottie-spotlight'),
+    renderer: 'svg',
+    loop: true,
+    autoplay: true,
+    path: 'https://assets4.lottiefiles.com/packages/lf20_x62chJ.json'
+  });
+});
+</script>
+
+    <!-- KPI Section -->
+    <!-- Blog Grid -->
+    <!-- Newsletter Block -->
+  </div>
+
+  <!-- Scripts for Lottie & Scroll Effects -->
+
+</body>
+</html>
