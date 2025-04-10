@@ -1717,3 +1717,25 @@ h1, h2, h3 {
   overflow: visible;
   z-index: 1;
 }
+
+
+/* === FX Glow Ring for Mission & Vision === */
+.fx-glow-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 600px;
+  height: 600px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,140,0,0.08), transparent 70%);
+  animation: glowPulse 6s ease-in-out infinite;
+  z-index: 0;
+  pointer-events: none;
+  filter: blur(64px);
+}
+
+@keyframes glowPulse {
+  0%, 100% { opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
+  50% { opacity: 0.8; transform: translate(-50%, -50%) scale(1.05); }
+}
