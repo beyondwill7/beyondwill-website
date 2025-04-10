@@ -1742,61 +1742,53 @@ h1, h2, h3 {
 
 
 /* === Flip Card Layout for Mission & Vision === */
-.flip-card-container {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.15); opacity: 0.9; }
+}
+
+/* === Animated Info Cards for Mission & Vision === */
+.animated-cards {
   display: flex;
-  gap: 24px;
-  justify-content: center;
   flex-wrap: wrap;
+  justify-content: center;
+  gap: 32px;
   margin-top: 40px;
 }
 
-.flip-card {
-  background: transparent;
-  width: 300px;
-  height: 240px;
-  perspective: 1000px;
-}
-
-.flip-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  transition: transform 0.8s;
-  transform-style: preserve-3d;
-}
-
-.flip-card:hover .flip-inner {
-  transform: rotateY(180deg);
-}
-
-.flip-front, .flip-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  padding: 20px;
+.info-card {
+  background: #1e1e1e;
   border-radius: 16px;
-  backface-visibility: hidden;
-  background: #1a1a1a;
+  padding: 24px;
+  max-width: 400px;
+  text-align: center;
   color: white;
-  box-shadow: 0 10px 20px rgba(255,140,0,0.2);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  box-shadow: 0 10px 30px rgba(255, 165, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.flip-front .icon {
-  font-size: 40px;
+.info-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(255, 165, 0, 0.25);
+}
+
+.info-card .icon {
+  font-size: 48px;
   margin-bottom: 12px;
-  animation: pulse 2.5s ease-in-out infinite;
+  transition: transform 0.3s ease;
 }
 
-.flip-back {
-  transform: rotateY(180deg);
+.info-card:hover .icon {
+  transform: scale(1.1);
 }
 
-@keyframes pulse {
-  0%, 100% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.15); opacity: 0.9; }
+.info-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #ffaa44;
+}
+
+.info-card p {
+  font-size: 1rem;
+  line-height: 1.6;
+  opacity: 0.9;
 }
