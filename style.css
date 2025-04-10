@@ -146,14 +146,14 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      z-index: 1;
+      z-index: 0;
     }
     .hero::after {
       content: "";
       position: absolute;
       inset: 0;
       background: rgba(0, 0, 0, 0.4);
-      z-index: 1;
+      z-index: 0;
     }
     .hero-content {
       position: relative;
@@ -701,7 +701,7 @@ h1 {
       position: absolute;
       width: 120px;
       height: 60px;
-      z-index: 1;
+      z-index: 0;
       outline: none;
       border: none;
       border-radius: 17px;
@@ -743,7 +743,7 @@ h1 {
       inset: -2px;
       border-radius: inherit;
       filter: blur(2px) url(#unopaq3);
-      z-index: 1;
+      z-index: 0;
     }
     .spin::before {
       content: "";
@@ -937,7 +937,7 @@ footer {
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
-  z-index: 1;
+  z-index: 0;
 }
 
 .beyond-trigger::before {
@@ -1193,7 +1193,7 @@ footer {
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
-  z-index: 1;
+  z-index: 0;
   overflow: hidden;
   transition: all 0.3s ease;
 }
@@ -1209,7 +1209,7 @@ footer {
   inset: 0;
   border-radius: inherit;
   background: rgba(255, 106, 0, 0.1);
-  z-index: 1;
+  z-index: 0;
   opacity: 0;
   transition: opacity 0.3s ease;
 }
@@ -1250,7 +1250,7 @@ footer {
   border: none;
   border-radius: 14px;
   cursor: pointer;
-  z-index: 1;
+  z-index: 0;
   transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
   transform-style: preserve-3d;
   backdrop-filter: blur(2px);
@@ -1315,7 +1315,7 @@ footer {
   height: 200%;
   background: conic-gradient(from 0deg, red, orange, yellow, green, blue, indigo, violet, red);
   animation: rotateGradient 6s linear infinite;
-  z-index: 1;
+  z-index: 0;
   filter: blur(10px);
 }
 
@@ -1329,7 +1329,7 @@ footer {
   font-size: 1rem;
   border-radius: 12px;
   text-decoration: none;
-  z-index: 1;
+  z-index: 0;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -1675,7 +1675,7 @@ h1, h2, h3 {
   border-radius: 50%;
   filter: blur(80px);
   animation: blobMove 20s ease-in-out infinite;
-  z-index: 1;
+  z-index: 0;
   pointer-events: none;
 }
 
@@ -1687,5 +1687,5 @@ h1, h2, h3 {
 
 #about {
   position: relative;
-  z-index: 1;
+  z-index: 0;
 }
