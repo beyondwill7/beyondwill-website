@@ -530,6 +530,23 @@ fetch('/blog/posts.json')
       });
       visibleCount += increment;
       loadMoreBtn.style.display = visibleCount >= filtered.length ? 'none' : 'block';
+  document.querySelectorAll(".read-btn").forEach(button => {
+    button.onclick = async (e) => {
+      e.preventDefault();
+      const url = button.getAttribute("href");
+      modalBody.innerHTML = "Loading blog...";
+      modal.style.display = "flex";
+      try {
+        const res = await fetch(url);
+        const text = await res.text();
+        const doc = new DOMParser().parseFromString(text, "text/html");
+        modalBody.innerHTML = doc.body.innerHTML;
+      } catch (err) {
+        modalBody.innerHTML = "Failed to load blog.";
+      }
+    };
+  });
+
     }
 
     window.addEventListener('DOMContentLoaded', () => {
