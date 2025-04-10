@@ -1604,3 +1604,88 @@ h1, h2, h3 {
 }
 
 
+
+
+.frosted-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 24px;
+  padding: 24px;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
+  color: white;
+  max-width: 400px;
+  flex: 1 1 320px;
+  transition: transform 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.frosted-card:hover {
+  transform: scale(1.02);
+}
+
+.frosted-card h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.frosted-card p {
+  font-size: 1rem;
+  opacity: 0.85;
+}
+
+.card-preview {
+  border-radius: 12px;
+  width: 100%;
+  margin: 20px 0;
+  object-fit: cover;
+}
+
+.card-brands {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.card-brands img {
+  width: 40px;
+  height: 40px;
+  filter: drop-shadow(0 2px 8px rgba(255,255,255,0.2));
+  transition: transform 0.3s ease;
+}
+
+.card-brands img:hover {
+  transform: scale(1.1);
+}
+
+
+/* === Gradient Blob Background === */
+.background-blob {
+  position: absolute;
+  top: -80px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle at center, rgba(255, 111, 0, 0.35), transparent 70%);
+  border-radius: 50%;
+  filter: blur(80px);
+  animation: blobMove 20s ease-in-out infinite;
+  z-index: 0;
+  pointer-events: none;
+}
+
+@keyframes blobMove {
+  0% { transform: translateX(-50%) translateY(0px) scale(1); }
+  50% { transform: translateX(-50%) translateY(40px) scale(1.05); }
+  100% { transform: translateX(-50%) translateY(0px) scale(1); }
+}
+
+#about {
+  position: relative;
+  z-index: 1;
+}
