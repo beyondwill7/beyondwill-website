@@ -83,7 +83,59 @@
 </noscript>
 <script crossorigin="anonymous" integrity="sha512-xr1u09nffJ1z+6osGf3CzRTl+GmptTVIuG7hKZHZkD+7zC6r3XQwv39JgiJJ8Z8N9H+8ZT+Jc8Z6C7OB0Op+FA==" referrerpolicy="no-referrer" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 <script crossorigin="anonymous" integrity="sha512-kSOKC2aH98XzMC1ZEqUqQXMb1Ldr9lBoCoet0x2zSnM4NLzR3CJx8rJK3IBzZOlmNPIduLt+7K6F4ntD+o20fw==" referrerpolicy="no-referrer" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-</head>
+<style>
+    @media (max-width: 768px) {
+      .blob {
+        opacity: 0.4 !important;
+        filter: blur(100px) !important;
+      }
+
+      .hero h1, .hero-subtitle {
+        color: white !important;
+        -webkit-text-fill-color: white !important;
+        text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+      }
+
+      .scroll-cue {
+        bottom: 30px;
+      }
+    }
+
+    .scroll-cue {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.9rem;
+      color: #ddd;
+      opacity: 0.8;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      animation: floatyScroll 3s ease-in-out infinite;
+      z-index: 3;
+    }
+
+    .scroll-cue .arrow {
+      width: 10px;
+      height: 10px;
+      border-left: 2px solid #fff;
+      border-bottom: 2px solid #fff;
+      transform: rotate(-45deg);
+      margin-top: 6px;
+      animation: bounceDown 2s infinite;
+    }
+
+    @keyframes floatyScroll {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(8px); }
+    }
+
+    @keyframes bounceDown {
+      0%, 100% { transform: translateY(0) rotate(-45deg); }
+      50% { transform: translateY(6px) rotate(-45deg); }
+    }
+    </style></head>
 <body>
 <!-- START: Premium Modern Dark/Light Toggle -->
 <div class="theme-toggle-container">
